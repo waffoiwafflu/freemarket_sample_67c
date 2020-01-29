@@ -2,14 +2,14 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|first-name|string|null: false|
-|second-name|string|null: false|
-|first-name-kana|string|null: false|
-|second-name-kana|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |birthday|datetime|null: false|
-|phone-number|string|null: false|
+|phone_number|string|null: false|
 |nicname|integer|null: false|
-|e-mail|string|null: false|
+|e_mail|string|null: false|
 |password|string|null: false|
 
 ### Association
@@ -23,8 +23,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |rejion|string|null: false|
-|mmunicipality|string|null: false|
-|street・mmansion|string|null: false|
+|municipality|string|null: false|
+|street_mansion|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -34,11 +34,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|card-number|integer|null: false|
+|card_number|integer|null: false|
 |deadline|datetime|null: false|
 |security|integer|null: false|
-|first-name-roma|string|null: false|
-|second-name-roma|string|null: false|
+|first_name_roma|string|null: false|
+|last_name_roma|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -48,13 +48,12 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|states|string|null: false|
-|delivery-charge|integer|null: false|
-|addless|string|null: false|
-|price|integer|null: false|
+|states|integer|enum|
+|delivery_charge|integer|enum|
+|addless|integer|enum|
+|price|integer|enum|
+|date|integer|enum|
 |detail|text|null: false|
-|image|string|null: false|
-|date|date|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
@@ -62,8 +61,9 @@
 |buyer_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :categorys,  through:  :items-categorys
+- has_many :categorys
 - has_many :brands
+- has_many :pics
 - has_many :comments
 - belongs_to :user
 - belongs_to :category
@@ -77,32 +77,32 @@
 |------|----|-------|
 |item_id|integer|null: false, foreign_key: true|
 
-
 ### Association
-- has_many :items,  through:  :items-categorys
+- has_many :items
 - belongs_to :user
 - belongs_to :item
 
 
-## items-categorysテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :category
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand-name|string|null: false|
+|brand_name|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :items
-- belongs_to :product
+- belongs_to :items
+
+
+## picsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|url|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :items
 
 
 ## commentsテーブル
