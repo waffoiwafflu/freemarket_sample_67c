@@ -62,7 +62,7 @@
 
 ### Association
 - has_many :brands
-- has_many :pics
+- has_many :images
 - has_many :comments
 - belongs_to :user
 - belongs_to :saler, :class_name: "User"
@@ -99,7 +99,7 @@
 - belongs_to :item
 
 
-## picsテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null: false|
