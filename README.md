@@ -60,11 +60,13 @@
 |saler_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|null: false, foreign_key: true|
 
+
 ### Association
-- has_many :brands
 - has_many :images
 - has_many :comments
 - belongs_to :user
+- belongs_to :category
+- belongs_to :brand
 - belongs_to :saler, :class_name: "User"
 - belongs_to :buyer, :class_name: "User"
 
@@ -87,16 +89,17 @@
 |cars_motorcycles|integer|null: false|
 |other|integer|null: false|
 
+
 ### Association
+- has_many :items
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |brand_name|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :item
+- has_many :items
 
 
 ## imagesテーブル
