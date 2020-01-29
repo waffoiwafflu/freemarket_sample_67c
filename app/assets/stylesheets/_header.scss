@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+.header{
+    height:120px;
+    width:100%;
+    position: relative;
+    background-color:white;
+    box-sizing:border-box;
+
+  &_inner{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    
+    &_main{
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      &_icon{
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+
+        &_link{
+          background: image-url("logo.png");
+          background-position: center;
+          background-size: cover;
+          height:36px;
+          width:134px;
+          z-index:10;
+        }
+
+        &_search{
+          margin-left: auto;
+          width: 100%;
+
+          &_box{
+            
+          }
+        }
+      }
+    }
+  }
+}
