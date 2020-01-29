@@ -61,13 +61,10 @@
 |buyer_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :categorys
 - has_many :brands
 - has_many :pics
 - has_many :comments
 - belongs_to :user
-- belongs_to :category
-- belongs_to :brand
 - belongs_to :saler, :class_name: "User"
 - belongs_to :buyer, :class_name: "User"
 
@@ -75,14 +72,22 @@
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
+|
+|women|integer|null: false|
+|mens|integer|null: false|
+|baby_kids|integer|null: false|
+|interior_housing_accessories|integer|null: false|
+|books_music_games|integer|null: false|
+|toys_hobby_goods|integer|null: false|
+|cosmetics_perfume_beauty|integer|null: false|
+|appliances_smartphones_cameras|integer|null: false|
+|sport_leisure|integer|null: false|
+|hand_made|integer|null: false|
+|ticket|integer|null: false|
+|cars_motorcycles|integer|null: false|
+|other|integer|null: false|
 
 ### Association
-- has_many :items
-- belongs_to :user
-- belongs_to :item
-
-
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -91,8 +96,7 @@
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :items
-- belongs_to :items
+- belongs_to :item
 
 
 ## picsテーブル
@@ -102,7 +106,7 @@
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :items
+- belongs_to :item
 
 
 ## commentsテーブル
