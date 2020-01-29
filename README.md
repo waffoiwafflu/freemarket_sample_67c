@@ -13,22 +13,24 @@
 |password|string|null: false|
 
 ### Association
-- has_many :address
-- has_many :credits
+- has_one :address
+- has_one :credits
 - has_many :items
 - has_many :comments
+
 
 ## addressテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|rejion|string|null: false|
+|region|string|null: false|
 |municipality|string|null: false|
 |street_mansion|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
+
 
 ## creditsテーブル
 
@@ -50,7 +52,7 @@
 |------|----|-------|
 |states|integer|enum|
 |delivery_charge|integer|enum|
-|addless|integer|enum|
+|address|integer|enum|
 |price|integer|enum|
 |date|integer|enum|
 |detail|text|null: false|
@@ -74,29 +76,17 @@
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|
-|women|integer|null: false|
-|mens|integer|null: false|
-|baby_kids|integer|null: false|
-|interior_housing_accessories|integer|null: false|
-|books_music_games|integer|null: false|
-|toys_hobby_goods|integer|null: false|
-|cosmetics_perfume_beauty|integer|null: false|
-|appliances_smartphones_cameras|integer|null: false|
-|sport_leisure|integer|null: false|
-|hand_made|integer|null: false|
-|ticket|integer|null: false|
-|cars_motorcycles|integer|null: false|
-|other|integer|null: false|
+|name|string|null: false|
 
 
 ### Association
 - has_many :items
+- has_ancestry
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :items
