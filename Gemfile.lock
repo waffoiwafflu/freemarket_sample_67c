@@ -227,11 +227,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
-  haml-rails
-=======
   devise
->>>>>>> 707aec76440d9718f3adb175c5d65f945e09f094
+  haml-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2

@@ -50,9 +50,7 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-<<<<<<< HEAD
 
 gem 'haml-rails'
-=======
+
 gem 'devise'
->>>>>>> 707aec76440d9718f3adb175c5d65f945e09f094
