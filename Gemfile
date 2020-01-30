@@ -65,3 +65,5 @@ group :production do
 end
 
 gem 'ancestry'
+gem 'carrierwave'
+gem 'fog-aws'
