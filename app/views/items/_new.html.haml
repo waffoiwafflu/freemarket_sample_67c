@@ -1,0 +1,20 @@
+.user-header
+.user-content
+  .sinki
+    アカウントをお持ちでない方はこちら
+    = link_to "新規会員登録",root_path, class:"sinki-btn"
+  .roguin
+    = link_to "Facebookでログイン", root_path, class:"facebook-btn"
+    = link_to "Googleでログイン", root_path, class: "google-btn"
+  .form
+    %form.new-box
+      .input-box
+        %input{type:"text", placeholder: "メールアドレス", class: "mailadress"}
+        %input{type: "text", placeholder: "パスワード", class: "password"}
+        %input{type: "submit", value: "ログイン", class: "roguin-btn"}
+    = link_to "パスワードをお忘れの方", root_path, class: "password-link"
+.user-footer
+  = link_to "プライバシーポリシー"
+  = link_to "メルカリ利用規約"
+  = link_to "特定商取引に関する表記"
+  © Mercari, Inc.
