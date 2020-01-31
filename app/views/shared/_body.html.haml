@@ -1,0 +1,128 @@
+-# 人生
+.TSmain
+  .TSmain_screen
+    .TSmain_screen_contents
+      %h2.TSmain_screen_contents_title
+        %br
+          人生を変えるフリマアプリ
+      %p.TSmain_screen_contents_txt
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+          フリマアプリです
+      .TSmain_screen_contents_bottan
+        =link_to "#" , class: "app" do
+          = image_tag "app.svg", class:"image"
+        =link_to "#" , class: "google" do
+          = image_tag "google.svg", class:"image"
+  
+  -# FURIMAが選ばれる三つの理由
+  .TSmain_intro
+    %h2.TSmain_intro_title
+      FURIMAが選ばれる3つの理由
+      .TSmain_intro_title_after
+    %ul.TSmain_intro_contents
+      %li.TSmain_intro_contents_content
+        .TSmain_intro_contents_content_logo
+          %span.TSmain_intro_contents_content_logo_uno
+            1
+          = image_tag "pict-reason-01.jpg", class:"image" ,size: "300x300"
+        %h3.TSmain_intro_contents_content_logo_txt 
+          %span
+            3分
+          ですぐに出品
+        %p.TSmain_intro_contents_content_logo_into
+          スマホで入力するだけで簡単に出品できる！
+      %li.TSmain_intro_contents_content
+        .TSmain_intro_contents_content_logo
+          %span.TSmain_intro_contents_content_logo_uno
+            2
+          = image_tag "pict-reason-02.jpg", class:"image" ,size: "300x300"
+        %h3.TSmain_intro_contents_content_logo_txt 
+          %span
+            シンプル
+          で使いやすい
+        %p.TSmain_intro_contents_content_logo_into
+          めんどくさい入力は必要なく必要なく、検索も購入もスムーズ！
+      %li.TSmain_intro_contents_content
+        .TSmain_intro_contents_content_logo
+          %span.TSmain_intro_contents_content_logo_uno
+            3
+          = image_tag "pict-reason-03.jpg", class:"image" ,size: "300x300"
+        %h3.TSmain_intro_contents_content_logo_txt 
+          手数料
+          %span
+            業界最安
+        %p.TSmain_intro_contents_content_logo_into
+          最大3%でお得に出品&購入！
+
+  -# 会員数日本一位
+  .TSmain_middle
+    .TSmain_middle_inner
+      %h2.TSmain_middle_inner_title
+        会員数日本一位
+      %p.TSmain_middle_inner_txt
+        FURIMAは、フリマアプリで最も人気。
+        %br
+          出品・購入回数も業界最多です！
+          %br
+            ほしかったあの商品に出会えるかもしれません。
+      .TSmain_middle_inner_bottan
+        =link_to "#" , class: "app" do
+          = image_tag "app.svg", class:"image"
+        =link_to "#" , class: "google" do
+          = image_tag "google.svg", class:"image"
+  
+  -# FURIMAの特徴
+  .TSmain_feature
+    %h2.TSmain_feature_title
+      FURIMAの特徴
+      .TSmain_feature_title_after
+    %ul.TSmain_feature_contents
+      %li.TSmain_feature_contents_content
+        .TSmain_feature_contents_content_logo
+          = image_tag "icon-01.png", class:"image" ,size: "219x337"
+        %h3.TSmain_feature_contents_content_logo_txt 
+          %b
+            簡単に売り買いできる
+        %p.TSmain_feature_contents_content_logo_into
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %li.TSmain_feature_contents_content
+        .TSmain_feature_contents_content_logo
+          = image_tag "icon-03.png", class:"image" ,size: "219x337"
+        %h3.TSmain_feature_contents_content_logo_txt 
+          %b
+            売上金は即日振込みに対応
+        %p.TSmain_feature_contents_content_logo_into
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %li.TSmain_feature_contents_content
+        .TSmain_feature_contents_content_logo
+          = image_tag "icon-04.png", class:"image" ,size: "219x337"
+        %h3.TSmain_feature_contents_content_logo_txt 
+          %b
+            様々な支払いに対応
+        %p.TSmain_feature_contents_content_logo_into
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  
+  -# ピックアップカテゴリー
+  .TSmain_category
+    %h2.TSmain_category_title
+      ピックアップカテゴリー
+    .TSmain_category_box
+      .TSmain_category_box_head
+        %h3.TSmain_category_box_head_name
+          =link_to "#" , class: "subtitle" do
+            新規投稿商品
+      .TSmain_category_box_lists
+        .TSmain_category_box_lists_list
+          = link_to "#" do
+            %figure.TSmain_category_box_lists_list_img
+              = image_tag "pro1.png"
+            .TSmain_category_box_lists_list_menu
+              %h3.TSmain_category_box_lists_list_body_title
+                秋刀魚
+              .TSmain_category_box_lists_list_body_money
+                100円
+
+          
+
+

@@ -2,9 +2,21 @@
   .header_inner
     .header_inner_main
       %h1.header_inner_main_icon
-        = link_to "#" do
-          .header_inner_main_icon_link
-      .header_inner_main_search
-        = f.search_field :name_cont, class: 'header_inner_main_search_box', id: 'search-query', placeholder: 'キーワードから探す'
-          = button_tag type: 'submit', class: 'hidden' do
-            %i.fa.fa-search 
+        = link_to root_path do
+          = image_tag "logo.png", class:"image"
+      -# フォーム未実装
+      %form.header_inner_main_search
+        %input{type:"text", class: 'box', placeholder: 'キーワードを入力してください'}
+    .header_inner_nav
+      %ul.header_inner_nav_left
+        %li.header_inner_nav_left_list
+          =link_to "#" do
+            カテゴリー
+          .header_inner_nav_left_list_contents
+        %li.header_inner_nav_left_item
+          =link_to "#" do
+            ブランド
+            
+    
+
+    
