@@ -1,22 +1,26 @@
-.header
-  .header_inner
-    .header_inner_main
-      %h1.header_inner_main_icon
+.TSheader
+  .TSheader_inner
+    .TSheader_inner_main
+      %h1.TSheader_inner_main_icon
         = link_to root_path do
           = image_tag "logo.png", class:"image"
       -# フォーム未実装
-      %form.header_inner_main_search
-        %input{type:"text", class: 'box', placeholder: 'キーワードを入力してください'}
-    .header_inner_nav
-      %ul.header_inner_nav_left
-        %li.header_inner_nav_left_list
+      .TSheader_inner_main_search
+        %form
+          = link_to "#" do
+            %input{type:"text", class: "box", placeholder: 'search for keyword'}
+            %button{type:"submit", class: "btn"}
+              =image_tag "icon-search 1.png", class: "image", size: "20*20"
+    .TSheader_inner_nav
+      %ul.TSheader_inner_nav_left
+        %li.TSheader_inner_nav_left_list
           =link_to "#" do
             カテゴリー
-          .header_inner_nav_left_list_contents
-        %li.header_inner_nav_left_item
+          .TSheader_inner_nav_left_list_contents
+        %li.TSheader_inner_nav_left_item
           =link_to "#" do
             ブランド
-            
+
     
 
     

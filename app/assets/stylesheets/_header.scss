@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.header{ 
+.TSheader{ 
   padding: 0 60px;
 
   &_inner{
@@ -26,18 +26,48 @@
           width: 140px;
           display: block;
         }
-
-         &_search{
-          margin-left: auto;
-          width: 100%;
+      }
+        
+      &_search{
+        margin-left: auto;
+        width: 100%;
+        position: relative;
           
-          .box{
-            width: calc(100% - 26px);
+        form{
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+
+          a{
+            width: calc(100% - 18px);
             height: 36px;
-            padding: 0 0 0 5px;
+            
+
+            input{
+              width: calc(100% - 18px);
+              height: 36px;
+              font-size: 14px;
+              padding: 0 0 0 5px;
+            }
+
+            button{
+              position: absolute;
+              width: 36px;
+              border: 0;
+              cursor: pointer;
+              background-color: #3CCACE;
+              padding: 8px;  
+              float: right;
+            
+              img{
+                width: 100%;
+                vertical-align: bottom;
+              }
+            }
           }
         }
       }
+      
       &_nav{
         font-size: 14px;
         display: flex;
