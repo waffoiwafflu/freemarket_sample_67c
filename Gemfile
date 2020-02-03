@@ -67,3 +67,4 @@ end
 gem 'ancestry'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'erb2haml'
