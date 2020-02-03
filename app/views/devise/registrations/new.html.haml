@@ -1,21 +1,90 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+
+
+
+
+
+
+
+
+
+-# = render "devise/shared/links"
+
+
+
+
+
+
+
+
+
+
+= render "devise/sessions/user-header"
+.user-wrapper
+  .user-menter-wrapper
+    .user-menter-top
+      ログイン
+    .user-menter-bottom
+      %form.user-menter-bottom__a
+        .user-menter-bottom__a__nickname
+          .user-menter-bottom__a__nickname__moji
+          -#   .user-menter-bottom__a__nickname__moji__nickname
+          -#     ニックネーム
+          -#   .user-menter-bottom__a__nickname__moji__hissu 
+          -#     -# 必須
+          -# %input{type: "text", class: "user-menter-nickname", placeholder: "例）メルカリ太郎"}
+        .user-menter-bottom__a__mailadress
+          .user-menter-bottom__a__mailadress__moji
+            .user-menter-bottom__a__mailadress__moji__mailadress
+              メールアドレス
+            -# .user-menter-bottom__a__mailadress__moji__hissu
+              -# 必須
+          %input{type: "text", class: "user-menter-mailadress", placeholder: "PC・携帯どちらでも可"}
+        .user-menter-bottom__a__password
+          .user-menter-bottom__a__password__moji
+            .user-menter-bottom__a__password__moji__password
+              パスワード
+            -# .user-menter-bottom__a__password__moji__hissu
+              -# 必須
+          %input{type: "text", class: "user-menter-password", placeholder: "7文字以上の半角英数字"}
+          .user-menter-bottom__a__password__moji__settei
+            -# ※ 英字と数字の両方を含めて設定してください
+        .user-menter-bottom__a__checkbox
+          %input{type: "checkbox", class: "user-menter-checkbox"}
+          .user-menter-bottom__a__checkbox__password
+            パスワードを表示する
+        .user-menter-bottom__a__password
+          .user-menter-bottom__a__password__moji
+            .user-menter-bottom__a__password__moji__password
+              パスワード
+            -# .user-menter-bottom__a__password__moji__hissu
+              -# 必須
+          %input{type: "text", class: "user-menter-password", placeholder: "7文字以上の半角英数字"}
+          .user-menter-bottom__a__password__moji__settei
+            -# ※ 英字と数字の両方を含めて設定してください
+        .user-menter-bottom__a__checkbox
+          %input{type: "checkbox", class: "user-menter-checkbox"}
+          .user-menter-bottom__a__checkbox__password
+            パスワードを表示する
+        .user-menter-bottom__a__submit-btn
+          = link_to "登録する", root_path, class: "user-menter-submit-btn"
+= render "devise/sessions/user-footer"
