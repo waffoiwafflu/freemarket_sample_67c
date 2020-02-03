@@ -50,7 +50,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|states|integer|enum|
+|status|integer|enum|
 |delivery_charge|integer|enum|
 |address|integer|enum|
 |price|integer|enum|
