@@ -1,10 +1,14 @@
 <%= form_for @item do |f| %>
   商品名<%= f.text_field :name %><br>
   価格<%= f.number_field :price %><br>
-  
-
+  <%= f.number_field :status %>
+  <%= f.number_field :delivery_charge %>
+  <%= f.number_field :address %> 
+  <%= f.number_field :price %>
+  <%= f.number_field :date %>
+  <%= f.text_field :detail %>
   <%= f.fields_for :images do |i| %>
-    <%= i.file_field :src %><br>
+    <%= i.file_field :url %><br>
   <% end %>
   <%= f.submit %>
 <% end %>
