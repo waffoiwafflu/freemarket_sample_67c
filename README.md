@@ -73,7 +73,7 @@
 - belongs_to :buyer, :class_name: "User"
 
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
