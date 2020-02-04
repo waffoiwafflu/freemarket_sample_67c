@@ -35,3 +35,13 @@ lady_etc = lady.children.create(:name=>"その他")
 lady_tops.children.create([{:name=>"Tシャツ/カットソー(半袖/袖なし)"}, {:name=>"Tシャツ/カットソー(七分/長袖)"},{:name=>"シャツ/ブラウス（半袖/袖なし"},{:name=>"シャツ/ブラウス（七分/長袖"},{:name=>"ポロシャツ"},{:name=>"キャミソール"},{:name=>"タンクトップ"},{:name=>"ホルターネック"},
                            {:name=>"ニット/セーター"},{:name=>"チュニック"},{:name=>"カーディガン/ボレロ"},{:name=>"アンサンブル"},{:name=>"ベスト/ジレ"},{:name=>"パーカー"},{:name=>"トレーナー/スウェット"},{:name=>"ペアトップ/チューブトップ"},{:name=>"ジャージ"},{:name=>"その他"}])
 lady_jackets.children.create([{:name=>"テーラードジャケット"}, {:name=>"ノーカラージャケット"}, {:name=>"Gジャン/デニムジャケット"},{:name=>"その他"}])
+lady_pants.children.create([{:name=>"ショートパンツ"},{:name=>"ハーフパンツ"},{:name=>"ワークパンツ/カーゴパンツ"},{:name=>"サロペット/オーバーオール"},{:name=>"サルエルパンツ"},{:name=>"デニム/ジーンズ"},{:name=>"カジュアルパンツ"},{:name=>"チノパン"},{:name=>"クロップドパンツ"},
+                            {:name=>"オールインワン"},{:name=>"ガウチョパンツ"},{:name=>"その他"}])
+lady_skirts.children.create([{:name=>"ニット/セーター"},{:name=>"ミニスカート"},{:name=>"ひざ丈スカート"},{:name=>"ロングワンピース"},{:name=>"その他"}])
+lady_dress.children.create([{:name=>"ひざ丈ワンピース"},{:name=>"ミニワンピース"},{:name=>"ロングワンピース"},{:name=>"その他"},])
+lady_shoes.children.create([{:name=>"ハイヒール/パンプス"},{:name=>"ブーツ"},{:name=>"サンダル"},{:name=>"スニーカー"},{:name=>"ミュール"},{:name=>"モカシン"},{:name=>"ローファー/革靴"},{:name=>"フラットシューズ/バレエシューズ"},{:name=>"長靴/レインシューズ"},{:name=>"その他"}])
+lady_pajamas.children.create([{:name=>"パジャマ"},{:name=>"ルームウェア"},{:name=>"その他"}])
+lady_legwears.children.create([{:name=>"ソックス"},{:name=>"スパッツ/レギンス"},{:name=>"ストッキング/タイツ"},{:name=>"レッグウォーマー"},{:name=>"その他"}])
+lady_hats.children.create([{:name=>"ニットキャップ/ビーニー"},{:name=>"ハット"},{:name=>"ハンチング/ベレー帽"},{:name=>"キャップ"},{:name=>"キャスケット"},{:name=>"麦わら帽子"},{:name=>"その他"}])
+lady_bags.children.create([{:name=>"ハンドバッグ"},{:name=>"トードバッグ"},{:name=>"エコバッグ"},{:name=>"リュック/バックパック"},{:name=>"ボストンバッグ"},{:name=>"スポーツバッグ"},{:name=>"ショルダーバッグ"},{:name=>"クラッチバッグ"},{:name=>"ポーチ/バニティ"},{:name=>"ボディバッグ/ウェストバッグ"},
+                           {:name=>"マザーズバッグ"},{:name=>"メッセンジャーバッグ"},{:name=>"ビジネスバッグ"},{:name=>"旅行用バッグ/キャリーバッグ"},{:name=>"ショップ袋"},{:name=>"和装用バッグ"},{:name=>"かごバッグ"},{:name=>"その他"}}]
