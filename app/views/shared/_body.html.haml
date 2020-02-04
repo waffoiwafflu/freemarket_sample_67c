@@ -30,7 +30,7 @@
         %h3.TSmain_intro_contents_content_logo_txt 
           %span
             3分
-          ですぐに出品
+          ですぐに出品resources :users, only: [:index, :edit, :update, ]
         %p.TSmain_intro_contents_content_logo_into
           スマホで入力するだけで簡単に出品できる！
       %li.TSmain_intro_contents_content
@@ -237,7 +237,7 @@
           = image_tag "google.svg", class:"image"
   
   -# 出品する
-  =link_to "#" do
+  = link_to new_item_path do
     .TSmain_bottan
       .TSmain_bottan_txt
         出品する
