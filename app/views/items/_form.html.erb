@@ -2,6 +2,13 @@
   商品名<%= f.text_field :name %><br>
   価格<%= f.number_field :price %><br>
   <div id="image-box">
+  <div id="previews">	<%= f.fields_for :images do |i| %>
+    <% if @item.persisted? %>	
+    <% @item.images.each_with_index do |image, i| %>	
+      <%= image_tag image.url, data: { index: i }, width: "100", height: '100' %>	
+    <% end %>	
+  <% end %>	
+  </div>
     <%= f.fields_for :images do |i| %>
       <div data-index="<%= i.index %>" class="js-file_group">
         <%= i.file_field :url, class: 'js-file' %><br>
@@ -12,7 +19,7 @@
       <% end %>
       <% if @item.persisted? %>
       <div data-index="<%= @item.images.count %>" class="js-file_group">
-        <%= file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file' %>
+        <%= file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file' %>
         <div class="js-remove">削除</div>
       </div>
       <% end %>
@@ -24,4 +31,5 @@
   <%= f.number_field :date %><br>
   <%= f.text_field :detail %><br>
   <%= f.submit %>
+<% end %>
 <% end %>
