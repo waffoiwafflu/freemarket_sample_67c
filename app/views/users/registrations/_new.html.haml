@@ -1,24 +1,7 @@
-%h2 Sign up
+-# %h2 Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-    .user-wrapper
+  .user-wrapper
     .user-menter-wrapper
       .user-menter-top
         会員情報入力
@@ -31,6 +14,30 @@
               .user-menter-bottom__a__nickname__moji__hissu 
                 必須
             = f.text_field :nickname, class: "user-menter-nickname", placeholder: "例）メルカリ太郎"
+          .user-menter-bottom__a__mailadress
+            .user-menter-bottom__a__mailadress__moji
+              .user-menter-bottom__a__mailadress__moji__mailadress
+                メールアドレス
+              .user-menter-bottom__a__mailadress__moji__hissu
+                必須
+            = f.text_field :email, class: "user-menter-mailadress", placeholder: "PC・携帯どちらでも可", autofocus: true, autocomplete: "email"
+          .user-menter-bottom__a__password
+            .user-menter-bottom__a__password__moji
+              .user-menter-bottom__a__password__moji__password
+                パスワード
+              .user-menter-bottom__a__password__moji__hissu
+                必須
+            = f.text_field :encrypted_password, class: "user-menter-password", placeholder: "7文字以上の半角英数字", autocomplete: "new-password"
+            .user-menter-bottom__a__password__moji__settei
+              ※ 英字と数字の両方を含めて設定してください
+          .user-menter-bottom__a__checkbox
+          .user-menter-bottom__a__password
+            .user-menter-bottom__a__password__moji
+              .user-menter-bottom__a__password__moji__password
+                パスワード
+              .user-menter-bottom__a__password__moji__hissu
+                必須
+            = f.text_field :encrypted_password, class: "user-menter-password", placeholder: "7文字以上の半角英数字", autocomplete: "new-password"
             .user-menter-bottom__a__password__moji__settei
 
             .user-menter-bottom__a__checkbox__password
@@ -55,7 +62,7 @@
               .user-menter-bottom__a__name__hiragana__hissu
                 必須
             .user-menter-bottom__a__name__form
-              = f.text_field :first_name_kana, class: "user-menter-name", placeholder: "例) ヤマダ"
+              = f.text_field :first_name, class: "user-menter-name", placeholder: "例) ヤマダ"
               = f.text_field :last_name_kana, class: "user-menter-name-last", placeholder: "例) タロウ"
           .user-menter-bottom__a__name
             .user-menter-bottom__a__name__hiragana
@@ -64,19 +71,19 @@
               .user-menter-bottom__a__name__hiragana__hissu
                 必須
             .user-menter-bottom__a__name__birthday
-              = f.date_field :year, class: "user-year-aaa"
+              = f.text_field :year, class: "user-year-aaa"
               .user-menter-bottom__a__name__birthday__nihon
                 年
-              = f.date_field :month, class: "user-year-aaa"
+              = f.text_field :month, class: "user-year-aaa"
               .user-menter-bottom__a__name__birthday__nihon
                 月
-              = f.date_field :day, class: "user-year-aaa"
+              = f.text_field :day, class: "user-year-aaa"
               .user-menter-bottom__a__name__birthday__nihon
                 日
   .user-wrapper
     .user-wrapper-new-c
       .user-menter-bottom
-        .user-menter-bottom__a
+        = form_for new_user_registration_path, {html: {class: 'user-menter-bottom__a'}} do |f|
           .user-menter-bottom__a__nickname
             .user-menter-bottom__a__nickname__moji
               .user-menter-bottom__a__nickname__moji__nickname
@@ -96,6 +103,8 @@
             「次へ進む」のボタンを押すことにより、
             = link_to "利用規約", "#", class: "user-mori-mori"
             に同意したものとみなします
+          .user-menter-bottom__a__submit-btn
+            = f.submit '登録', class: "user-menter-submit-btn"
             
 
           .user-menter-bottom__a__honninjouhou
@@ -110,6 +119,31 @@
             and
             = link_to "Terms of Service","#", class: "user-menter-bottom-terms"
             apply.
-= render "devise/shared/links"
 
-  
+
+  = render "users/shared/links"
+
+
+
+
+
+
+
+
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Sign up"
