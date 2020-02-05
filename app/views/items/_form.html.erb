@@ -7,12 +7,21 @@
         <%= i.file_field :url, class: 'js-file' %><br>
         <span class="js-remove">削除</span>
       </div>  
+      <% if @item.persisted? %>
+        <%= i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' %>
+      <% end %>
+      <% if @item.persisted? %>
+      <div data-index="<%= @item.images.count %>" class="js-file_group">
+        <%= file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file' %>
+        <div class="js-remove">削除</div>
+      </div>
+      <% end %>
     <% end %>
   </div>
-  <%= f.number_field :status %>
-  <%= f.number_field :delivery_charge %>
-  <%= f.number_field :address %> 
-  <%= f.number_field :date %>
-  <%= f.text_field :detail %>
+  <%= f.number_field :status %><br>
+  <%= f.number_field :delivery_charge %><br>
+  <%= f.number_field :address %> <br>
+  <%= f.number_field :date %><br>
+  <%= f.text_field :detail %><br>
   <%= f.submit %>
 <% end %>
