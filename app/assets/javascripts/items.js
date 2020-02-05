@@ -1,9 +1,8 @@
-$(document).on('turbolinks:load', ()=> {
-  
+$().on('turbolinks:load', function(){
+  console.log(3); 
   
   // 画像用のinputを生成する関数
-  const buildFileField = (index)=> {
-    
+  const buildFileField = (index)=> {  
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][url]"
@@ -12,7 +11,7 @@ $(document).on('turbolinks:load', ()=> {
                   </div>`;
     return html;
   }
-  console.log(3);
+  
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
 
@@ -26,6 +25,7 @@ $(document).on('turbolinks:load', ()=> {
 
   $('#image-box').on('click', '.js-remove', function() {
     $(this).parent().remove();
+    console.log(3); 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
