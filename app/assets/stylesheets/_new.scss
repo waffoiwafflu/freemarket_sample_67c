@@ -1,0 +1,655 @@
+.user-user-header{
+  width: 100vw;
+  height: 128px;
+  text-align: center;
+  .user-furima-logo{
+    width: 185px;
+    height: 49px;
+    margin: 40px;
+  }
+}
+.user-user-content{
+  width: 456px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  .user-sinki-a{
+    .user-sinki{
+      padding: 40px 64px;
+      font-size: 14px;
+      text-align: center;
+      .user-sinki-btn{
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+        text-align: center;
+      }
+    }
+  }
+  .user-loguin-a{
+    padding: 32px 64px;
+    .user-roguin{
+      display: flex;
+      background: #385185;
+      text-align: center;
+      padding: 10px;
+      border: #385185 solid 1px;
+      .user-facebook-btn{
+        text-decoration: none;
+        font-size: 14px;
+        color: white;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .user-icon{
+        color: white;
+        .facebook-icon{
+          font-size: 1.5em;
+        }
+      }
+    }
+    .user-google{
+      margin-top: 16px;
+      text-align: center;
+      padding: 10px;
+      background-color: white;
+      display: block;
+      display: flex;
+      border: gray solid 1px;
+      .user-google-btn{
+        text-decoration: none;
+        font-size: 14px;
+        color: black;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+  .user-form{
+    padding: 24px 64px 32px;
+    .user-new-box{
+      .user-input-box{
+        .user-mailadress{
+          padding: 10px 0;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 100%;
+        }
+        .user-password{
+          width: 100%;
+          margin-top: 24px;
+          padding: 10px 0;
+        }
+        .user-roboto{
+          height: 74px;
+          width: 300px;
+          display: flex;
+          border: black solid 1px;
+          margin-top: 24px;
+          text-align: center;
+          .user-box{
+            width: 20px;
+            height: 20px;
+            border: black solid 1px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 10px;
+          }
+          .user-roboto-a{
+            font-size: 12px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 10px;
+          }
+          .user-box-image{
+            .user-rtrtrt{
+              width: 40px;
+              height: 40px;
+              margin-top: 10px;
+            }
+            .user-roboto__link{
+              display: flex;
+              .user-riyoukeiyaku{
+                font-size: 7px;
+                text-decoration: none;
+                color: black;
+              }
+            }
+          }
+        }
+        .user-roguin-btn{
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          text-align: center;
+          margin-top: 24px;
+          background-color: red;
+          color: white;
+        }
+      }
+    }
+  }
+  .user-password-link{
+    margin-top: 40px;
+    display: block;
+    text-decoration: none;
+    color: #0099e8;
+    font-size: 14px;
+  }
+}
+.user-user-footer{
+  text-align: center;
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.user-wrapper{
+  background-color: gainsboro;
+}
+.user-privacy-link{
+  font-size: 12px;
+  color: black;
+  text-decoration: none;
+  padding-right: 10px;
+}
+.user-logologo{
+  width: 185px;
+  height: 49px;
+  margin-top: 24px;
+}
+.user-footer-ink{
+  font-size: 12px;
+}
+
+.user-wrapper-a{
+  background-color: white;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  .user-touroku-top{
+    text-align: center;
+    font-size: 22px;
+    padding: 32px;
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: gray solid 1px;
+  }
+  .user-touroku-inner{
+    padding: 40px 40px 64px;
+    .user-user-mailadress{
+        &__a{
+          width: 344px;
+          margin-left: auto;
+          margin-right: auto;
+          display: flex;
+          background-color: red;
+          padding: 10px;
+          border-radius: 4px;
+        .user-mail-adress-touroku{
+          color: #fff;
+          border-radius: 4px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          text-align: center;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        &__icon{
+          .user-morinaoya{
+            color: white;
+            font-size: 1.35em;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    .user-user-facebook{
+      &__a{
+        width: 344px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        background-color: #385185;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 16px;
+        .user-facebook-touroku{
+          background: #385185;
+          color: #fff;
+          border-radius: 4px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          text-align: center;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        &__icon{
+          .user-morinaoya{
+            color: white;
+            font-size: 1.35em;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    .user-user-google{
+      &__a{
+        width: 344px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        background-color: white;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 16px;
+        border: #979797 solid 1px;
+        .user-google-touroku{          
+          color: #333;
+          border-radius: 4px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+          text-align: center;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        &__icon{
+          .user-morinaoya-a{
+            font-size: 1.35em;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+.user-menter-wrapper{
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+.user-menter-top{
+  font-size: 22px;
+  text-align: center;
+  font-weight: 400;
+  padding: 32px;
+  border-bottom: 1px solid gray;
+}
+.user-menter-bottom{
+  // padding-bottom: 64px;
+  &__a{
+    &__nickname{
+      .user-menter-nickname{
+        padding: 10px 16px 8px;
+        width: 344px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        border-radius: 4px;
+      }
+      &__moji{
+        display: flex;
+        width: 384px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+        padding-top: 32px;
+        &__nickname{
+          font-size: 12px;
+          font-weight: 600;
+        }
+        &__hissu{
+          font-size: 12px;
+          margin-left: 10px;
+          background-color: red;
+          color: white;
+          padding: 0 3px;
+          border-radius: 2px;
+        }
+      }
+    }
+    &__mailadress{
+      .user-menter-mailadress{
+        padding: 10px 16px 8px;
+        width: 344px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        border-radius: 4px;
+      }
+      &__moji{
+        display: flex;
+        width: 384px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+        margin-top: 32px;
+        &__mailadress{
+          font-size: 12px;
+          font-weight: 600;
+        }
+        &__hissu{
+          font-size: 12px;
+          margin-left: 10px;
+          background-color: red;
+          color: white;
+          padding: 0 3px;
+          border-radius: 2px;
+        }
+      }
+    }
+    &__password{
+      .user-menter-password{
+        padding: 10px 16px 8px;
+        width: 344px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        border-radius: 4px;
+      }
+      &__moji{
+        display: flex;
+        width: 384px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+        margin-top: 32px;
+        &__password{
+          font-size: 12px;
+          font-weight: 600;
+        }
+        &__hissu{
+          font-size: 12px;
+          margin-left: 10px;
+          background-color: red;
+          color: white;
+          padding: 0 3px;
+          border-radius: 2px;
+        }
+        &__settei{
+          width: 384px;
+          margin-left: auto;
+          margin-right: auto;
+          font-size: 14px;
+          color: #888888;
+          padding: 10px 0;
+        }
+      }
+    }
+    &__checkbox{
+      display: flex;
+      width: 384px;
+      margin-left: auto;
+      margin-right: auto;
+      .user-menter-checkbox{
+        margin-bottom: auto;
+        margin-top: auto;
+      }
+      &__password{
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+    &__group{
+      width: 384px;
+      margin-left: auto;
+      margin-right: auto;
+      &__honnin{
+        font-weight: bold;
+        margin-top: 24px;
+      }
+      &__ansin{
+        font-size: 14px;
+        padding-top: 5px;
+      }
+    }
+    &__name{
+      margin-top: 32px;
+      &__hiragana{
+        display: flex;
+        width: 384px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5px;
+        &__name{
+          font-size: 12px;
+          font-weight: 600;
+        }
+        &__hissu{
+          font-size: 12px;
+          margin-left: 10px;
+          background-color: red;
+          color: white;
+          padding: 0 3px;
+          border-radius: 2px;
+        }
+      }
+      &__form{
+        width: 384px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        .user-menter-name{
+          width: 125px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+        }
+        .user-menter-name-last{
+          width: 125.5px;
+          padding: 10px 16px 8px;
+          margin-left: 20px;
+          border-radius: 4px;
+        }
+      }
+    }
+    &__name{
+      &__birthday{
+        display: flex;
+        width: 384px;
+        margin-left: auto;
+        margin-right: auto;
+        &__year{
+          width: 76px;
+          height: 48px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          margin-right: 5px;
+          &__p{
+            display: flex;
+            height: 100%;
+            &__q{
+              font-size: 5px;
+              margin-top: auto;
+              margin-bottom: auto;
+              padding-left: 5px;
+            }
+            &__icon{
+              margin-top: auto;
+              margin-bottom: auto;
+              margin-left: auto;
+              padding-right: 10px;
+              color: #888888;
+            }
+          }
+        }
+        &__nihon{
+          margin-top: auto;
+          margin-bottom: auto;
+          margin-right: 5px;
+        }
+      }
+    }
+    &__information{
+      width: 384px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      color: #888888;
+      padding: 10px 0;
+    }
+    &__next{
+      width: 384px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 14px;
+      padding: 10px 0;
+      margin-top: 25px;
+      .user-mori-mori{
+        text-decoration: none;
+        color: #0099E8;
+      }
+    }
+    &__submit-btn{
+      width: 344px;
+      height: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      .user-menter-submit-btn{
+        width: 100%;
+        background: red;
+        color: white;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        padding: 10px;
+      }
+    }
+    &__the{
+      width: 344px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      background-color: #8888;
+      padding: 8px 16px;
+      font-size: 12px;
+      text-align: center;
+      .user-menter-bottom-terms{
+        text-decoration: none;
+        color: #0099E8;
+        padding: 0 3px;
+      }
+    }
+    &__honninjouhou{
+      width: 344px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      &__b{
+        display: flex;
+        justify-content: flex-end;
+        .user-menter-bottom-jouhou{
+          text-decoration: none;
+          color: #0099E8;
+        }
+        .user-morimori{
+          color: #0099E8;
+        }
+      }
+    }
+  }
+}
+.user-menter-header{
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 40px 0;
+  .user-furima-logo-a{
+    width: 185px;
+    height: 49px;
+    margin-left: 40px;
+  }
+  .user-maru-raund{
+    display: flex;
+    margin-left: 30px;
+    .user-marumaru{
+      padding-left: 30px;
+      font-size: 12px;
+      .user-maru{
+        width: 12px;
+        height: 12px;
+        background: red;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.user-wrapper-new-c{
+  width: 700px;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  .user-menter-top{
+
+  }
+}
+.user-menter-bottom__a__group__ansin__b{
+  font-size: 14px;
+  width: 384px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+.user-menter-submit-btn-abc{
+  width: 344px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 10px 0;
+  background: radial-gradient(black, transparent);
+  color: white;
+  margin-top: 32px;
+  font-size: 14px;
+  border-radius: 43px;
+}
+.user-menter-bottom__a__group__ansin__b__a{
+  font-size: 14px;
+  width: 344px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+.user-touroku-kanryou{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #FF8C00;
+  background: -webkit-linear-gradient(0deg, #40E0D0, #FF8C00, #FF0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.user-back{
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: blue;
+  font-size: 20px;
+}
+.user-year-aaa{
+  width: 125px;
+  height: 46px;
+}
+// .user-menter-submit-btn{
+//   width: 344px;
+//   height: 50px;
+//   background: red;
+//   color: white;
+// }
