@@ -598,7 +598,16 @@
   margin-left: auto;
   margin-right: auto;
   .user-menter-top{
-
+    font-size: 22px;
+    text-align: center;
+    font-weight: 400;
+    border-bottom: 1px solid gray;
+    width: 700px;
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px 0;
+    background: white;
   }
 }
 .user-menter-bottom__a__group__ansin__b{
@@ -647,9 +656,53 @@
   width: 125px;
   height: 46px;
 }
-// .user-menter-submit-btn{
-//   width: 344px;
-//   height: 50px;
-//   background: red;
-//   color: white;
-// }
+.user-field{
+  width: 384px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  padding-top: 15px;
+}
+.user-menter-toptop{
+  width: 344px;
+  padding: 10px;
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.user-menter-ooo{
+  width: 700px;
+  background: white;
+}
+.user-menter-top{
+  font-size: 22px;
+  text-align: center;
+  font-weight: 400;
+  border-bottom: 1px solid gray;
+  width: 700px;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 32px 0;
+  background: white;
+}
+.user-menter-top-aaa{
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+}
+.user-ioioio{
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.user-menter-bottom__a__nickname__moji__hissu{
+  font-size: 12px;
+  margin-left: 10px;
+  background-color: red;
+  color: white;
+  padding: 0 3px;
+  border-radius: 2px;
+}

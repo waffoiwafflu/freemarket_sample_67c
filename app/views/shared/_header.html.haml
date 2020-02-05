@@ -63,10 +63,12 @@
             ブランド
       %ul.TSheader_inner_main_nav_right
         - if user_signed_in?
-          = link_to destroy_user_session_path do
-            ログアウト
-          = link_to "#" do
-            マイページ
+          %li.TSheader_inner_main_nav_right_login
+            = link_to destroy_user_session_path do
+              ログアウト
+          %li.TSheader_inner_main_nav_right_new
+            = link_to "#" do
+              マイページ
         - else
           %li.TSheader_inner_main_nav_right_login
             = link_to new_user_session_path do
