@@ -1,0 +1,52 @@
+= render 'shared/user-header'
+
+
+.buy-main
+  .buy-main__box
+    .buy-content
+      %h2.buy-content__title
+        購入内容の確認
+      .buy-content__item
+        .buy-content__item__inner
+          .buy-item-main
+            .buy-item-image
+              = image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg", height: "64px", width: "64px"
+            .buy-item-detail
+              .buy-item-name
+                いちご詰め合わせ
+                %p.buy-price
+                  %span ¥ 1,000
+                  %span.shipping-free (税込) 送料込み
+      .buy-content__item
+        %form.buy-form
+          .buy-price-table
+            .buy-price-table__left
+              支払金額
+            .buy-price-table__right
+              ¥ 1,000
+          .buy-content__user-info
+            .buy-content__user-info__inner
+              %h3 支払方法
+              .user-info-update
+                = link_to '変更する', calss:"update-btn"
+              .user-info-text
+                クレジットカード
+                %br
+                ＊＊＊＊＊＊＊＊＊＊
+                %br
+                有効期限 11/11
+          .buy-content__user-info
+            .buy-content__user-info__inner              
+              %h3 配送先
+              .user-info-update
+                = link_to '変更する', calss:"update-btn"
+              .user-info-text
+                〒111-1111
+                %br
+                大阪府大阪市北区〇〇1-11
+                %br
+                山田太郎
+          %button.buy-button
+            購入する
+
+= render 'shared/user-footer'
