@@ -2,7 +2,7 @@
   <p><%= item.name %></p>
   <p><%= item.price %>円</p>
   <% item.images.each_with_index do |i, image| %>
-    <%= image_tag "/assets/i/[]" ,data: { index: i }, width: "100", height: '100'%>
+    <%= image_tag "#{i.url}" ,data: { index: i }, width: "100", height: '100'%>
   <% end %>
 </div>
 <%= link_to '編集', edit_item_path(item) %>
