@@ -1,6 +1,4 @@
 <%= form_for @item do |f| %>
-  商品名<%= f.text_field :name %><br>
-  価格<%= f.number_field :price %><br>
   <div id="image-box">
   <div id="previews">	<%= f.fields_for :images do |i| %>
     <% if @item.persisted? %>	
@@ -25,11 +23,13 @@
       <% end %>
     <% end %>
   </div>
-  <%= f.number_field :status %><br>
-  <%= f.number_field :delivery_charge %><br>
-  <%= f.number_field :address %> <br>
-  <%= f.number_field :date %><br>
-  <%= f.text_field :detail %><br>
+  商品名<%= f.text_field :name %><br>
+  商品の状態<%= f.number_field :status %><br>
+  配送料負担<%= f.number_field :delivery_charge %><br>
+  都道府県<%= f.number_field :address %> <br>
+  日付<%= f.number_field :date %><br>
+  商品の状態<%= f.text_field :detail %><br>
+  価格<%= f.number_field :price %><br>
   <%= f.submit %>
 <% end %>
 <% end %>
