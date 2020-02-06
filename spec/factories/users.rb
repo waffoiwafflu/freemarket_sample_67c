@@ -5,8 +5,6 @@ FactoryBot.define do
     first_name_kana {"mori"}
     last_name_kana {"naoya"}
     year {"2020-02-05 00:00:00"}
-    month {"2020-02-05 00:00:00"}
-    day {"2020-02-05 00:00:00"}
     phone_number {"fghjk"}
     nickname {"sdfghfj"}
     password {"00000000"}
