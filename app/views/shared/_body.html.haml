@@ -242,12 +242,3 @@
       .TSmain_bottan_txt
         出品する
         = image_tag "icon_camera.png"
-
-
-- @parents.each do |parent|
-  - parent.children.each do |child|
-    - child.children.each do |grandchild|
-      =parent.name
-      =child.name 
-      =grandchild.name
-      %br
