@@ -23,9 +23,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|zipcode|intejer|
 |region|string|null: false|
 |municipality|string|null: false|
-|street_mansion|string|null: false|
+|street_mansion|string|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -53,7 +54,7 @@
 |status|integer|enum|
 |delivery_charge|integer|enum|
 |address|integer|enum|
-|price|integer|enum|
+|price|integer||
 |date|integer|enum|
 |detail|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
