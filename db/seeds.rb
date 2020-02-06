@@ -40,8 +40,8 @@ lady_bags.children.create([{:name=>"ハンドバッグ"},{:name=>"トートバ�
 lady_accessories.children.create([{:name=>"ネックレス"},{:name=>"ブレスレット"},{:name=>"バングル/リストバンド"},{:name=>"リング"},{:name=>"ピアス"},{:name=>"イヤリング"},{:name=>"アンクレット"},{:name=>"ブローチ"},{:name=>"チャーム"},{:name=>"その他"}])
 lady_heir_accessories.children.create([{:name=>"シュシュ"},{:name=>"カチューシャ"},{:name=>"ヘアピン"},{:name=>"その他"}])
 lady_small_articles.children.create([{:name=>"財布"},{:name=>"定期入れ"},{:name=>"キーケース"},{:name=>"手袋"},{:name=>"ハンカチ"},{:name=>"ベルト"},{:name=>"マフラー"},{:name=>"眼鏡"},{:name=>"手帳"},{:name=>"傘"},{:name=>"ミラー"},{:name=>"タバコ"},{:name=>"その他"}])
-lady_clocks.create([{:name=>"腕時計"},{:name=>"アナログ"},{:name=>"デジタル"},{:name=>"その他"}])
-lady_etc.create([{:name=>"コスプレ"},{:name=>"下着"},{:name=>"その他"}])
+lady_clocks.children.create([{:name=>"腕時計"},{:name=>"アナログ"},{:name=>"デジタル"},{:name=>"その他"}])
+lady_etc.children.create([{:name=>"コスプレ"},{:name=>"下着"},{:name=>"その他"}])
 
 
 man = Category.create(:name=>"メンズ")
@@ -65,9 +65,9 @@ man_shoes.children.create([{:name=>"スニーカー"},{:name=>"サンダル"},{:
 man_hats.children.create([{:name=>"キャップ"},{:name=>"ハット"},{:name=>"ニットキャップ"},{:name=>"ベレー帽"},{:name=>"サンバイザー"},{:name=>"その他"}])
 man_accessories.children.create([{:name=>"ネックレス"},{:name=>"ブレスレット"},{:name=>"バングル/リストバンド"},{:name=>"リング"},{:name=>"ピアス"},{:name=>"アンクレット"},{:name=>"その他"}])
 man_small_articles.children.create([{:name=>"財布"},{:name=>"定期入れ"},{:name=>"キーケース"},{:name=>"手袋"},{:name=>"ハンカチ"},{:name=>"ベルト"},{:name=>"マフラー"},{:name=>"眼鏡"},{:name=>"手帳"},{:name=>"傘"},{:name=>"ミラー"},{:name=>"タバコ"},{:name=>"その他"}])
-man_clocks.create([{:name=>"腕時計"},{:name=>"アナログ"},{:name=>"デジタル"},{:name=>"その他"}])
+man_clocks.children.create([{:name=>"腕時計"},{:name=>"アナログ"},{:name=>"デジタル"},{:name=>"その他"}])
 man_bags.children.create([{:name=>"ショルダーバッグ"},{:name=>"トートバッグ"},{:name=>"エコバッグ"},{:name=>"リュック/バックパック"},{:name=>"ボストンバッグ"},{:name=>"メッセンジャーバッグ"},{:name=>"ビジネスバッグ"},{:name=>"その他"}])
-man_etc.create([{:name=>"コスプレ"},{:name=>"下着"},{:name=>"その他"}])
+man_etc.children.create([{:name=>"コスプレ"},{:name=>"下着"},{:name=>"その他"}])
 
 
 kids = Category.create(:name=>"キッズ")
@@ -84,5 +84,5 @@ kids_girl.children.create([{:name=>"トップス"}, {:name=>"アウター"},{:na
                            {:name=>"ワンピース"},{:name=>"ベビードレス"},{:name=>"おくるみ"},{:name=>"下着/肌着"},{:name=>"パジャマ"},{:name=>"ロンパース"},{:name=>"その他"}])
 kids_boy.children.create([{:name=>"トップス"}, {:name=>"アウター"},{:name=>"パンツ"},{:name=>"おくるみ"},{:name=>"下着/肌着"},{:name=>"パジャマ"},{:name=>"ロンパース"},{:name=>"その他"}])
 kids_shoes.children.create([{:name=>"スニーカー"}, {:name=>"サンダル"},{:name=>"ブーツ"},{:name=>"長靴"},{:name=>"その他"}])
-kids_accessorieschildren.create([{:name=>"トップス"}, {:name=>"アウター"},{:name=>"パンツ"},{:name=>"スカート"},
-  {:name=>"ワンピース"},{:name=>"ベビードレス"},{:name=>"おくるみ"},{:name=>"下着/肌着"},{:name=>"パジャマ"},{:name=>"ロンパース"},{:name=>"その他"}])
+kids_accessories.children.create([{:name=>"トップス"}, {:name=>"アウター"},{:name=>"パンツ"},{:name=>"スカート"},
+                                 {:name=>"ワンピース"},{:name=>"ベビードレス"},{:name=>"おくるみ"},{:name=>"下着/肌着"},{:name=>"パジャマ"},{:name=>"ロンパース"},{:name=>"その他"}])
