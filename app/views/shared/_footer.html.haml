@@ -1,3 +1,15 @@
+.TSmain_banner
+  = image_tag "bg-appBanner-pict.jpg" , height: "363" ,width: "100%"
+  .TSmain_banner_contents
+    %h2.TSmain_banner_contents_title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.TSmain_banner_contents_txt
+      今すぐ無料ダウンロード！
+    .TSmain_banner_contents_icon
+      =link_to "#" , class: "app" do
+        = image_tag "app.svg", class:"image"
+      =link_to "#" , class: "google" do
+        = image_tag "google.svg", class:"image"
 .TSfooter
   %ul.TSfooter_content
     %li.TSfooter_content_uno
