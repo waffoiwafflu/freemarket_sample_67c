@@ -1,0 +1,20 @@
+%h2 住所登録
+= form_for @address do |f|
+  = render "devise/shared/error_messages", resource: @address
+  .user-field
+    = f.label :zipcode
+    = f.text_field :zipcode
+  .user-field
+    = f.label :region
+    = f.text_field :region
+  .user-field
+    = f.label :municipality
+    = f.text_field :municipality
+  .user-field
+    = f.label :street_mansion
+    = f.text_field :street_mansion
+  .user-submit
+    = f.submit "Sign up"
+
+= link_to "トップページへ戻る", root_path
+= render "devise/shared/links"

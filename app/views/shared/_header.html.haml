@@ -62,12 +62,20 @@
           = link_to "#" , class: "item" do
             ブランド
       %ul.TSheader_inner_main_nav_right
-        %li.TSheader_inner_main_nav_right_login
-          = link_to new_user_registration_path do
-            ログイン
-        %li.TSheader_inner_main_nav_right_new
-          = link_to new_user_session_path do
-            新規会員登録
+        - if user_signed_in?
+          %li.TSheader_inner_main_nav_right_login
+            = link_to destroy_user_session_path do
+              ログアウト
+          %li.TSheader_inner_main_nav_right_new
+            = link_to posts_show_path do
+              マイページ
+        - else
+          %li.TSheader_inner_main_nav_right_login
+            = link_to new_user_session_path do
+              ログイン
+          %li.TSheader_inner_main_nav_right_new
+            = link_to new_user_registration_path do
+              新規会員登録
 
           
             
