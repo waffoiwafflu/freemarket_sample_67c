@@ -23,9 +23,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|zipcode|intejer|
 |region|string|null: false|
 |municipality|string|null: false|
-|street_mansion|string|null: false|
+|street_mansion|string|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
