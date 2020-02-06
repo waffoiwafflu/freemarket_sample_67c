@@ -12,6 +12,7 @@
         <%= i.file_field :url, class: 'js-file' %><br>
         <span class="js-remove">削除</span>
       </div>  
+      
       <% if @item.persisted? %>
         <%= i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' %>
       <% end %>
@@ -31,7 +32,6 @@
   商品の状態<%= f.text_field :detail %><br>
   価格<%= f.number_field :price %><br>
   <%= f.submit %>
-
 <% end %>
 <% end %>
 <%= link_to '一覧', items_path %>

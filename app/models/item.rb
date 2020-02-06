@@ -3,4 +3,5 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many :images, dependent: :destroy
   validates :images, presence: true
+  
 end
