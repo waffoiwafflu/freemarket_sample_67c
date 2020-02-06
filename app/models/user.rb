@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_one :credits
   has_many :items
   has_many :comments
+  has_many :cards
   before_save { self.email = email.downcase }
 
 
