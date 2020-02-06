@@ -246,4 +246,8 @@
 
 aaaaaaaaaaa
 - @parents.each do |parent|
-  =parent.name
+  - parent.children.each do |child|
+    - child.children.each do |grandchild|
+  =grandchild.name
+    =parent.name
+    =child.name 
