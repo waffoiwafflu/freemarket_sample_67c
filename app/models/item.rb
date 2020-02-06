@@ -5,6 +5,9 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :status, presence: true
   validates :delivery_charge, presence: true
+  validates :address, presence: true
+  validates :date, presence: true
+  validates :detail, presence: true 
   validates :price, presence: true,
                     numericality: {
                       greater_than_or_equal_to: 300,
