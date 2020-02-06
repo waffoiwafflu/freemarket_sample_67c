@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root "posts#index"
-  resources :items, except: :show
+  resources :items
   get 'posts/index'
   get 'posts/show'
   get 'posts/create'
@@ -14,5 +14,9 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+
+  
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end

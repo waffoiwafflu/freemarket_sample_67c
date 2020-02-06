@@ -12,7 +12,6 @@
         <%= i.file_field :url, class: 'js-file' %><br>
         <span class="js-remove">削除</span>
       </div>  
-      
       <% if @item.persisted? %>
         <%= i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' %>
       <% end %>

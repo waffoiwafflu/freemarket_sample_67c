@@ -8,7 +8,10 @@
   
   
   &_contents{
-    margin-top: -280px;
+    
+    margin-left: 0 Auto;
+    margin-right: 0 Auto;
+    margin-top: -250px;
     color: #fff;
     text-align: center;
 
@@ -76,7 +79,6 @@
 
       &_content{
         list-style: none;
-        margin: 0 auto;
         li{
 
           a{
