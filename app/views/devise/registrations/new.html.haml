@@ -28,8 +28,8 @@
               .user-menter-bottom__a__nickname__moji
                 .user-menter-bottom__a__nickname__moji__nickname
                   ニックネーム
-                .user-menter-bottom__a__nickname__moji__hissu 
-                  必須
+                -# .user-menter-bottom__a__nickname__moji__hissu 
+                -#   必須
               = f.text_field :nickname, class: "user-menter-nickname", placeholder: "例）メルカリ太郎"
               .user-menter-bottom__a__password__moji__settei
 
@@ -43,8 +43,8 @@
               .user-menter-bottom__a__name__hiragana
                 .user-menter-bottom__a__name__hiragana__name
                   お名前(全角)
-                .user-menter-bottom__a__name__hiragana__hissu
-                  必須
+                -# .user-menter-bottom__a__name__hiragana__hissu
+                -#   必須
               .user-menter-bottom__a__name__form
                 = f.text_field :first_name, class: "user-menter-name", placeholder: "例) 山田"
                 = f.text_field :last_name, class: "user-menter-name-last", placeholder: "例) 太郎"
@@ -52,8 +52,8 @@
               .user-menter-bottom__a__name__hiragana
                 .user-menter-bottom__a__name__hiragana__name
                   お名前カナ(全角)
-                .user-menter-bottom__a__name__hiragana__hissu
-                  必須
+                -# .user-menter-bottom__a__name__hiragana__hissu
+                -#   必須
               .user-menter-bottom__a__name__form
                 = f.text_field :first_name_kana, class: "user-menter-name", placeholder: "例) ヤマダ"
                 = f.text_field :last_name_kana, class: "user-menter-name-last", placeholder: "例) タロウ"
@@ -61,18 +61,18 @@
               .user-menter-bottom__a__name__hiragana
                 .user-menter-bottom__a__name__hiragana__name
                   生年月日
-                .user-menter-bottom__a__name__hiragana__hissu
-                  必須
+                -# .user-menter-bottom__a__name__hiragana__hissu
+                -#   必須
               .user-menter-bottom__a__name__birthday
                 = f.date_field :year, class: "user-year-aaa"
-                .user-menter-bottom__a__name__birthday__nihon
-                  年
-                = f.date_field :month, class: "user-year-aaa"
-                .user-menter-bottom__a__name__birthday__nihon
-                  月
-                = f.date_field :day, class: "user-year-aaa"
-                .user-menter-bottom__a__name__birthday__nihon
-                  日
+                -# .user-menter-bottom__a__name__birthday__nihon
+                -#   年
+                -# = f.date_field :month, class: "user-year-aaa"
+                -# .user-menter-bottom__a__name__birthday__nihon
+                -#   月
+                -# = f.date_field :day, class: "user-year-aaa"
+                -# .user-menter-bottom__a__name__birthday__nihon
+                -#   日
     .user-wrapper
       .user-wrapper-new-c
         .user-menter-bottom
@@ -96,8 +96,8 @@
               「次へ進む」のボタンを押すことにより、
               = link_to "利用規約", "#", class: "user-mori-mori"
               に同意したものとみなします
-              
-
+            .user-actions
+              = f.submit "次へ進む", class: "user-foo"
             .user-menter-bottom__a__honninjouhou
               .user-menter-bottom__a__honninjouhou__b
                 = link_to "本人情報の登録について", root_path, class: "user-menter-bottom-jouhou" 
@@ -110,8 +110,7 @@
               and
               = link_to "Terms of Service","#", class: "user-menter-bottom-terms"
               apply.
-    .user-actions
-      = f.submit "次へ進む"
+            
 = render "shared/user-footer"
 
   

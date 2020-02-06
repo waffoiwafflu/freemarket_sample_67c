@@ -306,7 +306,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 5px;
-        padding-top: 32px;
+        // padding-top: 32px;
         &__nickname{
           font-size: 12px;
           font-weight: 600;
@@ -366,7 +366,6 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 5px;
-        margin-top: 32px;
         &__password{
           font-size: 12px;
           font-weight: 600;
@@ -653,8 +652,12 @@
   font-size: 20px;
 }
 .user-year-aaa{
-  width: 125px;
   height: 46px;
+  padding: 10px;
+  width: 344px;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .user-field{
   width: 384px;
@@ -705,4 +708,17 @@
   color: white;
   padding: 0 3px;
   border-radius: 2px;
+}
+.user-foo{
+  width: 250px;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  background: radial-gradient(black, transparent);
+  color: white;
+}
+.user-menter-bottom__a{
+  padding-bottom: 32px;
 }

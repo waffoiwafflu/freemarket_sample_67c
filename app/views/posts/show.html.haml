@@ -1,108 +1,59 @@
-= render 'shared/header'
-
-
-.item-show-main-contents
-  .item-box__details
-    %h1
-      .item-name
-        いちご詰め合わせ
-    .item-main-content
-      .item-image
-        .image
-          = image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg"
-        .owl-dot
-          .owl-dot__item
-            .owl-dot__item__box
-              =image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg",class:"image-sub"
-          .owl-dot__item
-            .owl-dot__item__box
-              =image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg",class:"image-sub"
-      %table.item-detail-table
-        %tbody
-          %tr
-            %th 出品者
-            %td 
-              = link_to "出品者",class: "user-name-string";
-          %tr
-            %th カテゴリー
-            %td 
-              .item-detail-table-sub
-                カテゴリー大
-              .item-detail-table-sub
-              .item-detail-table-subt__sub
-                カテゴリー中
-              .item-detail-table-subt__sub__sub
-                カテゴリー小
-          %tr
-            %th ブランド
-            %td
-              = link_to "#" do
-                .brand-name
-                  ブランド
-          %tr
-            %th 商品の状態
-            %td 新品、未使用
-          %tr
-            %th 配送料の負担
-            %td 送料込み（出品者負担）
-          %tr
-            %th 配送の方法
-            %td 未定
-          %tr
-            %th 配送元地域
-            %td
-              = link_to "#" do
-                .prefecture
-                  埼玉県
-          %tr
-            %th 発送日の目安
-            %td 1~2日で発送
-
-    .item-box-price
-      %span.price-bold ¥1,000
-      .item-box-price-detail
-        %span (税込)
-        %span 送料込み
-
-      %button.item-buy-btn
-        購入画面に進む
-
-    .item-description
-      %p.item-description__inner
-        商品説明
-
-        いちごの詰め合わせです
-      .item-button-container
-        %ul
-          %li.link-btn
-            %i.fas.fa-star
-              お気に入り
-        %ul
-          %li.link-btn-right
-            %i.fas.fa-flag
-              = link_to "不適切な商品の通報"
-.comment-main
-  .comments
-    .comment-box
-      %ul.comment-contents
-        %from.new-contents
-          %input{type:"text",class:"textarea"}
-          
-          %p.notice-message
-            相手のことを考え丁寧なコメントを心がけましょう。
-            %br 不適切な言葉遣いなどは利用制限や退会処分となることがあります。
-            
-          %button.comment-btn
-            %i.fas.fa-comment
-              コメントする
-    .links
-      .back-link-btn
-        %i.fas.fa-angle-left
-        = link_to "前の商品"
-        .next-link-btn
-          = link_to "次の商品"
-          %i.fas.fa-angle-right
-
-= render 'shared/footer'
-
-
+= render "shared/header"
+.hder
+  .hder-nav
+    .hder-nav-box
+      .hder-nav-box__site
+        FURIMA
+        %i.fa.fa-chevron-right
+      .hder-nav-box__mype
+        マイページ
+.l
+  =render "shared/sidebar"
+  .container__content
+    .container__content-usericon
+      .container__content-usericon-member
+      %figure
+        = image_tag src="/assets/member_photo_noimage_thumb.png",width:"40"
+        .user
+          名前
+        .user-number
+          .user-number-review
+            評価0
+          .user-memb.er-syuppin
+            出品数0
+    .container__news
+      .news-tab
+        .news-tab-active
+          お知らせ
+        .news-tab-activelist
+          やることリスト
+    .btm
+      .btm-content
+        .btm-content-message
+          %figure
+            = image_tag "/assets/member_photo_noimage_thumb.png",width:"50"
+          .btm-content-message__text
+            <新規登録者限定>最大1000円分のポイントがもらえる出品キャンペーン実施中
+          %i.fa.fa-chevron-right
+        .btm-content-message__itiran
+          .btm-content-message__itiran-bottom
+            一覧を見る
+    .buy
+      .buy-head
+        購入した商品
+      .buy-tab
+        .buy-tab-trade
+          取引中
+        .buy-tab-past
+          過去の取引
+    .btm
+      .btm-content
+        .btm-content-message
+          %figure
+            = image_tag "/assets/member_photo_noimage_thumb.png",width:"50"
+          .btm-content-message__text
+            取引中の商品が1点あります。
+          %i.fa.fa-chevron-right
+        .btm-content-message__itiran
+          .btm-content-message__itiran-bottom
+            一覧を見る
