@@ -244,10 +244,10 @@
         = image_tag "icon_camera.png"
 
 
-aaaaaaaaaaa
 - @parents.each do |parent|
   - parent.children.each do |child|
     - child.children.each do |grandchild|
-  =grandchild.name
-    =parent.name
-    =child.name 
+      =parent.name
+      =child.name 
+      =grandchild.name
+      %br

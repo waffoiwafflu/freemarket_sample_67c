@@ -14,6 +14,16 @@
     .TSheader_inner_main_nav
       %ul.TSheader_inner_main_nav_left
         %li.TSheader_inner_main_nav_left_list
+          %div{:onclick => "obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';"}
+            %a{:style => "cursor:pointer;"} カテゴリー
+            #open1{:style => "display:none;clear:both;"}
+              .TSheader_inner_main_nav_left_list_menu
+                %ul.TSheader_inner_main_nav_left_list_menu_tree
+                  - @parents.each do |parent|
+                    %li.TSheader_inner_main_nav_left_list_menu_tree_item
+                      =parent.name
+
+
           %div{:onclick => "obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';"}
             %a{:style => "cursor:pointer;"} カテゴリー
             #open{:style => "display:none;clear:both;"}
@@ -68,10 +78,3 @@
         %li.TSheader_inner_main_nav_right_new
           = link_to new_user_registration_path do
             新規会員登録
-
-          
-            
-
-    
-
-    
