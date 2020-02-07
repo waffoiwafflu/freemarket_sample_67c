@@ -2,27 +2,61 @@ class Item < ApplicationRecord
   has_many :images
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many :images, dependent: :destroy
-  validates :images, presence: true
-  validates :name, presence: true
-  validates :status, presence: true
-  validates :delivery_charge, presence: true
-  validates :address, presence: true
-  validates :date, presence: true
-  validates :detail, presence: true 
+  
+  validates :images, presence: 
+                            {
+                              message: "画像がありません"
+                            }
+
+  validates :name, presence: true,
+                    length: {
+                      maximum: 40,
+                      message: "入力してください"
+                    }
+
+  validates :detail, presence: true,
+                      length: {
+                        maximum: 1000,
+                        message: "入力してください"
+                      }
+
+  validates :status, presence: 
+  {
+    message: "画像がありません"
+  }
+                      
+    
+  validates :delivery_charge, presence: 
+  {
+    message: "画像がありません"
+  }
+  validates :address, presence: 
+  {
+    message: "画像がありません"
+  }
+
+  validates :date, presence: 
+  {
+    message: "画像がありません"
+  }
+  
   validates :price, presence: true,
-                    numericality: {
-                      greater_than_or_equal_to: 1,
-                      less_than_or_equal_to: 9999999}
+                      numericality: {
+                        greater_than_or_equal_to: 1,less_than_or_equal_to: 9999999,
+                        message: "販売価格は300以上9,999,999以内で入力してください"
+                      }
 
   belongs_to :category
   enum status:{
     "---":0,
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5
   },_prefix: true
+
   enum delivery_charge:{
     "---":0,
     "送料込み(出品者負担)":1,"着払い(購入者負担)":2
   },_prefix: true
+
   enum address:{
     "---":0,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -39,4 +73,5 @@ class Item < ApplicationRecord
     "---":0,
     "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
   },_prefix: true
+  
 end
