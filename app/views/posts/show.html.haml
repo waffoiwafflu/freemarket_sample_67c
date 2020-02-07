@@ -1,12 +1,9 @@
 = render "shared/header"
+
 .hder
-  .hder-nav
-    .hder-nav-box
-      .hder-nav-box__site
-        FURIMA
-        %i.fa.fa-chevron-right
-      .hder-nav-box__mype
-        マイページ
+  - breadcrumb :show
+  = breadcrumbs pretext: "You are here:",separator: "&rsaquo;"
+
 .l
   =render "shared/sidebar"
   .container__content
@@ -57,3 +54,9 @@
         .btm-content-message__itiran
           .btm-content-message__itiran-bottom
             一覧を見る
+    -# 出品する
+  =link_to "#" do
+    .TSmain_bottan
+      .TSmain_bottan_txt
+        出品する
+        = image_tag "icon_camera.png"
