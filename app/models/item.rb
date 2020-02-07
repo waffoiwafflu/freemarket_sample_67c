@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validates :detail, presence: true 
   validates :price, presence: true,
                     numericality: {
-                      greater_than_or_equal_to: 300,
+                      greater_than_or_equal_to: 1,
                       less_than_or_equal_to: 9999999}
 
   enum status:{
@@ -34,8 +34,8 @@ class Item < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   },_prefix: true
 
-#   enum date:{
-#     "---":0,
-#     "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
-#   },_prefix: true
+  enum date:{
+    "---":0,
+    "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
+  },_prefix: true
 end

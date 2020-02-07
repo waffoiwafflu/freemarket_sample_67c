@@ -24,11 +24,12 @@
     <% end %>
   </div>
   商品名<%= f.text_field :name %><br>
-  商品の状態<%= f.number_field :status , select: Item.statuses.keys %><br>
-  配送料負担<%= f.number_field :delivery_charge, select: Item.delivery_charges.keys %><br>
-  都道府県<%= f.number_field :address, select: Item.addresses.keys %><br>
-  日付<%= f.number_field :date, select: Item.dates.keys %><br>
-  商品の状態<%= f.text_field :detail %><br>
+  商品の状態<%= f.select :status , Item.statuses.keys %><br>
+
+  配送料負担<%= f.select :delivery_charge, Item.delivery_charges.keys %><br>
+  都道府県<%= f.select :address, Item.addresses.keys %><br>
+  日付<%= f.select :date, Item.dates.keys %><br>
+  詳細<%= f.text_field :detail %><br>
   価格<%= f.number_field :price %><br>
   <%= f.submit %>
   <% end %>
