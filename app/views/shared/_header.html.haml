@@ -14,50 +14,22 @@
     .TSheader_inner_main_nav
       %ul.TSheader_inner_main_nav_left
         %li.TSheader_inner_main_nav_left_list
-          %div{:onclick => "obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';"}
-            %a{:style => "cursor:pointer;"} カテゴリー
-            #open{:style => "display:none;clear:both;"}
-              .TSheader_inner_main_nav_left_list_menu
-                %ul.TSheader_inner_main_nav_left_list_menu_tree
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "1" do
-                      レディース
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "2" do
-                      メンズ
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "3" do
-                      ベビー・キッズ
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "4" do
-                      インテリア・住まい・小物
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "5" do
-                      本・音楽・ゲーム
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "6" do
-                      おもちゃ・ホビー・グッズ
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "7" do
-                      コスメ・香水・美容
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "8" do
-                      家電・スマホ・カメラ
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "9" do
-                      スポーツ・レジャー
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "10" do
-                      ハンドメイド
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "11" do
-                      チケット
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "12" do
-                      自動車・オートバイ
-                  %li.TSheader_inner_main_nav_left_list_menu_tree_item
-                    = link_to "#" , id: "13" do
-                      その他
+          %ul
+            %li.submenu-trigger
+              カテゴリー
+              %ul
+                - @parents.each do |parent|
+                  %li.submenu2-trigger
+                    = parent.name
+                    %ul
+                      - parent.children.each do |child|
+                        %li.submenu3-trigger
+                          =child.name 
+                          %ul
+                            - child.children.each do |grandchild|
+                              %li.submenu4-trigger
+                                =grandchild.name
+         
         %li.TSheader_inner_main_nav_left_item
           = link_to "#" , class: "item" do
             ブランド
