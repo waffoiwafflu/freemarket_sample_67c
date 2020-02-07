@@ -20,30 +20,25 @@ class Item < ApplicationRecord
                         message: "入力してください"
                       }
 
-  validates :status, presence: true, 
-                      numericality: {
-                        greater_than_or_equal_to: 1,
-                        message: "選択してください"
-                      }
+  validates :status, presence: 
+  {
+    message: "画像がありません"
+  }
                       
     
-  validates :delivery_charge, presence: true,
-                                numericality: {
-                                  greater_than_or_equal_to: 1,
-                                  message: "選択してください"
-                                }
-  
-  validates :address, presence: true,
-                        numericality: {
-                          greater_than_or_equal_to: 1,
-                          message: "選択してください"
-                        }
+  validates :delivery_charge, presence: 
+  {
+    message: "画像がありません"
+  }
+  validates :address, presence: 
+  {
+    message: "画像がありません"
+  }
 
-  validates :date, presence: true,
-                      numericality: {
-                        greater_than_or_equal_to: 1,
-                        message: "選択してください"
-                      }
+  validates :date, presence: 
+  {
+    message: "画像がありません"
+  }
   
   validates :price, presence: true,
                       numericality: {
