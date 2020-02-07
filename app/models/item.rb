@@ -14,6 +14,7 @@ class Item < ApplicationRecord
                       greater_than_or_equal_to: 1,
                       less_than_or_equal_to: 9999999}
 
+  belongs_to :category
   enum status:{
     "---":0,
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5

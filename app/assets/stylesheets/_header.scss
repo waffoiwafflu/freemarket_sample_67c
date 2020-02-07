@@ -68,17 +68,61 @@
       }
       
       &_nav{
-        font-size: 13px;
+        font-size: 15px;
         display: flex;
         margin-bottom: 10px;
 
         &_left{
-          position: relative;
+          position: absolute;
           display: flex;
 
           &_list{
             color: #333;
             text-decoration: none; 
+             
+            .submenu-trigger{
+              z-index: 2;
+              position:relative;
+              width:150px;
+              
+              padding: 0 0 0 16px;
+              line-height:38px; /* line-heightで高さを固定します。この設定は子孫要素全てに継承されます。（継承されると都合が悪い場合はheightでの指定でもOKですが、その場合は各liそれぞれに指定してください） */
+            }
+            .submenu-trigger > ul,
+            .submenu2-trigger > ul,
+            .submenu3-trigger > ul,
+            .submenu4-trigger > ul,{
+              display:none;
+            }
+            .submenu-trigger:hover > ul,
+            .submenu2-trigger:hover > ul,
+            .submenu3-trigger:hover > ul,
+            .submenu4-trigger:hover > ul{
+              display:block;
+            }
+            .submenu-trigger > ul{
+              background-color: white;
+            }
+            .submenu2-trigger > ul,
+            .submenu3-trigger > ul,
+            .submenu4-trigger > ul{
+              position:absolute;
+              left:150px;
+              top:20px;
+              min-height:160px; /* 20pxの8個分で160pxを指定します。（サブカテゴリの数がカテゴリの数より多くなる可能性がなければheightでもOK） */
+              width:150px;
+              background-color: white;
+            }
+
+
+
+
+
+
+
+
+
+
 
             a{
               color: #333;
