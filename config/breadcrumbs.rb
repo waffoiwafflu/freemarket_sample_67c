@@ -1,6 +1,15 @@
 crumb :root do
   link "Home", root_path
 end
+#ルート
+crumb :root do
+  link "トップページ", root_path
+end
+#マイページ
+clumb :show do
+  link "マイページ", show_users_path
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
