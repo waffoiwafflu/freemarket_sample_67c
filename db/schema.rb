@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_07_031230) do
     t.integer "status", limit: 1, null: false
     t.integer "delivery_charge", limit: 1, null: false
     t.integer "address", limit: 1, null: false
-    t.integer "price", limit: 1, null: false
+    t.integer "price", null: false
     t.integer "date", limit: 1, null: false
     t.text "detail", null: false
     t.integer "category_id"
@@ -80,8 +80,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_031230) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.datetime "year", null: false
-    t.datetime "month", null: false
-    t.datetime "day", null: false
     t.string "phone_number", null: false
     t.integer "nickname", null: false
     t.string "email", null: false

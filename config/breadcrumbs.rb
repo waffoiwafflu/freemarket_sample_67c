@@ -1,14 +1,7 @@
 crumb :root do
   link "Home", root_path
 end
-#ルート
-crumb :root do
-  link "トップページ", root_path
-end
-#マイページ
-clumb :show do
-  link "マイページ", show_users_path
-end
+
 
 
 # crumb :projects do
@@ -35,3 +28,12 @@ end
 # files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
 # folder are loaded and reloaded automatically when you change them, just like
 # this file (`config/breadcrumbs.rb`).
+
+#ルート
+crumb :root do
+  link "トップページ", root_path
+end
+#マイページ
+crumb :show do
+  link "マイページ", "posts/show"
+end
