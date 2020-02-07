@@ -1,6 +1,7 @@
 <%= form_for @item do |f| %>
   <div id="image-box">
   <div id="previews">	<%= f.fields_for :images do |i| %>
+    出品画像
     <% if @item.persisted? %>	
     <% @item.images.each_with_index do |image, i| %>	
       <%= image_tag image.url, data: { index: i }, width: "100", height: '100' %>	
@@ -24,12 +25,11 @@
     <% end %>
   </div>
   商品名<%= f.text_field :name %><br>
+  商品の説明<%= f.text_field :detail %><br>
   商品の状態<%= f.select :status , Item.statuses.keys %><br>
-
-  配送料負担<%= f.select :delivery_charge, Item.delivery_charges.keys %><br>
-  都道府県<%= f.select :address, Item.addresses.keys %><br>
-  日付<%= f.select :date, Item.dates.keys %><br>
-  詳細<%= f.text_field :detail %><br>
+  配送料の負担<%= f.select :delivery_charge, Item.delivery_charges.keys %><br>
+  発送元の地域<%= f.select :address, Item.addresses.keys %><br>
+  発送までの日数<%= f.select :date, Item.dates.keys %><br>
   価格<%= f.number_field :price %><br>
   <%= f.submit %>
   <% end %>
