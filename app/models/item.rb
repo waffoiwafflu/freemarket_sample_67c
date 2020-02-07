@@ -46,6 +46,7 @@ class Item < ApplicationRecord
                         message: "販売価格は300以上9,999,999以内で入力してください"
                       }
 
+  belongs_to :category
   enum status:{
     "---":0,
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5
