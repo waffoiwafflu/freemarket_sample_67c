@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_103351) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
+    t.string "name"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_103351) do
     t.integer "status", limit: 1, null: false
     t.integer "delivery_charge", limit: 1, null: false
     t.integer "address", limit: 1, null: false
-    t.integer "price", limit: 1, null: false
+    t.integer "price", null: false
     t.integer "date", limit: 1, null: false
     t.text "detail", null: false
     t.integer "category_id"
