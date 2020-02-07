@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_045607) do
+ActiveRecord::Schema.define(version: 2020_02_05_103351) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "zipcode"
+    t.string "region", null: false
+    t.string "municipality", null: false
+    t.string "street_mansion"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -47,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_045607) do
     t.integer "status", limit: 1, null: false
     t.integer "delivery_charge", limit: 1, null: false
     t.integer "address", limit: 1, null: false
-    t.integer "price", limit: 1, null: false
+    t.integer "price", null: false
     t.integer "date", limit: 1, null: false
     t.text "detail", null: false
     t.integer "category_id"
@@ -64,8 +75,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_045607) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.datetime "year", null: false
-    t.datetime "month", null: false
-    t.datetime "day", null: false
     t.string "phone_number", null: false
     t.integer "nickname", null: false
     t.string "email", null: false

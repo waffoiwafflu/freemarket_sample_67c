@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+.hder {
+  border-bottom: 1px solid #eee;
+  &-nav {
+    width: 1020px;
+    line-height: 20px;
+    padding: 16px 0;
+    &-box {
+      display: flex;
+      margin-left: 200px;
+      &__site {
+        margin-right: 5px;
+      }
+      .fa.fa-chevron-right {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+.l{
+  width: 1020px;
+  height: 100vh;
+  margin: 40px 150px 40px 150px;
+  padding: 0 0 50px;
+}
+.container {
+  &__content {
+    float: right;
+    width: 700px;
+    margin-top: 40px;
+    &-usericon {
+      height: 200px;
+      padding-top: 60px;
+      background-image: url(member_photo_noimage_thumb.png);
+      background-color: paleturquoise;
+      text-align: center;
+      img {
+        border-radius: 50%;
+        background-color: white;
+      }
+      .user {
+        font-weight: bold;
+      }
+      .user-number {
+        width: 500px;
+        padding-left: 130px;
+        .user-number-review {
+          width: 70px;
+          height: 16px;
+          display: inline-block;
+        }
+        .user-member-syuppin {
+          width: 70px;
+          height: 16px;
+          display: inline-block;
+        }
+      }
+    }
+    .news {
+      &-tab {
+        background-color: #eee;
+        display: flex;
+        &-active {
+          border-top: 2px solid #3CCACE;
+          font-weight: 600;
+          background-color: white;
+          width: 50%;
+          text-align: center;
+          line-height: 70px;
+          border-left: 1px solid #eee;
+        }
+        &-activelist {
+          font-weight: 600;
+          width: 50%;
+          line-height: 70px;
+          text-align: center;
+        }
+      }
+    }
+    .btm {
+      &-content {
+        border: 1px solid #eee;
+        &-message {
+          border-bottom: 1px solid #eee;
+          padding: 10px;
+          height: 100px;
+          display: flex;
+          position: relative;
+          .fa.fa-chevron-right {
+            margin-right: 40px;
+            float: right;
+            position: absolute;
+            top: 40px;
+            right: 0;
+          }
+          &__text {
+            margin: 25px 40px 25px 0;
+          }
+        }
+        &-message__itiran {
+          &-bottom {
+            background-color: #eee;
+            color: #333;
+            line-height: 60px;
+            text-align: center;
+            margin: 10px 10px 10px 10px;
+            &:hover {
+              background-color: #FAFAFA;
+            }
+          }
+        }
+      }
+    }
+    .buy {
+      margin: 30px 0 0 0;
+      border: 1px solid #eee;
+      &-head {
+        padding: 0 15px;
+        background-color: #FAFAFA;
+        line-height: 70px;
+        font-weight: bold;
+      }
+      &-tab {
+        background: #eee;
+        height: 70px;
+        display: flex;
+        &-trade {
+          border-top: 2px solid #3CCACE;
+          font-weight: 600;
+          width: 50%;
+          text-align: center;
+          background-color: white;
+          padding: 22px;
+        }
+        &-past {
+          width: 50%;
+          text-align: center;
+          padding: 22px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+

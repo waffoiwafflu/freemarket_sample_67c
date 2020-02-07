@@ -1,115 +1,116 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-    .user-wrapper
-    .user-menter-wrapper
-      .user-menter-top
-        会員情報入力
-      .user-menter-bottom
-        .user-menter-bottom__a
-          .user-menter-bottom__a__nickname
-            .user-menter-bottom__a__nickname__moji
-              .user-menter-bottom__a__nickname__moji__nickname
-                ニックネーム
-              .user-menter-bottom__a__nickname__moji__hissu 
-                必須
-            = f.text_field :nickname, class: "user-menter-nickname", placeholder: "例）メルカリ太郎"
-            .user-menter-bottom__a__password__moji__settei
+= render "shared/user-header"
+.user-wrapper 
+  .user-menter-top
+    .user-menter-ooo
+      新規登録
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .user-menter-top-aaa
+      .user-field
+        = f.label :email, class: "user-ioioio"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class:"user-menter-toptop", placeholder: "メールアドレスを入力"
+      .user-field
+        = f.label :password, class: "user-ioioio"
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password", class:"user-menter-toptop", placeholder: "パスワード６文字"
+      .user-field
+        = f.label :password_confirmation, class: "user-ioioio"
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", class:"user-menter-toptop", placeholder: "確認用"
+      .user-menter-wrapper
+        .user-menter-bottom
+          .user-menter-bottom__a
+            .user-menter-bottom__a__nickname
+              .user-menter-bottom__a__nickname__moji
+                .user-menter-bottom__a__nickname__moji__nickname
+                  ニックネーム
+                -# .user-menter-bottom__a__nickname__moji__hissu 
+                -#   必須
+              = f.text_field :nickname, class: "user-menter-nickname", placeholder: "例）メルカリ太郎"
+              .user-menter-bottom__a__password__moji__settei
 
-            .user-menter-bottom__a__checkbox__password
-          .user-menter-bottom__a__group
-            .user-menter-bottom__a__group__honnin
-              本人確認
-            .user-menter-bottom__a__group__ansin
-              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          .user-menter-bottom__a__name
-            .user-menter-bottom__a__name__hiragana
-              .user-menter-bottom__a__name__hiragana__name
-                お名前(全角)
-              .user-menter-bottom__a__name__hiragana__hissu
-                必須
-            .user-menter-bottom__a__name__form
-              = f.text_field :first_name, class: "user-menter-name", placeholder: "例) 山田"
-              = f.text_field :last_name, class: "user-menter-name-last", placeholder: "例) 太郎"
-          .user-menter-bottom__a__name
-            .user-menter-bottom__a__name__hiragana
-              .user-menter-bottom__a__name__hiragana__name
-                お名前カナ(全角)
-              .user-menter-bottom__a__name__hiragana__hissu
-                必須
-            .user-menter-bottom__a__name__form
-              = f.text_field :first_name_kana, class: "user-menter-name", placeholder: "例) ヤマダ"
-              = f.text_field :last_name_kana, class: "user-menter-name-last", placeholder: "例) タロウ"
-          .user-menter-bottom__a__name
-            .user-menter-bottom__a__name__hiragana
-              .user-menter-bottom__a__name__hiragana__name
-                生年月日
-              .user-menter-bottom__a__name__hiragana__hissu
-                必須
-            .user-menter-bottom__a__name__birthday
-              = f.date_field :year, class: "user-year-aaa"
-              .user-menter-bottom__a__name__birthday__nihon
-                年
-              = f.date_field :month, class: "user-year-aaa"
-              .user-menter-bottom__a__name__birthday__nihon
-                月
-              = f.date_field :day, class: "user-year-aaa"
-              .user-menter-bottom__a__name__birthday__nihon
-                日
-  .user-wrapper
-    .user-wrapper-new-c
-      .user-menter-bottom
-        .user-menter-bottom__a
-          .user-menter-bottom__a__nickname
-            .user-menter-bottom__a__nickname__moji
-              .user-menter-bottom__a__nickname__moji__nickname
-                携帯電話の番号
-            = f.phone_field :phone_number, class: "user-menter-nickname", placeholder: "携帯の番号を入力"
-            .user-menter-bottom__a__group__ansin__b
-              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-          .user-menter-bottom__a__information
-            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+              .user-menter-bottom__a__checkbox__password
+            .user-menter-bottom__a__group
+              .user-menter-bottom__a__group__honnin
+                本人確認
+              .user-menter-bottom__a__group__ansin
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .user-menter-bottom__a__name
+              .user-menter-bottom__a__name__hiragana
+                .user-menter-bottom__a__name__hiragana__name
+                  お名前(全角)
+                -# .user-menter-bottom__a__name__hiragana__hissu
+                -#   必須
+              .user-menter-bottom__a__name__form
+                = f.text_field :first_name, class: "user-menter-name", placeholder: "例) 山田"
+                = f.text_field :last_name, class: "user-menter-name-last", placeholder: "例) 太郎"
+            .user-menter-bottom__a__name
+              .user-menter-bottom__a__name__hiragana
+                .user-menter-bottom__a__name__hiragana__name
+                  お名前カナ(全角)
+                -# .user-menter-bottom__a__name__hiragana__hissu
+                -#   必須
+              .user-menter-bottom__a__name__form
+                = f.text_field :first_name_kana, class: "user-menter-name", placeholder: "例) ヤマダ"
+                = f.text_field :last_name_kana, class: "user-menter-name-last", placeholder: "例) タロウ"
+            .user-menter-bottom__a__name
+              .user-menter-bottom__a__name__hiragana
+                .user-menter-bottom__a__name__hiragana__name
+                  生年月日
+                -# .user-menter-bottom__a__name__hiragana__hissu
+                -#   必須
+              .user-menter-bottom__a__name__birthday
+                = f.date_field :year, class: "user-year-aaa"
+                -# .user-menter-bottom__a__name__birthday__nihon
+                -#   年
+                -# = f.date_field :month, class: "user-year-aaa"
+                -# .user-menter-bottom__a__name__birthday__nihon
+                -#   月
+                -# = f.date_field :day, class: "user-year-aaa"
+                -# .user-menter-bottom__a__name__birthday__nihon
+                -#   日
+    .user-wrapper
+      .user-wrapper-new-c
+        .user-menter-bottom
+          .user-menter-bottom__a
+            .user-menter-bottom__a__nickname
+              .user-menter-bottom__a__nickname__moji
+                .user-menter-bottom__a__nickname__moji__nickname
+                  携帯電話の番号
+              = f.phone_field :phone_number, class: "user-menter-nickname", placeholder: "携帯の番号を入力"
+              .user-menter-bottom__a__group__ansin__b
+                本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            .user-menter-bottom__a__information
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+              .user-menter-bottom__a__honninjouhou
+                .user-menter-bottom__a__honninjouhou__b
+                  = link_to "電話番号の確認が必要な理由", root_path, class: "user-menter-bottom-jouhou" 
+                  .user-menter-bottom__a__honninjouhou__b__a
+                    = link_to "#" do
+                      = icon('fas', 'chevron-right', class: "user-morimori")
+            .user-menter-bottom__a__next
+              「次へ進む」のボタンを押すことにより、
+              = link_to "利用規約", "#", class: "user-mori-mori"
+              に同意したものとみなします
+            .user-actions
+              = f.submit "次へ進む", class: "user-foo"
             .user-menter-bottom__a__honninjouhou
               .user-menter-bottom__a__honninjouhou__b
-                = link_to "電話番号の確認が必要な理由", root_path, class: "user-menter-bottom-jouhou" 
+                = link_to "本人情報の登録について", root_path, class: "user-menter-bottom-jouhou" 
                 .user-menter-bottom__a__honninjouhou__b__a
                   = link_to "#" do
                     = icon('fas', 'chevron-right', class: "user-morimori")
-          .user-menter-bottom__a__next
-            「次へ進む」のボタンを押すことにより、
-            = link_to "利用規約", "#", class: "user-mori-mori"
-            に同意したものとみなします
+            .user-menter-bottom__a__the
+              This site is protected by reCAPTCHA and the Google 
+              = link_to "Privacy Policy", "#", class: "user-menter-bottom-terms"
+              and
+              = link_to "Terms of Service","#", class: "user-menter-bottom-terms"
+              apply.
             
-
-          .user-menter-bottom__a__honninjouhou
-            .user-menter-bottom__a__honninjouhou__b
-              = link_to "本人情報の登録について", root_path, class: "user-menter-bottom-jouhou" 
-              .user-menter-bottom__a__honninjouhou__b__a
-                = link_to "#" do
-                  = icon('fas', 'chevron-right', class: "user-morimori")
-          .user-menter-bottom__a__the
-            This site is protected by reCAPTCHA and the Google 
-            = link_to "Privacy Policy", "#", class: "user-menter-bottom-terms"
-            and
-            = link_to "Terms of Service","#", class: "user-menter-bottom-terms"
-            apply.
-= render "devise/shared/links"
+= render "shared/user-footer"
 
   
