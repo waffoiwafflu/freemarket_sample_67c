@@ -10,34 +10,38 @@ class Item < ApplicationRecord
 
   validates :name, presence: true,
                     length: {
-                      maximum: 40,
+                      minimum: 1, maximum: 40,
                       message: "入力してください"
                     }
 
   validates :detail, presence: true,
                       length: {
-                        maximum: 1000,
+                        minimum: 1, maximum: 1000,
                         message: "入力してください"
                       }
 
-  validates :status, presence: 
-  {
-    message: "画像がありません"
+  validates :status, presence: true,
+  numericality: {
+    greater_than_or_equal_to: 1,
+    message: "選択してください"
   }
-                      
-    
-  validates :delivery_charge, presence: 
-  {
-    message: "画像がありません"
-  }
-  validates :address, presence: 
-  {
-    message: "画像がありません"
+  
+  validates :delivery_charge, presence: true,
+  numericality: {
+    greater_than_or_equal_to: 1,
+    message: "選択してください"
   }
 
-  validates :date, presence: 
-  {
-    message: "画像がありません"
+  validates :address, presence: true,
+  numericality: {
+    less_than: 47,
+    message: "選択してください"
+  }
+
+  validates :date, presence: true,
+  numericality: {
+    greater_than_or_equal_to: 1,
+    message: "選択してください"
   }
   
   validates :price, presence: true,
@@ -46,7 +50,7 @@ class Item < ApplicationRecord
                         message: "販売価格は300以上9,999,999以内で入力してください"
                       }
 
-  belongs_to :category
+  # belongs_to :category
   enum status:{
     "---":0,
     新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5
