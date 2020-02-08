@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'buyers/index'
+  get 'buyers/done'
   root "posts#index"
   get 'posts/index'
   get 'posts/show'
-  get 'posts/create'
+  get 'items/create'
+ 
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -14,6 +18,13 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :buyers, only: [:index] do
+    collection do
+      get 'index', to: 'buyers#index'
+      post 'pay', to: 'buyers#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
   resources :cards, only: [:new, :show] do
     collection do
       post 'show', to: 'cards#show'
@@ -21,4 +32,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
+
 end

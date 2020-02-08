@@ -7,7 +7,7 @@ class CardsController < ApplicationController
     redirect_to action: "show" if card.exists?
   end
 
-  def pay
+  def pay #payjpとCardのデータベース作成
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -25,7 +25,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def delete
+  def delete #PayjpとCardデータベースを削除
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
@@ -37,7 +37,7 @@ class CardsController < ApplicationController
       redirect_to action: "new"
   end
 
-  def show
+  def show #Cardのデータpayjpに送り情報を取り出す
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 
