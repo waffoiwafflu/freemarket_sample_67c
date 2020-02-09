@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
 
   def destory
     if @item.saler_id == current_user.id && @item.destory
-    redirect_to root_path
+      redirect_to root_path
+    end
   end
 end
