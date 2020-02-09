@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'buyers/index'
-  get 'buyers/done'
   root "posts#index"
   get 'posts/index'
   get 'posts/show'
@@ -23,7 +21,7 @@ Rails.application.routes.draw do
     collection do
       get 'index', to: 'buyers#index'
       post 'pay', to: 'buyers#pay'
-      get 'done', to: 'purchase#done'
+      get 'done', to: 'buyers#done'
     end
   end
   resources :cards, only: [:new, :show] do

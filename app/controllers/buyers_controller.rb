@@ -3,7 +3,7 @@ class BuyersController < ApplicationController
   require 'payjp'
 
   def index
-    card = Card.where(user_id:current_user.id).first #cardテーブルからpayjpの顧客IDを検索
+    card = Card.find_by(user_id:current_user.id) #cardテーブルからpayjpの顧客IDを検索
     if card.blank?
       redirect_to controller: "cards", action: "new"
     else
@@ -14,7 +14,7 @@ class BuyersController < ApplicationController
   end
 
   def pay
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
     :amount => 1000, #支払金額を入力
