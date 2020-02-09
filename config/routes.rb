@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   
   root "posts#index"
-  resources :items
+  resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
   get 'posts/index'
   get 'posts/show'
   get 'posts/create'
@@ -19,5 +25,4 @@ Rails.application.routes.draw do
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 end

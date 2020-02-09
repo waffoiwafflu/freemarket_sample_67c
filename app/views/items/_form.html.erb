@@ -32,6 +32,17 @@
   発送元の地域<%= f.select :address, Item.addresses.keys %><br>
   発送までの日数<%= f.select :date, Item.dates.keys %><br>
   価格<%= f.number_field :price %><br>
+  <div class=listing-form-box >
+    <div class=listing-product-detail__category >
+      <%= f.label 'カテゴリー', class: 'listing-default__label' %>
+      <span class=listing-default--require></span>
+      <div class=listing-select-wrapper>
+        <div class=listing-select-wrapper__box>
+        <%= f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
+        </div>
+      </div>
+    </div>
+  </div>
   <%= render 'layouts/error_messages', model: f.object %>
   <%= f.submit %>
   <% end %>

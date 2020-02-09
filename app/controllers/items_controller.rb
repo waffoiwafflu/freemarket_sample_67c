@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   
   def index
     @items = Item.all.includes(:images).order('created_at DESC')
@@ -9,10 +9,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to root_path, notice: '商品を出品しました'
     else
@@ -36,14 +41,24 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def get_category_children
+  
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, images_attributes: (:url ))
+    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, images_attributes: (:url )).merge(saler_id: current_user.id, category_id: params[:data-category])
   end
 
- def set_item
+  def set_item
     @item = Item.find(params[:id])
   end
 
