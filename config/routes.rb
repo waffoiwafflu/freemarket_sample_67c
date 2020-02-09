@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "posts#index"
   get 'posts/index'
   get 'posts/show'
-  post 'items/create'
  
   
   devise_for :users, controllers: {
@@ -25,10 +24,10 @@ Rails.application.routes.draw do
   end
   resources :cards, only: [:new, :show] do
     collection do
-      get 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'destroy', to: 'cards#destroy'
     end
   end
-
+  resources :items, only: [:create] do
+  end
 end
