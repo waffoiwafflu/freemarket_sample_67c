@@ -5,7 +5,9 @@ class User < ApplicationRecord
   has_one :credits
   has_many :items
   has_many :comments
+
   has_many :sns_credentials, dependent: :destroy
+
   before_save { self.email = email.downcase }
 
 
