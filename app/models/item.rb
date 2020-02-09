@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   },_prefix: true
   enum delivery_charge:{
     "---":0,
-    送料込み(出品者負担):1,着払い(購入者負担):2,
+    '送料込み(出品者負担)':1,'着払い(購入者負担)':2,
   },_prefix: true
   enum address:{
     "---":0,
