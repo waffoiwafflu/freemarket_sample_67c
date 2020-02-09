@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "posts#index"
   get 'posts/index'
   get 'posts/show'
-  get 'items/create'
+  post 'items/create'
  
   
   devise_for :users, controllers: {
@@ -19,18 +19,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :buyers, only: [:index] do
     collection do
-      get 'index', to: 'buyers#index'
       post 'pay', to: 'buyers#pay'
       get 'done', to: 'buyers#done'
     end
   end
   resources :cards, only: [:new, :show] do
     collection do
-      post 'show', to: 'cards#show'
+      get 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
-      post 'delete', to: 'cards#delete'
+      post 'destroy', to: 'cards#destroy'
     end
   end
 
-  get '*path', controller: 'application', action: 'render_404'
 end
