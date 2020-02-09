@@ -92,13 +92,6 @@
           %li.link-btn-right
             %i.fas.fa-flag
               = link_to "不適切な商品の通報"
-  -# .item-change
-  -#   - if user_signed_in? && current_user.id == @item.saler_id
-  -#     .item-change__btn
-  -#       = link_to "編集", edit_item_path, class:"item-change__btn--edit"
-  -#         or
-  -#     .item-change__btn__del
-  -#       = link_to "削除", item_path, class:"item-change__btn--destroy",method: :delete
 .comment-main
   .comments
     .comment-box
