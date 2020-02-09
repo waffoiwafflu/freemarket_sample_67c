@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @parents = Category.all.order("id ASC").limit(3)
   end
 
   def create
