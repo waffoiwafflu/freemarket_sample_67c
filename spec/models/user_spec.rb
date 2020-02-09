@@ -28,8 +28,6 @@ require 'rails_helper'
           first_name_kana: "w",
           last_name_kana: "w",
           year: "2020-02-05 00:00:01",
-          month: "2020-02-05 00:00:01",
-          day: "2020-02-05 00:00:01",
           phone_number: "sdf",
           nickname: "wert",
           email: "taro@example.com"
@@ -41,8 +39,6 @@ require 'rails_helper'
           first_name_kana: "wfdg",
           last_name_kana: "wdsfgd",
           year: "2020-02-05 00:00:02",
-          month: "2020-02-05 00:00:02",
-          day: "2020-02-05 00:00:02",
           phone_number: "sdffg",
           nickname: "werbht",
           email: user1.email)).to_not be_valid
