@@ -65,13 +65,18 @@
         %span 送料込み
 
       .item-buy-btn
-    -if @item.buyer_id != nil
-      = link_to '売り切れました', root_path, class: "item-buy-btn"
-    - elsif @item.buyer_id == nil
-      = link_to '購入画面に進む', buyers_index_path(@item), class: "item-buy-btn"
-    - else
-      = link_to 'ログインして購入', new_user_session_path, class: "item-buy-btn"
-      = link_to '新規会員登録して購入', new_user_registration_path, class: "item-buy-btn"
+        -if @item.buyer_id != nil
+          = link_to '売り切れました', root_path, class: "item-buy-btn"
+        -elsif user_signed_in?
+          -if @item.saler_id == current_user.id
+            = link_to "編集", "#", class:"item-buy-btn__edit"
+            %span or
+            = link_to "削除", "#", class:"item-buy-btn__destroy",method: :delete
+          - elsif @item.buyer_id == nil
+            = link_to '購入画面に進む', buyers_index_path(@item), class: "item-buy-btn"
+        - else
+          = link_to 'ログインして購入', new_user_session_path, class: "item-buy-btn"
+          = link_to '新規会員登録して購入', new_user_registration_path, class: "item-buy-btn"
       
     .item-description
       %p.item-description__inner
@@ -87,6 +92,13 @@
           %li.link-btn-right
             %i.fas.fa-flag
               = link_to "不適切な商品の通報"
+  -# .item-change
+  -#   - if user_signed_in? && current_user.id == @item.saler_id
+  -#     .item-change__btn
+  -#       = link_to "編集", edit_item_path, class:"item-change__btn--edit"
+  -#         or
+  -#     .item-change__btn__del
+  -#       = link_to "削除", item_path, class:"item-change__btn--destroy",method: :delete
 .comment-main
   .comments
     .comment-box

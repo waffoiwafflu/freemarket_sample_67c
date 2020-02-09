@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "posts#index"
   get 'posts/index'
   get 'posts/show'
- 
+
   
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -27,6 +27,6 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-  resources :items, only: [:create] do
+  resources :items, only: [:create, :edit, :destroy] do
   end
 end
