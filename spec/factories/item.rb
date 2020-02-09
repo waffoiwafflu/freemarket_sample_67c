@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :item do
     name                  {"test"}
     detail                {"test"}
-    status              {"1"}
+    status                {"1"}
     price                 {"1000"}
     status                {"1"}
     state                 {"1"}
