@@ -1,4 +1,6 @@
 = render "shared/user-header"
+= link_to "google", user_google_oauth2_omniauth_authorize_path
+-# , method: :post
 .user-wrapper 
   .user-menter-top
     .user-menter-ooo
@@ -10,7 +12,6 @@
         = f.label :email, class: "user-ioioio"
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email", class:"user-menter-toptop", placeholder: "メールアドレスを入力"
-      .user-field
         = f.label :password, class: "user-ioioio"
         - if @minimum_password_length
           %em

@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    @user = User.new
-  end
+  # def new
+  #   super
+  # end
 
+  # POST /resource
   def create
     @user = User.new(sign_up_params)
     unless @user.valid?
@@ -21,8 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_adress
   end
 
-
-  # POST /resource
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
@@ -33,7 +32,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
-    redirect_to root_path
+  end
+# 省略
+
+  protected
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   end
 
   # GET /resource/edit
@@ -81,14 +86,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  protected
-
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
-
-  def address_params
-    params.require(:address).permit(:zipcode, :region, :municipality, :street_mansion)
-  end
-
 end
