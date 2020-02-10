@@ -11,7 +11,7 @@ class Item < ApplicationRecord
                             {
                               message: "画像がありません"
                             }
-
+                            
   validates :name, presence: true,
                     length: {
                       minimum: 1, maximum: 40,

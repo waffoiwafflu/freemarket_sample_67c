@@ -16,8 +16,10 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     
     if @item.save
-      redirect_to root_path, notice: '商品を出品しました'
+      redirect_to root_path
+      flash.now[:alert] = "商品を出品しました。"
     else
+      flash.now[:alert] = "空欄を入力してください。"
       render :new
       
     end
