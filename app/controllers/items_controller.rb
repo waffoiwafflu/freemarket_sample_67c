@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  
+  before_action :set_ategory_parent_array, only: [:new, :create, :edit, :update]
+
   def index
     @items = Item.all.includes(:images).order('created_at DESC')
   end
@@ -9,18 +10,16 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
+      binding.pry
       redirect_to root_path, notice: '商品を出品しました'
     else
-      render :new
+      render action: :new
+      # render action: "new", locals:{category_parent_array: @category_parent_array}
     end
   end
 
@@ -57,12 +56,18 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :category_id, images_attributes: (:url )).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :category_id, :brand, :buyer_id, :category_id, images_attributes: (:url )).merge(saler_id: current_user.id)
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
 
+  def set_ategory_parent_array
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
 end
 
