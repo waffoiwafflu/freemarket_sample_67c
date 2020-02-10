@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_ategory_parent_array, only: [:new, :create, :edit, :update]
 
   def index
-    @items = Item.all.includes(:images).order('created_at DESC')
+    @items = Item.all.includes(:images).order("created_at DESC")
   end
 
   def new
@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     
     if @item.save
-      binding.pry
       redirect_to root_path, notice: '商品を出品しました'
     else
       binding.pry
