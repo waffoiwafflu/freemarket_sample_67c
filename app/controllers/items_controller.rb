@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :set_ategory_parent_array, only: [:new, :create, :edit, :update]
+  # before_action :set_ategory_parent_array, only: [:new, :create, :edit, :update]
 
   def index
     @items = Item.all.includes(:images).order('created_at DESC')
