@@ -1,6 +1,7 @@
 .card-main {
   display: block;
-  background: #F5F5F5;
+  background: #fff;
+  padding-top: 40px;
   &__container {
     width: 700px;
     background: #fff;
@@ -27,7 +28,7 @@
       label {
         font-weight: 600;
       }
-      span {
+      .require {
         background: #3CCACE;
         margin: 0 0 0 8px;
         padding: 2px 4px;
@@ -35,6 +36,7 @@
         color: #fff;
         font-size: 12px;
         vertical-align: top;
+        float: right;
       }
         input {
           width: 100%;
@@ -98,7 +100,13 @@
         }
       }
     }
-button {
-  // margin: 24px 0 0;
+#token_submit {
+  background: #3CCACE;
+  border: 1px solid #3CCACE;
+  color: #fff;
+  display: block;
   width: 100%;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
 }

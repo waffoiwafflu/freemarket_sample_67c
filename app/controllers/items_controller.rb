@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   
+  
   def index
     @items = Item.all.includes(:images).order('created_at DESC')
   end
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to 出品ページ if current_user.id != @item.saler_id
   end
 
   def update
@@ -38,10 +40,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    @item.destroy
+def destory
+  if @item.saler_id == current_user.id && @item.destory
     redirect_to root_path
   end
+end
 
   def get_category_children
   
@@ -65,4 +68,3 @@ class ItemsController < ApplicationController
   end
 
 end
-
