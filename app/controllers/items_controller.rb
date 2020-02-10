@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   
   
   def index
-    @items = Item.all.includes(:images).order('created_at DESC')
+    @items = Item.all.includes(:images).order("created_at DESC")
   end
 
   def new
@@ -20,8 +20,10 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     
     if @item.save
-      redirect_to root_path, notice: '商品を出品しました'
+      flash[:notice] = "出品が完了しました"
+      redirect_to root_path
     else
+      flash[:alert] = "出品に失敗しました。必須項目を確認してください。"
       render :new
     end
   end
@@ -60,7 +62,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :category_id, images_attributes: (:url )).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, category_ids: [], images_attributes: (:url )).merge(saler_id: current_user.id)
   end
 
   def set_item
