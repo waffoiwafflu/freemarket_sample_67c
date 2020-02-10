@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: '商品を出品しました'
     else
-      binding.pry
       render :new
       
     end
@@ -58,7 +57,9 @@ end
   private
 
   def item_params
+    
     params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, images_attributes: (:url )).merge(saler_id: current_user.id, category_id: params[:category_id])
+    
   end
 
   def set_item
