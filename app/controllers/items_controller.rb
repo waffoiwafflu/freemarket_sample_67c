@@ -25,9 +25,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
     redirect_to 出品ページ if current_user.id != @item.saler_id
   end

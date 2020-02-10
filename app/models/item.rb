@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many :comments
@@ -11,7 +12,7 @@ class Item < ApplicationRecord
                             {
                               message: "画像がありません"
                             }
-                            
+
   validates :name, presence: true,
                     length: {
                       minimum: 1, maximum: 40,
