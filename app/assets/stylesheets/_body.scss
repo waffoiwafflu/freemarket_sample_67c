@@ -552,55 +552,6 @@
     }
   }
 
-  // バナー
-  &_banner{
-    margin-bottom: -6px;
-
-    &_contents{
-      position: absolute;
-      margin: -250px 0 0 460px;
-      color: #fff;
-      text-align: center;
-
-      &_title{
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        font-size: 23px;
-        font-weight: bold;
-        line-height: 1.4;
-      }
-
-      &_txt{
-        font-size: 34px;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      }
-
-      &_icon{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: 20px auto 0;
-
-        .app{
-          width: 180px;
-          margin-right: 10px;
-                   
-          .image{
-            width: 100%;
-            vertical-align: bottom;
-          }
-        }
-        .google{
-          width: 180px;
- 
-          .image{
-            width: 100%;
-            vertical-align: bottom;
-          }
-        }
-      }
-    }
-  }
-
   // 出品する
   &_bottan{
     width: 120px;

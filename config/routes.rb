@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   
   root "posts#index"
+  resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
   get 'posts/index'
   get 'posts/show'
 
   
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   
   devise_scope :user do
@@ -27,7 +35,4 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-  resources :items, only: [:index, :create, :edit, :destroy] do
-  end
-
 end

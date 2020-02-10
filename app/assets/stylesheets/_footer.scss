@@ -2,8 +2,57 @@
   box-sizing: border-box;
 }
 
+.TSmain_banner{
+  height: 100%;
+  margin-bottom: -6px;
+  
+  
+  &_contents{
+    margin-top: -280px;
+    color: #fff;
+    text-align: center;
+
+    &_title{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    &_txt{
+      font-size: 34px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+
+    &_icon{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+
+      .app{
+        width: 180px;
+        margin-right: 10px;
+                 
+        .image{
+          width: 100%;
+          vertical-align: bottom;
+        }
+      }
+      .google{
+        width: 180px;
+
+        .image{
+          width: 100%;
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+}
+
 .TSfooter {
-  padding: 60px 0;
+  padding: 160px 0;
   color: #fff;
   background-color: #272727;
   text-align: center;
@@ -27,6 +76,7 @@
 
       &_content{
         list-style: none;
+        margin: 0 auto;
         li{
 
           a{

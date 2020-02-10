@@ -1,0 +1,52 @@
+<%= form_for @item do |f| %>
+  
+  <div id="image-box">
+  <div id="previews">	<%= f.fields_for :images do |i| %>
+    出品画像
+    <% if @item.persisted? %>	
+    <% @item.images.each_with_index do |image, i| %>	
+      <%= image_tag image.url, data: { index: i }, width: "100", height: '100' %>	
+    <% end %>	
+  <% end %>	
+  </div>
+    <%= f.fields_for :images do |i| %>
+      <div data-index="<%= i.index %>" class="js-file_group">
+        <%= i.file_field :url, class: 'js-file' %><br>
+        <span class="js-remove">削除</span>
+      </div>  
+      <% if @item.persisted? %>
+        <%= i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' %>
+      <% end %>
+      <% if @item.persisted? %>
+      <div data-index="<%= @item.images.count %>" class="js-file_group">
+        <%= file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file' %>
+        <div class="js-remove">削除</div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  商品名<%= f.text_field :name %><br>
+  商品の説明<%= f.text_field :detail %><br>
+  <div class=listing-form-box >
+    <div class=listing-product-detail__category >
+      <%= f.label 'カテゴリー', class: 'listing-default__label' %>
+      <span class=listing-default--require></span>
+      <div class=listing-select-wrapper>
+        <div class=listing-select-wrapper__box>
+        <%= f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  商品の状態<%= f.select :status , Item.statuses.keys %><br>
+  配送料の負担<%= f.select :delivery_charge, Item.delivery_charges.keys %><br>
+  発送元の地域<%= f.select :address, Item.addresses.keys %><br>
+  発送までの日数<%= f.select :date, Item.dates.keys %><br>
+  価格<%= f.number_field :price %><br>
+  
+  <%= render 'layouts/error_messages', model: f.object %>
+  <%= f.submit %>
+  <% end %>
+<% end %>
+<%= link_to '一覧', items_path %>
+
