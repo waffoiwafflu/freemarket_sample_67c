@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  # before_action :set_ategory_parent_array, only: [:new, :create, :edit, :update]
+  before_action :set_ategory_parent_array, only: [:new, :create, :edit, :update]
 
   def index
     @items = Item.all.includes(:images).order('created_at DESC')
@@ -19,8 +19,9 @@ class ItemsController < ApplicationController
       binding.pry
       redirect_to root_path, notice: '商品を出品しました'
     else
-      render action: :new
-      # render action: "new", locals:{category_parent_array: @category_parent_array}
+      binding.pry
+      render :new
+      
     end
   end
 
@@ -58,7 +59,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :category_id, :brand, :buyer_id, :category_id, images_attributes: (:url )).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, images_attributes: (:url )).merge(saler_id: current_user.id, category_id: params[:category_id])
   end
 
   def set_item

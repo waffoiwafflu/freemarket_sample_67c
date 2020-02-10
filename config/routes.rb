@@ -34,6 +34,4 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-  resources :items, only: [:create, :edit, :destroy] do
-  end
 end
