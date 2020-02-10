@@ -1,4 +1,5 @@
 = render "shared/user-header"
+= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
 .user-wrapper 
   .user-menter-top
     .user-menter-ooo
@@ -10,17 +11,20 @@
         = f.label :email, class: "user-ioioio"
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email", class:"user-menter-toptop", placeholder: "メールアドレスを入力"
-      .user-field
-        = f.label :password, class: "user-ioioio"
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
-        = f.password_field :password, autocomplete: "new-password", class:"user-menter-toptop", placeholder: "パスワード６文字"
-      .user-field
-        = f.label :password_confirmation, class: "user-ioioio"
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", class:"user-menter-toptop", placeholder: "確認用"
+      - if @sns_id.present?
+        = hidden_field_tag :sns_auth, true
+      - else
+        .user-field
+          = f.label :password, class: "user-ioioio"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class:"user-menter-toptop", placeholder: "パスワード６文字"
+        .user-field
+          = f.label :password_confirmation, class: "user-ioioio"
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class:"user-menter-toptop", placeholder: "確認用"
       .user-menter-wrapper
         .user-menter-bottom
           .user-menter-bottom__a
