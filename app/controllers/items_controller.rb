@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     
     if @item.save
-      binding.pry
       redirect_to root_path, notice: '商品を出品しました'
     else
       render action: :new
