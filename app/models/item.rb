@@ -46,7 +46,7 @@ class Item < ApplicationRecord
   
   validates :price, presence: true,
                       numericality: {
-                        greater_than_or_equal_to: 1,less_than_or_equal_to: 9999999,
+                        greater_than_or_equal_to: 300,less_than_or_equal_to: 9999999,
                         message: "販売価格は300以上9,999,999以内で入力してください"
                       }
 
