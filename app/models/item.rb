@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :comments
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
-  belongs_to :saler, class_name: "User"
+  belongs_to :saler, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
   
   validates :images, presence: 
@@ -53,7 +53,7 @@ class Item < ApplicationRecord
   # belongs_to :category
   enum status:{
     "---":0,
-    新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5
+    新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5,
   },_prefix: true
 
   enum delivery_charge:{
@@ -70,12 +70,12 @@ class Item < ApplicationRecord
     滋賀県:25,京都府:26,大阪府:27,兵庫県:28,奈良県:29,和歌山県:30,
     鳥取県:31,島根県:32,岡山県:33,広島県:34,山口県:35,
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
-    福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
+    福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47,
   },_prefix: true
 
   enum date:{
     "---":0,
-    "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3
+    "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3,
   },_prefix: true
   
 end

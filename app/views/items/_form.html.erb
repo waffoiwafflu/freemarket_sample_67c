@@ -27,11 +27,6 @@
   </div>
   商品名<%= f.text_field :name %><br>
   商品の説明<%= f.text_field :detail %><br>
-  商品の状態<%= f.select :status , Item.statuses.keys %><br>
-  配送料の負担<%= f.select :delivery_charge, Item.delivery_charges.keys %><br>
-  発送元の地域<%= f.select :address, Item.addresses.keys %><br>
-  発送までの日数<%= f.select :date, Item.dates.keys %><br>
-  価格<%= f.number_field :price %><br>
   <div class=listing-form-box >
     <div class=listing-product-detail__category >
       <%= f.label 'カテゴリー', class: 'listing-default__label' %>
@@ -44,6 +39,12 @@
       </div>
     </div>
   </div>
+  商品の状態<%= f.select :status , Item.statuses.keys %><br>
+  配送料の負担<%= f.select :delivery_charge, Item.delivery_charges.keys %><br>
+  発送元の地域<%= f.select :address, Item.addresses.keys %><br>
+  発送までの日数<%= f.select :date, Item.dates.keys %><br>
+  価格<%= f.number_field :price %><br>
+  
   <%= render 'layouts/error_messages', model: f.object %>
   <%= f.submit %>
   <% end %>

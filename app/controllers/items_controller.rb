@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    
     if @item.save
       binding.pry
       redirect_to root_path, notice: '商品を出品しました'
@@ -27,6 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to 出品ページ if current_user.id != @item.saler_id
   end
 
   def update
@@ -37,13 +39,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    @item.destroy
+def destory
+  if @item.saler_id == current_user.id && @item.destory
     redirect_to root_path
   end
+end
 
   def get_category_children
-  
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
