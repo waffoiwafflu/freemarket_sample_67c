@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+.TSform{
+  padding: 0 0 220px;
+
+  &_main{
+    display: block;
+
+    &_contents{
+      width: 700px;
+      margin: 0 auto;
+
+      &_sell{
+
+        &_head{
+          padding: 32px 16px;
+          font-size: 21px;
+          line-height: 1.5;
+          text-align: center;
+        }
+
+        &_form{
+          border-top: 1px solid #eee;
+
+          &_up{
+            width: 620px;
+            padding: 40px;
+
+            &_head{
+              font-size: 15px;
+
+              &_need{
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                background: #ea352d;
+              }
+            }
+
+            p{
+              font-size: 13px;
+              margin: 8px 0 0;
+              line-height: 1.5;
+            }
+
+            &_dropbox{
+              display: block;
+              width: 620px;   
+              margin: 16px auto 0;    
+              
+              &_items{
+                display: inline;
+
+                &_item{
+                  float: left;
+                  display: block;
+                
+                  ul{
+                    width: 100%;
+                    display: block;
+                  }
+                }
+              }
+
+              &_box{
+                width: 100%;
+                margin-left: 0;
+                float: right;
+                padding: 40px;                                   
+                position: relative;
+                min-height: 162px;
+                background: #f5f5f5;
+                border: 1px dashed #ccc;
+                font-size: 0;
+                text-align: center; 
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

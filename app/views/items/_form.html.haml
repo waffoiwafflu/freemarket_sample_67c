@@ -1,43 +1,63 @@
-= form_for @item do |f|
-  #image-box
-    #previews
-      = f.fields_for :images do |i|
-        出品画像
-        - if @item.persisted?
-          - @item.images.each_with_index do |image, i|
-            = image_tag image.url, data: { index: i }, width: "100", height: '100'
-    = f.fields_for :images do |i|
-      .js-file_group{"data-index" => "#{i.index}"}
-        = i.file_field :url, class: 'js-file'
-        %br/
-        %span.js-remove 削除
-      - if @item.persisted?
-        = i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-      - if @item.persisted?
-        .js-file_group{"data-index" => "#{@item.images.count}"}
-          = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
-          .js-remove 削除
-  商品名#{f.text_field :name}
-  %br/
-  商品の説明#{f.text_field :detail}
-  %br/
-  .listing-form-box
-    .listing-product-detail__category
-      = f.label 'カテゴリー', class: 'listing-default__label'
-      %span.listing-default--require
-      .listing-select-wrapper
-        .listing-select-wrapper__box
-          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-  商品の状態#{f.select :status , Item.statuses.keys}
-  %br/
-  配送料の負担#{f.select :delivery_charge, Item.delivery_charges.keys}
-  %br/
-  発送元の地域#{f.select :address, Item.addresses.keys}
-  %br/
-  発送までの日数#{f.select :date, Item.dates.keys}
-  %br/
-  価格#{f.number_field :price}
-  %br/
-  = render 'layouts/error_messages', model: f.object
-  = f.submit
-= link_to '一覧', items_path
+= render "shared/user-header"
+.TSform  
+  %main.TSform_main
+    %section.TSform_main_contents
+      .TSform_main_contents_sell
+        %h2.TSform_main_contents_sell_head
+          %b 商品の情報を入力
+        %form.TSform_main_contents_sell_form
+          .TSform_main_contents_sell_form_up
+            %h3.TSform_main_contents_sell_form_up_head
+              %b 出品画像
+              %span.TSform_main_contents_sell_form_up_head_need
+                必須
+            %p 最大10枚までアップロードできます
+            .TSform_main_contents_sell_form_up_dropbox
+              .TSform_main_contents_sell_form_up_dropbox_items
+                .TSform_main_contents_sell_form_up_dropbox_items_item
+                  %ul
+              .TSform_main_contents_sell_form_up_dropbox_box    
+                %input.TSform_main_contents_sell_form_up_dropbox_box_file{ multiple: "", name: "image1", style: "display: none;", :type => "file"}
+
+                -# = form_for @item do |f|
+                -#   #image-box
+                -#     #previews
+                -#       = f.fields_for :images do |i|
+                -#         - if @item.persisted?
+                -#           - @item.images.each_with_index do |image, i|
+                -#             = image_tag image.url, data: { index: i }, width: "100", height: '100'
+                -#     = f.fields_for :images do |i|
+                -#       .js-file_group{"data-index" => "#{i.index}"}
+                -#         = i.file_field :url, class: 'js-file'
+                -#         %br/
+                -#         %span.js-remove 削除
+                -#       - if @item.persisted?
+                -#         = i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                -#       - if @item.persisted?
+                -#         .js-file_group{"data-index" => "#{@item.images.count}"}
+                -#           = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
+                -#         .js-remove 削除
+-#   商品名#{f.text_field :name}
+-#   %br/
+-#   商品の説明#{f.text_field :detail}
+-#   %br/
+-#   .listing-form-box
+-#     .listing-product-detail__category
+-#       = f.label 'カテゴリー', class: 'listing-default__label'
+-#       %span.listing-default--require
+-#       .listing-select-wrapper
+-#         .listing-select-wrapper__box
+-#           = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+-#   商品の状態#{f.select :status , Item.statuses.keys}
+-#   %br/
+-#   配送料の負担#{f.select :delivery_charge, Item.delivery_charges.keys}
+-#   %br/
+-#   発送元の地域#{f.select :address, Item.addresses.keys}
+-#   %br/
+-#   発送までの日数#{f.select :date, Item.dates.keys}
+-#   %br/
+-#   価格#{f.number_field :price}
+-#   %br/
+-#   = render 'layouts/error_messages', model: f.object
+-#   = f.submit
+-# = link_to '一覧', items_path
