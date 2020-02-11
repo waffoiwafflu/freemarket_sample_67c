@@ -13,30 +13,32 @@
                 必須
             %p 最大10枚までアップロードできます
             .TSform_main_contents_sell_form_up_dropbox
-              .TSform_main_contents_sell_form_up_dropbox_items
-                .TSform_main_contents_sell_form_up_dropbox_items_item
-                  %ul
-              .TSform_main_contents_sell_form_up_dropbox_box    
-                %input.TSform_main_contents_sell_form_up_dropbox_box_file{ multiple: "", name: "image1", style: "display: none;", :type => "file"}
-
-                -# = form_for @item do |f|
-                -#   #image-box
-                -#     #previews
-                -#       = f.fields_for :images do |i|
-                -#         - if @item.persisted?
-                -#           - @item.images.each_with_index do |image, i|
-                -#             = image_tag image.url, data: { index: i }, width: "100", height: '100'
-                -#     = f.fields_for :images do |i|
-                -#       .js-file_group{"data-index" => "#{i.index}"}
-                -#         = i.file_field :url, class: 'js-file'
-                -#         %br/
-                -#         %span.js-remove 削除
-                -#       - if @item.persisted?
-                -#         = i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                -#       - if @item.persisted?
-                -#         .js-file_group{"data-index" => "#{@item.images.count}"}
-                -#           = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
-                -#         .js-remove 削除
+              .TSform_main_contents_sell_form_up_dropbox_box  
+                .TSform_main_contents_sell_form_up_dropbox_box_items
+                  .TSform_main_contents_sell_form_up_dropbox_box_items_item
+                    %ul  
+                    %input.TSform_main_contents_sell_form_up_dropbox_box_items_item_file
+                      = form_for @item do |f|
+                        #image-box
+                          #previews
+                            = f.fields_for :images do |i|
+                              - if @item.persisted?
+                                - @item.images.each_with_index do |image, i|
+                                  = image_tag image.url, data: { index: i }, width: "100", height: '100'
+                          = f.fields_for :images do |i|
+                            .js-file_group{"data-index" => "#{i.index}"}
+                              = i.file_field :url, class: 'js-file'
+                              %br/
+                              %span.js-remove 削除
+                            - if @item.persisted?
+                              = i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                            - if @item.persisted?
+                              .js-file_group{"data-index" => "#{@item.images.count}"}
+                                = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
+                              .js-remove 削除
+                    %pre.drop
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
 -#   商品名#{f.text_field :name}
 -#   %br/
 -#   商品の説明#{f.text_field :detail}
