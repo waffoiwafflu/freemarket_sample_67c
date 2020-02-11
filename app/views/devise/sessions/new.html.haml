@@ -1,10 +1,11 @@
 = render "shared/user-header"
-= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
 .user-wrapper 
   .user-menter-top
     ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .user-menter-top-aaa
+      .user-field
+        = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: "user-api"
       .user-field
         = f.label :email, class: "user-ioioio"
         %br/
