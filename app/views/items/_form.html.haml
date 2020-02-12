@@ -42,43 +42,41 @@
           .TSform_main_contents_sell_form_content   
             .TSform_main_contents_sell_form_content_groupone
               %label
-                %b
-                  商品名
+                %b 商品名
               %span.TSform_main_contents_sell_form_content_groupone_need
                 必須
-              %div 
-                %input.TSform_main_contents_sell_form_content_groupone_form{ name: "text_field", placeholder: "商品名（必須 40文字まで)" }
+              %div
+                = form_for @item do |f| 
+                  %input.TSform_main_contents_sell_form_content_groupone_form{ name: "f.text_field", placeholder: "商品名（必須 40文字まで)" }
             .TSform_main_contents_sell_form_content_grouptwo
               %label
-                %b
-                  商品の説明
+                %b 商品の説明
               %span.TSform_main_contents_sell_form_content_grouptwo_need
                 必須
               %div 
-                %textarea.TSform_main_contents_sell_form_content_grouptwo_form{ detail: "text_field", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" }
+                = form_for @item do |f|
+                  %textarea.TSform_main_contents_sell_form_content_grouptwo_form{ detail: "f.text_field", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" }
           .TSform_main_contents_sell_form_contentfix
             %h3.TSform_main_contents_sell_form_contentfix_head
-              配送について
+              %b 商品の詳細
             .TSform_main_contents_sell_form_contentfix_box
-              .TSform_main_contents_sell_form_content_groupthree
-              %label
-                %b
-                  商品の説明
-              %span.TSform_main_contents_sell_form_content_groupthree_need
-                必須
-              %div 
-                %textarea.TSform_main_contents_sell_form_content_groupthree_form{ detail: "text_field", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" }
+              .TSform_main_contents_sell_form_contentfix_box_groupthree
+                %label
+                  %b カテゴリー
+                %span.TSform_main_contents_sell_form_contentfix_box_groupthree_need
+                  必須
+                %div 
+                  = form_for @item do |f|
+                    .listing-form-box
+                      .listing-product-detail__category
+                        %span.listing-default--require
+                        .listing-select-wrapper
+                          .listing-select-wrapper__box
+                          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
 
-
-
-            
--#   .listing-form-box
--#     .listing-product-detail__category
--#       = f.label 'カテゴリー', class: 'listing-default__label'
--#       %span.listing-default--require
--#       .listing-select-wrapper
--#         .listing-select-wrapper__box
--#           = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+            -# 作成場所変更
+            -# = link_to "#" do
+            -#   ?
 -#   商品の状態#{f.select :status , Item.statuses.keys}
 -#   %br/
 -#   配送料の負担#{f.select :delivery_charge, Item.delivery_charges.keys}

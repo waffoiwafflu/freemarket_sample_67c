@@ -158,11 +158,11 @@
                 display: block;
                 width: 100%;
                 max-width: 100%;
-                min-height: 104px;
+                min-height: 142px;
                 padding: 10px;
                 border: 1px solid #ccc;
                 background: #fff;
-                font-size: 16px;
+                font-size: 15px;
                 line-height: 1.5;
               }
             }
@@ -175,13 +175,30 @@
             &_head{
               float: left;
               color: #888;
-              font-size: 13px;
+              font-size: 14px;
             }
 
             &_box{
               float: right;
               width: 400px;
               margin: 0;
+
+              &_groupthree{
+                margin: 0;
+                font-size: 13px;
+  
+                &_need{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: #fff;
+                  font-size: 11px;
+                  vertical-align: top;
+                  background: #ea352d;
+                }
+
+                
+              }
             }
           }
         }
@@ -189,3 +206,17 @@
     }
   }
 }
+
+// 作成場所変更
+// a{
+//   display: inline-block;
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   background: #0099e8;
+//   color: #fff;
+//   line-height: 14px;
+//   font-size: 12px;
+//   text-align: center;  
+  
+// }
