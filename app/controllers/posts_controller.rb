@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_item, only: :done
   def index
     @parents = Category.all.order("id ASC").limit(13)
-    @items = Item.all.includes(:images).order("created_at desc").limit(3)
+    @items = Item.includes(:images).order("created_at desc").limit(3)
    
   end
 
