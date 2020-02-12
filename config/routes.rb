@@ -8,9 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'posts/index'
-  get 'posts/show'
-
+  resources :posts, only:[:index, :show]
   
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',

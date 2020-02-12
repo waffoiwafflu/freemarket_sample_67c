@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-
-  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :set_category_parent_array, only: [:new, :create, :edit, :update]
+  before_action :defolt_category, only: [:index, :show]
+  before_action :set_item, only: [:edit, :update]
+  before_action :set_category_parent_array, only: [:new, :edit]
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC")
@@ -59,9 +59,11 @@ end
   private
 
   def item_params
-    
     params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, images_attributes: (:url )).merge(saler_id: current_user.id, category_id: params[:category_id])
-    
+  end
+
+  def defolt_category
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def set_item
