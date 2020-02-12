@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    
     if @item.save
       redirect_to root_path
       flash[:alert] = "商品を出品しました。"
@@ -27,6 +26,7 @@ class ItemsController < ApplicationController
       if @item.images.empty?
         @item.images.new
       end
+      set_category_parent_array
       render :new
       
     end
@@ -45,6 +45,10 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path
     else
+      if @item.images.empty?
+        @item.images.new
+      end
+      set_category_parent_array
       render :edit
     end
   end
@@ -68,7 +72,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, images_attributes: (:url )).merge(saler_id: current_user.id, category_id: params[:category_id])
+    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, images_attributes: [:url, :_destroy, :id]).merge(saler_id: current_user.id, category_id: params[:category_id])
   end
 
   def defolt_category
