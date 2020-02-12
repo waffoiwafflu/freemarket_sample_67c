@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:item_id])
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def new
@@ -27,8 +28,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def edit
     redirect_to 出品ページ if current_user.id != @item.saler_id
