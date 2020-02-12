@@ -14,12 +14,12 @@ class PostsController < ApplicationController
   end
 
   def done
-    @item_buyer.updete( buyer_id: current_user.id)
+    @item.updete( buyer_id: current_user.id)
   end
 
   private
   def set_item
-    @item_buyer = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
 
