@@ -52,6 +52,9 @@
               display: block;
               width: 502px;  
               margin-left: 59px; 
+              content: '';
+              display: block;
+              clear: both;
                 
               &_box{
                 width: 100%;
@@ -101,6 +104,84 @@
                   }
                 }
               }
+            }
+          
+          }
+
+          &_content{
+            margin-top: 160px;
+            padding: 40px;
+            border-top: 1px solid #eee;
+
+            &_groupone{
+              margin: 0;
+              font-size: 13px;
+
+              &_need{
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                background: #ea352d;
+              }
+
+              &_form{
+                width: 100%;
+                margin: 8px 0 0;
+                height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;  
+              }
+            }
+
+            &_grouptwo{
+              margin: 40px 0 0;
+              font-size: 13px;
+
+              &_need{
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                background: #ea352d;
+              }
+
+              &_form{
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                min-height: 104px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                background: #fff;
+                font-size: 16px;
+                line-height: 1.5;
+              }
+            }
+          }
+
+          &_contentfix{
+            padding: 40px;
+            border-top: 1px solid #eee;
+
+            &_head{
+              float: left;
+              color: #888;
+              font-size: 13px;
+            }
+
+            &_box{
+              float: right;
+              width: 400px;
+              margin: 0;
             }
           }
         }
