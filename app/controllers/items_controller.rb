@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :set_category_parent_array, only: [:new, :create, :edit, :update]
+  before_action :set_category_parent_array, only: [:new, :create, :edit, :show, :update]
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC")
@@ -29,10 +29,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
     redirect_to 出品ページ if current_user.id != @item.saler_id
   end
 
   def show
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def update
@@ -68,7 +70,7 @@ end
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(2)
   end
 
   def set_category_parent_array

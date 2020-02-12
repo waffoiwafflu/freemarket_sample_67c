@@ -5,7 +5,7 @@
         出品画像
         - if @item.persisted?
           - @item.images.each_with_index do |image, i|
-            = image_tag image.url, data: { index: i }, width: "100", height: '100'
+            = image_tag image.url, 'data: { index: i }', width: "100", height: '100'
     = f.fields_for :images do |i|
       .js-file_group{"data-index" => "#{i.index}"}
         = i.file_field :url, class: 'js-file'
