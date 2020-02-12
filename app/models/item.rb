@@ -8,45 +8,19 @@ class Item < ApplicationRecord
   belongs_to :saler, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
   
-  validates :images, presence: 
-                            {
-                              message: "画像がありません"
-                            }
-
-  validates :name, presence: true,
-                    length: {
-                      minimum: 1, maximum: 40,
-                      message: "入力してください"
-                    }
-
-  validates :detail, presence: true,
-                      length: {
-                        minimum: 1, maximum: 1000,
-                        message: "入力してください"
-                      }
-
-  validates :status, presence: 
-  {
-    message: "選択してください"
-  }
+  validates :category_id, numericality: { greater_than: 28, message: "カテゴリーは三回選んでー"}
   
-  validates :delivery_charge, presence: 
-  {
-    message: "選択してください"
-  }
+  validates :images, presence: {message: "最低一枚は投稿して"}
 
-  validates :address, presence: 
-  {
-    message: "選択してください"
-  }
+  validates :name, length: {in: 1..40,message: "商品名は一文字から四十文字でおね"}
 
-  validates :date, presence: 
-  {
-    message: "選択してください"
-  }
-  
-  validates :price, presence: true,
-                      numericality: {
+  validates :detail, length: {in: 4..1000,message: "ちゃんと説明文いれよー"}
+                    
+
+  validates :status, :delivery_charge, :address, :date, 
+  exclusion: { in: %w(---) ,message: "ちゃんと選んで" }
+
+  validates :price, numericality: {
                         greater_than_or_equal_to: 300,less_than_or_equal_to: 9999999,
                         message: "販売価格は300以上9,999,999以内で入力してください"
                       }
