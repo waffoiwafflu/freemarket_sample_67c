@@ -119,7 +119,7 @@
           .TSmain_category_box_lists_list
           = link_to item_path(item), class: "TSmain_category_box_lists_list_link" do
             %figure.TSmain_category_box_lists_list_img
-              = image_tag item.images[0][:url], width: "100", height: '100'
+              = image_tag "#{item.images[0].url}", width: "100", height: '100'
               -if item.buyer_id.present? 
                 .TSmain_category_box_lists_list_img__sold
                   .TSmain_category_box_lists_list_img__sold__inner
@@ -130,13 +130,13 @@
               .TSmain_category_box_lists_list_menu_money
                 %ul
                   %li
-                    ¥#{item.price}
+                    100円
                   %li
                     %i.fa.fa-star.likeIcon
                       0
                 %p
                   (税込)
-  
+
   -# 出品する
   =link_to new_item_path do
     .TSmain_bottan

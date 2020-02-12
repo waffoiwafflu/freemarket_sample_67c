@@ -1,100 +1,91 @@
 = render "shared/user-header"
-.TSform  
-  %main.TSform_main
-    %section.TSform_main_contents
-      .TSform_main_contents_sell
-        %h2.TSform_main_contents_sell_head
-          %b 商品の情報を入力
-        %form.TSform_main_contents_sell_form
-          .TSform_main_contents_sell_form_up
-            %h3.TSform_main_contents_sell_form_up_head
-              %b 出品画像
-              %span.TSform_main_contents_sell_form_up_head_need
-                必須
-            %p 最大10枚までアップロードできます
-            .TSform_main_contents_sell_form_up_dropbox
-              .TSform_main_contents_sell_form_up_dropbox_box  
-                .TSform_main_contents_sell_form_up_dropbox_box_items
-                  .TSform_main_contents_sell_form_up_dropbox_box_items_item
-                    %ul  
-                    %input.TSform_main_contents_sell_form_up_dropbox_box_items_item_file
-                      = form_for @item do |f|
+= form_for @item do |f|
+  .TSform  
+    %main.TSform_main
+      %section.TSform_main_contents
+        .TSform_main_contents_sell
+          %h2.TSform_main_contents_sell_head
+            %b 商品の情報を入力
+          %form.TSform_main_contents_sell_form
+            .TSform_main_contents_sell_form_up
+              %h3.TSform_main_contents_sell_form_up_head
+                %b 出品画像
+                %span.TSform_main_contents_sell_form_up_head_need
+                  必須
+              %p 最大10枚までアップロードできます
+              .TSform_main_contents_sell_form_up_dropbox
+                .TSform_main_contents_sell_form_up_dropbox_box  
+                  .TSform_main_contents_sell_form_up_dropbox_box_items
+                    .TSform_main_contents_sell_form_up_dropbox_box_items_item
+                      %input.TSform_main_contents_sell_form_up_dropbox_box_items_item_file
                         #image-box
                           #previews
-                            = f.fields_for :images do |i|
-                              - if @item.persisted?
-                                - @item.images.each_with_index do |image, i|
-                                  = image_tag image.url, data: {index: i}, width: "100", height: '100'
+                            - if @item.persisted?
+                              - @item.images.each_with_index do |image, i|
+                                = image_tag "#{image.url}", data: {index: i}, width: "100", height: '100'
                           = f.fields_for :images do |i|
                             .js-file_group{"data-index" => "#{i.index}"}
                               = i.file_field :url, class: 'js-file'
-                              %br/
                               %span.js-remove 削除
-                            - if @item.persisted?
-                              = i.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                            - if @item.persisted?
-                              .js-file_group{"data-index" => "#{@item.images.count}"}
-                                = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
-                              .js-remove 削除
-                    %pre.drop
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
-          .TSform_main_contents_sell_form_content   
-            .TSform_main_contents_sell_form_content_groupone
-              %label
-                %b 商品名
-              %span.TSform_main_contents_sell_form_content_groupone_need
-                必須
-              %div
-                = form_for @item do |f| 
-                  %input.TSform_main_contents_sell_form_content_groupone_form{ name: "f.text_field", placeholder: "商品名（必須 40文字まで)" }
-            .TSform_main_contents_sell_form_content_grouptwo
-              %label
-                %b 商品の説明
-              %span.TSform_main_contents_sell_form_content_grouptwo_need
-                必須
-              %div 
-                = form_for @item do |f|
-                  %textarea.TSform_main_contents_sell_form_content_grouptwo_form{ detail: "f.text_field", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" }
-          .TSform_main_contents_sell_form_contentfix
-            %h3.TSform_main_contents_sell_form_contentfix_head
-              %b 商品の詳細
-            .TSform_main_contents_sell_form_contentfix_box
-              .TSform_main_contents_sell_form_contentfix_box_groupthree
+                              - if @item.persisted?
+                                = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                          - if @item.persisted?
+                            .js-file_group{"data-index" => "#{@item.images.count}"}
+                              = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
+                              %span.js-remove 削除
+                      %pre.drop
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
+            .TSform_main_contents_sell_form_content   
+              .TSform_main_contents_sell_form_content_groupone
                 %label
-                  %b カテゴリー
-                %span.TSform_main_contents_sell_form_contentfix_box_groupthree_need
+                  %b 商品名
+                %span.TSform_main_contents_sell_form_content_groupone_need
+                  必須
+                %div
+                  = f.text_field :name ,placeholder: "商品名（必須 40文字まで)", class: "TSform_main_contents_sell_form_content_groupone_form"
+              .TSform_main_contents_sell_form_content_grouptwo
+                %label
+                  %b 商品の説明
+                %span.TSform_main_contents_sell_form_content_grouptwo_need
                   必須
                 %div 
-                  = form_for @item do |f|
+                  = f.text_field :detail ,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,class: "TSform_main_contents_sell_form_content_grouptwo_form"
+            .TSform_main_contents_sell_form_contentfix
+              %h3.TSform_main_contents_sell_form_contentfix_head
+                %b 商品の詳細
+              .TSform_main_contents_sell_form_contentfix_box
+                .TSform_main_contents_sell_form_contentfix_box_groupthree
+                  %label
+                    %b カテゴリー
+                  %span.TSform_main_contents_sell_form_contentfix_box_groupthree_need
+                    必須
+                  %div 
                     .listing-form-box
                       .listing-product-detail__category
                         %span.listing-default--require
                         .listing-select-wrapper
                           .listing-select-wrapper__box
                           = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-              .TSform_main_contents_sell_form_contentfix_box_groupfour
-                %label
-                  %b 商品名
-                %span.TSform_main_contents_sell_form_contentfix_box_groupfour_need
-                  必須
-                %div
-                  = form_for @item do |f| 
-                    %input.TSform_main_contents_sell_form_contentfix_box_groupfour_form{ name: "f.text_field", placeholder: "商品名（必須 40文字まで)" }
-
-            -# 作成場所変更
-            -# = link_to "#" do
-            -#   ?
--#   商品の状態#{f.select :status , Item.statuses.keys}
--#   %br/
--#   配送料の負担#{f.select :delivery_charge, Item.delivery_charges.keys}
--#   %br/
--#   発送元の地域#{f.select :address, Item.addresses.keys}
--#   %br/
--#   発送までの日数#{f.select :date, Item.dates.keys}
--#   %br/
--#   価格#{f.number_field :price}
--#   %br/
--#   = render 'layouts/error_messages', model: f.object
--#   = f.submit
--# = link_to '一覧', items_path
+                .TSform_main_contents_sell_form_contentfix_box_groupfour
+                  %label
+                    
+                    
+                    商品の状態
+                    =f.select :status , Item.statuses.keys
+                    %br/
+                    配送料の負担
+                    =f.select :delivery_charge, Item.delivery_charges.keys
+                    %br/
+                    発送元の地域
+                    =f.select :address, Item.addresses.keys
+                    %br/
+                    発送までの日数
+                    =f.select :date, Item.dates.keys
+                    %br/
+                    価格
+                    =f.number_field :price
+                    %br/
+                    = render 'layouts/error_messages', model: f.object
+                    = f.submit
+                  = link_to '一覧', items_path
