@@ -29,6 +29,9 @@ class ItemsController < ApplicationController
     redirect_to 出品ページ if current_user.id != @item.saler_id
   end
 
+  def show
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path
