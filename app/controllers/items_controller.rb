@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :defolt_category, only: [:index, :show]
-  before_action :set_item, only: [:edit, :show, :update]
+  before_action :set_item, only: [:edit, :show, :update, :destory]
   before_action :set_category_parent_array, only: [:new, :edit]
 
   def index
@@ -76,7 +76,7 @@ end
   end
 
   def set_item
-    @item = Item.find(2)
+    @item = Item.find(params[:id])
   end
 
   def set_category_parent_array
