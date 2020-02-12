@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :defolt_category, only: [:index, :show]
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :show, :update]
   before_action :set_category_parent_array, only: [:new, :edit]
 
   def index
@@ -8,8 +8,7 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:item_id])
-    @parents = Category.all.order("id ASC").limit(13)
+    @parents = Category.order("id ASC").limit(13)
   end
 
   def new
