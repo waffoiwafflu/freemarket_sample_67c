@@ -2,7 +2,7 @@
   %nav.l-side-bar
     %ul.l-side-bar-list
       %id.l-side-bar-list-item.active
-        = link_to posts_show_path do
+        = link_to post_path(current_user.id) do
           マイページ
         %i.fa.fa-chevron-right
       -# %li.l-side-bar-list-item
