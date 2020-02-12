@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :set_ategory_parent_array, only: [:new, :create, :edit, :update]
+  before_action :set_category_parent_array, only: [:new, :create, :edit, :update]
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC")
@@ -17,9 +17,12 @@ class ItemsController < ApplicationController
     
     if @item.save
       redirect_to root_path
-      flash.now[:alert] = "商品を出品しました。"
+      flash[:alert] = "商品を出品しました。"
     else
-      flash.now[:alert] = "空欄を入力してください。"
+      flash.now[:alert] = "出品できませんでした。"
+      if @item.images.empty?
+        @item.images.new
+      end
       render :new
       
     end
@@ -68,7 +71,7 @@ end
     @item = Item.find(params[:id])
   end
 
-  def set_ategory_parent_array
+  def set_category_parent_array
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
