@@ -4,7 +4,9 @@ class CardsController < ApplicationController
     @parents = Category.all.order("id ASC").limit(13)
     card = Card.where(user_id: current_user.id)
     redirect_to card_path(current_user.id) if card.exists?
+
   end
+
 
   def pay #payjpとCardのデータベース作成
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]

@@ -5,6 +5,9 @@ class PostsController < ApplicationController
     @items = Item.includes(:images).order("created_at desc").limit(3)
    
   end
+  def logout
+    @parents = Category.all.order("id ASC").limit(13)
+  end
 
   def show
     @parents = Category.all.order("id ASC").limit(13)
@@ -12,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
   end
+
 
   def done
     @item.updete( buyer_id: current_user.id)
