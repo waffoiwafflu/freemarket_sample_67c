@@ -55,4 +55,18 @@ $(function(){
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
+
+  function update_field(){
+    let value = 0.9;
+    let comis = 0.1;
+    let result = $('#product_price').val() * value;
+    $('#profit').text("¥"+result);
+    let pami = $('#product_price').val() * comis;
+    $('#commission').text("¥"+pami);
+  }
+  $(function() {
+    $('input[type="text"]').on('keyup change', function() {
+      update_field();
+    });
+  }); 
 });
