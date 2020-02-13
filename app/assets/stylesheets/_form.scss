@@ -156,7 +156,7 @@
                 background: #ea352d;
               }
 
-              &_form{
+              textarea{
                 display: block;
                 width: 100%;
                 max-width: 100%;
@@ -429,7 +429,7 @@
                         width: 40%;
                         margin: 0 0 0 5%;
 
-                        &_price{
+                        .price{
                           margin: 0;
                           text-align: right;
                           width: 100%;
