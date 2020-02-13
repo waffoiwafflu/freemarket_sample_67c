@@ -1,8 +1,9 @@
 class CardsController < ApplicationController
 
   def new
+    @parents = Category.all.order("id ASC").limit(13)
     card = Card.where(user_id: current_user.id)
-    redirect_to cards_path if card.exists?
+    redirect_to card_path(current_user.id) if card.exists?
   end
 
   def pay #payjpとCardのデータベース作成
@@ -16,7 +17,7 @@ class CardsController < ApplicationController
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to cards_path
+        redirect_to card_path(current_user.id)
       else
         redirect_to pay_cards_path
       end
@@ -29,13 +30,14 @@ class CardsController < ApplicationController
     else
       Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
-      customer.destroy
-      card.destroy
+      customer.delete
+      card.delete
     end
       redirect_to new_card_path
   end
 
   def show #Cardのデータpayjpに送り情報を取り出す
+    @parents = Category.order("id ASC").limit(13)
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_card_path 
