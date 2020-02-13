@@ -3,15 +3,16 @@
 }
 
 .TSform{
-  padding: 0 0 220px;
+  padding: 0;
 
   &_main{
     display: block;
-
+    background-color: gainsboro;
     &_contents{
       width: 700px;
       margin: 0 auto;
-
+      background-color: white;
+      
       &_sell{
 
         &_head{
@@ -19,6 +20,7 @@
           font-size: 21px;
           line-height: 1.5;
           text-align: center;
+          border-bottom: 1px solid #eee;
         }
 
         &_form{
@@ -154,7 +156,7 @@
                 background: #ea352d;
               }
 
-              &_form{
+              textarea{
                 display: block;
                 width: 100%;
                 max-width: 100%;
@@ -170,6 +172,7 @@
 
           &_contentfix{
             padding: 40px;
+            margin-bottom: 0px;
             border-top: 1px solid #eee;
 
             &_head{
@@ -197,10 +200,356 @@
                   background: #ea352d;
                 }
 
-                
+                select{
+                  margin: 8px 0 0;
+                  width: 100%;
+                  position: relative;
+                  z-index: 2;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background: 0;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
+                }
+              }
+              
+              &_groupfour{
+                margin: 40px 0 0;
+                font-size: 13px;
+
+                &_need{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: #fff;
+                  font-size: 11px;
+                  vertical-align: top;
+                  background: #ea352d;
+                }
+
+                &_form{
+                  margin: 8px 0 0;
+                  position: relative;
+                  background: #fff;
+
+                  select{
+                    width: 100%;
+                    position: relative;
+                    z-index: 2;
+                    height: 48px;
+                    padding: 0 16px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    background: 0;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+
+          &_delivery{
+            margin-top: 300px;
+            padding: 40px;
+            border-top: 1px solid #eee;
+
+            &_head{
+              float: left;
+              color: #888;
+              font-size: 13px;
+            }
+
+            a{
+              display: inline-block;
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              background: #0099e8;
+              color: #fff;
+              line-height: 14px;
+              font-size: 14px;
+              text-align: center;       
+            }
+
+            &_box{
+              float: right;
+              width: 400px;
+              margin: 0;
+
+              &_groupfive{
+                margin: 0;
+                font-size: 13px;
+  
+                &_need{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: #fff;
+                  font-size: 12px;
+                  vertical-align: top;
+                  background: #ea352d;
+                }
+  
+                select{
+                  width: 100%;
+                  margin: 8px 0 0;
+                  height: 48px;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background: #fff;
+                  line-height: 1.5;
+                  font-size: 16px;  
+                }
               }
 
-              
+              &_groupsix{
+                margin: 40px 0 0;
+                font-size: 13px;
+  
+                &_need{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: #fff;
+                  font-size: 12px;
+                  vertical-align: top;
+                  background: #ea352d;
+                }
+  
+                select{
+                  width: 100%;
+                  margin: 8px 0 0;
+                  height: 48px;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background: #fff;
+                  line-height: 1.5;
+                  font-size: 16px;  
+                }
+              }
+
+              &_groupseven{
+                margin: 40px 0 0;
+                font-size: 13px;
+  
+                &_need{
+                  margin: 0 0 0 8px;
+                  padding: 2px 4px;
+                  border-radius: 2px;
+                  color: #fff;
+                  font-size: 12px;
+                  vertical-align: top;
+                  background: #ea352d;
+                }
+  
+                select{
+                  width: 100%;
+                  margin: 8px 0 0;
+                  height: 48px;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background: #fff;
+                  line-height: 1.5;
+                  font-size: 16px;  
+                }
+              }
+            }
+          }
+
+          &_price{
+            margin-top: 300px;
+            padding: 40px;
+            border-top: 1px solid #eee;
+
+            &_head{
+              float: left;
+              color: #888;
+              font-size: 13px;
+            }
+
+            a{
+              display: inline-block;
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              background: #0099e8;
+              color: #fff;
+              line-height: 14px;
+              font-size: 14px;
+              text-align: center;       
+            }
+
+            &_box{
+              float: right;
+              width: 400px;
+              margin: 0;
+
+              &_money{
+
+                &_groupeight{
+                  padding: 0 0 24px;
+                  border: 0;
+
+
+                  .clear{
+
+                    &_left{
+                      width: 50%;
+                      line-height: 48px;
+                      font-weight: 600;
+                      font-size: 13px;
+                      float: left;
+                    
+                      &_need{
+                        margin: 0 0 0 8px;
+                        padding: 2px 4px;
+                        border-radius: 2px;
+                        color: #fff;
+                        font-size: 12px;
+                        vertical-align: top;
+                        background: #ea352d;
+                      }
+                    }
+
+                    &_right{
+                      width: 30%;
+                      text-align: right;
+                      float: right;
+
+                      &_input{
+                        display: inline-block;
+                        width: 40%;
+                        margin: 0 0 0 5%;
+
+                        .price{
+                          margin: 0;
+                          text-align: right;
+                          width: 100%;
+                          height: 48px;
+                          padding: 10px 16px 8px;
+                          border-radius: 4px;
+                          border: 1px solid #ccc;
+                          background: #fff;
+                          line-height: 1.5;
+                          font-size: 13px;                          
+                        }
+                      }
+                    }
+                  }
+                }
+
+                &_groupnine{
+                  padding: 24px 0;
+                  border-top: 1px solid #ccc;           
+
+                  .left{
+                    float: left;
+                    font-size: 13px;
+                  }
+
+                  .right{
+                    float: right;
+                    font-size: 10px;
+                  }
+                }
+
+                &_groupten{
+                  padding: 24px 0 ;
+                  margin: 0;
+                  border-top: 1px solid #ccc;
+
+                  .leftone{
+                    font-size: 15px;
+                    float: left;
+                  }
+
+                  .rightone{
+                    font-size: 15px;
+                    float: right;
+                  }
+                }
+              }
+            }
+          }
+
+          &_model{
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 3000;
+            overflow-x: hidden;
+            overflow-y: auto;
+            transition: all ease-out .3s;
+            opacity: 0;
+            transform: translate(0, -10px);     
+            
+            &_inner{
+              max-width: none;
+              width: 600px;
+              margin: 20px auto;
+              background: #fff;
+              position: relative;
+              overflow: hidden;
+            }
+          }
+
+          &_btn{
+            margin-top: 300px;
+            padding: 40px;
+            border-top: 1px solid #eee;
+
+            &_div{
+
+              p{
+                margin: 2px;
+                line-height: 1.5;
+                font-size: 14px;
+              }
+
+              &_word{
+
+                a{
+                  color: #0099e8;
+                  text-decoration: none;                  
+                }
+              }
+            }
+
+            button{
+              margin: 40px 0 24px;
+              padding: 15px 0;
+              width: 100%; 
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              color: #fff;  
+              font-size: 14px;    
+            }
+
+            &_glay{
+              margin: 15px 0 24px;
+              padding: 15px 0;
+              width: 100%; 
+              background-color: #ccc;
+              text-align: center;
+
+              a{
+                border-color: transparent;
+                color: #222;
+                font-size: 14px;  
+                text-decoration: none;
+                
+              }
             }
           }
         }
@@ -208,17 +557,3 @@
     }
   }
 }
-
-// 作成場所変更
-// a{
-//   display: inline-block;
-//   width: 14px;
-//   height: 14px;
-//   border-radius: 50%;
-//   background: #0099e8;
-//   color: #fff;
-//   line-height: 14px;
-//   font-size: 12px;
-//   text-align: center;  
-  
-// }
