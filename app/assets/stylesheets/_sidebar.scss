@@ -17,6 +17,10 @@
           float: right;
           color: black;
         }
+        &:hover {
+          background-color: #FAFAFA;
+          cursor: pointer;
+        }
       }
       &-item {
         display: block;
@@ -30,6 +34,10 @@
         .fa.fa-chevron-right {
           float: right;
           color: black;
+        }
+        &:hover {
+          background-color: #FAFAFA;
+          cursor: pointer;
         }
       }
     }
