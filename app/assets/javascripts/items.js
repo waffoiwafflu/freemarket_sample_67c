@@ -26,7 +26,7 @@ $(function(){
   
   //.js-fileを選択＝選択ボタン 
   $('#image-box').on('change', '.js-file', function(e) {
-  console.log(fileIndex);
+
     // .js-fileの親のindexを取得
     const targetIndex = $(this).parent().data('index');
     // 画像のファイル名を取得する
