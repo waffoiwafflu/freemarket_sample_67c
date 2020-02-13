@@ -3,61 +3,8 @@
 .hder
   - breadcrumb :show
   = breadcrumbs pretext: "",separator: "&gt;"
-
 .l
-  =render "shared/sidebar"
-  .container__content
-    .container__content-usericon
-      .container__content-usericon-member
-      %figure
-        = image_tag src="/assets/member_photo_noimage_thumb.png",width:"40"
-        .user
-          名前
-        .user-number
-          .user-number-review
-            評価0
-          .user-memb.er-syuppin
-            出品数0
-    .container__news
-      .news-tab
-        .news-tab-active
-          お知らせ
-        .news-tab-activelist
-          やることリスト
-    .btm
-      .btm-content
-        .btm-content-message
-          %figure
-            = image_tag "/assets/member_photo_noimage_thumb.png",width:"50"
-          .btm-content-message__text
-            <新規登録者限定>最大1000円分のポイントがもらえる出品キャンペーン実施中
-          %i.fa.fa-chevron-right
-        .btm-content-message__itiran
-          .btm-content-message__itiran-bottom
-            一覧を見る
-    .buy
-      .buy-head
-        購入した商品
-      .buy-tab
-        .buy-tab-trade
-          取引中
-        .buy-tab-past
-          過去の取引
-    .btm
-      .btm-content
-        .btm-content-message
-          %figure
-            = image_tag "/assets/member_photo_noimage_thumb.png",width:"50"
-          .btm-content-message__text
-            取引中の商品が1点あります。
-          %i.fa.fa-chevron-right
-        .btm-content-message__itiran
-          .btm-content-message__itiran-bottom
-            一覧を見る
-    -# 出品する
-  =link_to "#" do
-    .TSmain_bottan
-      .TSmain_bottan_txt
-        出品する
-        = image_tag "icon_camera.png"
+  = render "shared/sidebar"
+  = render "shared/mypage-first"
+= render "shared/syupinbtn"
 = render "shared/footer"

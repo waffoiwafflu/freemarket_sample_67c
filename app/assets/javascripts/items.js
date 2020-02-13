@@ -7,11 +7,11 @@ $(function(){
   
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {  
-    const html = `<div data-index="${index}" class="js-file_group">
+    const html = `<div class="js-file_group" data-index="${index}" >
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][url]"
-                    id="item_images_attributes_${index}_url"><br>
-                    <div class="js-remove">削除</div>
+                    id="item_images_attributes_${index}_url">
+                    <span class="js-remove">削除</span>
                   </div>`;
     return html;
   }
@@ -21,14 +21,17 @@ $(function(){
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
+
   $('.hidden-destroy').hide();
   
+  //.js-fileを選択＝選択ボタン 
   $('#image-box').on('change', '.js-file', function(e) {
+
+    // .js-fileの親のindexを取得
     const targetIndex = $(this).parent().data('index');
-    // ファイルのブラウザ上でのURLを取得する
+    // 画像のファイル名を取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
@@ -41,7 +44,7 @@ $(function(){
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
-
+  // 削除用
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
