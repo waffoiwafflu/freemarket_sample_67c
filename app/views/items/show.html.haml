@@ -73,7 +73,7 @@
             %span or
             = link_to "削除", "#", class:"item-buy-btn__destroy",method: :delete
           - elsif @item.buyer_id == nil
-            = link_to '購入画面に進む', buyers_index_path(@item), class: "item-buy-btn"
+            = link_to '購入画面に進む', buyers_path(@item), class: "item-buy-btn"
         - else
           = link_to 'ログインして購入', new_user_session_path, class: "item-buy-btn"
           = link_to '新規会員登録して購入', new_user_registration_path, class: "item-buy-btn"
