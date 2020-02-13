@@ -32,13 +32,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-    @item = Item.find(params[:id])
-    redirect_to 出品ページ if current_user.id != @item.saler_id
-  end
-
   def show
     @parents = Category.all.order("id ASC").limit(13)
+  end
+
+  def edit
+    redirect_to 出品ページ if current_user.id != @item.saler_id
   end
 
   def update
