@@ -1,0 +1,16 @@
+= render "shared/header"
+.hder
+  - breadcrumb :logout
+  = breadcrumbs pretext: "",separator: "&gt;"
+
+.l
+  = render "shared/sidebar"
+  .logout
+    .logout-content
+      .logout-content-message
+        .logout-content-message-text
+          = link_to destroy_user_session_path do
+            ログアウト
+= render "shared/syupinbtn"
+= render "shared/footer"
+           
