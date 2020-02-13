@@ -35,5 +35,17 @@ crumb :root do
 end
 #マイページ
 crumb :show do
-  link "マイページ", "posts/show"
+  link "マイページ", post_path(current_user.id)
+end
+
+#クレカ
+crumb :cards do 
+  link "クレジットカード登録", new_card_path
+  parent :show
+end
+
+#ログアウト
+crumb :logout do
+  link "ログアウト画面", posts_logout_path
+  parent :show
 end
