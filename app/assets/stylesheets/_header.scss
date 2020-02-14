@@ -86,7 +86,7 @@
               width:150px;
               
               padding: 0 0 0 16px;
-              line-height:38px; /* line-heightで高さを固定します。この設定は子孫要素全てに継承されます。（継承されると都合が悪い場合はheightでの指定でもOKですが、その場合は各liそれぞれに指定してください） */
+              line-height:32px; /* line-heightで高さを固定します。この設定は子孫要素全てに継承されます。（継承されると都合が悪い場合はheightでの指定でもOKですが、その場合は各liそれぞれに指定してください） */
             }
             
             .submenu-trigger > ul,
@@ -171,21 +171,21 @@
             }
           }
 
-          &_item{
-            display: flex;
-            line-height: 38px;
-            padding: 0 0 0 16px; 
+          // &_item{
+          //   display: flex;
+          //   line-height: 38px;
+          //   padding: 0 0 0 16px; 
             
-            a{
-              color: #333;
-              text-decoration: none;
-              line-height: 32px;
-              background-position: center right;
-              background-repeat: no-repeat;
-              background-size: 18px;
-              padding-right: 30px;              
-            }
-          }
+          //   a{
+          //     color: #333;
+          //     text-decoration: none;
+          //     line-height: 32px;
+          //     background-position: center right;
+          //     background-repeat: no-repeat;
+          //     background-size: 18px;
+          //     padding-right: 30px;              
+          //   }
+          // }
         }
 
         &_right{
@@ -195,7 +195,8 @@
           &_login{
             color: #333;
             line-height: 38px;
-            padding: 0 0 0 16px;
+            padding: 16px 0 0 16px;
+            margin-bottom: -16px;
 
             a{
               display: flex;
@@ -209,7 +210,8 @@
           &_new{
             color: #333;
             line-height: 38px;
-            padding: 0 0 0 16px;
+            padding: 16px 0 0 16px;
+            margin-bottom: -16px;
             
             a{
               display: flex;
