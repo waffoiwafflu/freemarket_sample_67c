@@ -4,7 +4,6 @@ $(function(){
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   }
-  
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {  
     const html = `<div class="js-file_group" data-index="${index}" >
@@ -15,7 +14,6 @@ $(function(){
                   </div>`;
     return html;
   }
-  
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
@@ -54,7 +52,6 @@ $(function(){
 
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
-
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });

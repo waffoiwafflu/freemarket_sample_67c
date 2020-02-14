@@ -32,10 +32,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @parents = Category.all.order("id ASC").limit(13)
-  end
-
   def edit
     redirect_to 出品ページ if current_user.id != @item.saler_id
   end
@@ -43,7 +39,9 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       redirect_to root_path
+      flash[:alert] = "商品を編集しました。"
     else
+      flash.now[:alert] = "編集できませんでした。"
       if @item.images.empty?
         @item.images.new
       end
