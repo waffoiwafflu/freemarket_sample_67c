@@ -5,7 +5,7 @@
   .item-box__details
     %h1
       .item-name
-        いちご詰め合わせ
+        #{@item.name}
     .item-main-content
       .item-image
         .image
@@ -59,7 +59,7 @@
             %td 1~2日で発送
 
     .item-box-price
-      %span.price-bold ¥1,000
+      %span.price-bold ¥#{@item.price}
       .item-box-price-detail
         %span (税込)
         %span 送料込み
@@ -73,7 +73,7 @@
             %span or
             = link_to "削除", "#", class:"item-buy-btn__destroy",method: :delete
           - elsif @item.buyer_id == nil
-            = link_to '購入画面に進む', buyers_path(@item), class: "item-buy-btn"
+            = link_to '購入画面に進む',item_buyers_path(@item.id), class: "item-buy-btn"
         - else
           = link_to 'ログインして購入', new_user_session_path, class: "item-buy-btn"
           = link_to '新規会員登録して購入', new_user_registration_path, class: "item-buy-btn"
