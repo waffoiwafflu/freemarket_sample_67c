@@ -51,6 +51,6 @@
             %br
             山田太郎
             = form_tag(action: :pay, method: :post) do
-              %button.buy-button
-                購入する
+              %button.buy-button{type:"submit"} 購入する
+
 = render 'shared/user-footer'
