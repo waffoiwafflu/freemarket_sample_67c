@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :saler, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
   
-  # validates :category_id, numericality: { greater_than: 28, message: "カテゴリーは三回選んでー"}
+  validates :category_id, numericality: { greater_than: 133, message: "カテゴリーは三回選んでー"}
   
   validates :images, presence: {message: "最低一枚は投稿して"}
 
