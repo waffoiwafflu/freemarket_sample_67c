@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
   
   def show
     @parents = Category.order("id ASC").limit(13)
+    @items = Item.includes(:images).order("created_at DESC")
+    @saler = User.find(@item.saler_id)
   end
 
   def new
@@ -37,9 +39,6 @@ class ItemsController < ApplicationController
     redirect_to 出品ページ if current_user.id != @item.saler_id
   end
 
-  def show
-    @parents = Category.all.order("id ASC").limit(13)
-  end
 
   def update
     if @item.update(item_params)
