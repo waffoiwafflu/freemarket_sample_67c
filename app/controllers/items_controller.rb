@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
     end
   end
 
-def destory
+def destroy
   if @item.saler_id == current_user.id && @item.destory
     redirect_to root_path
   end
