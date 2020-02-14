@@ -53,6 +53,7 @@ class ItemsController < ApplicationController
   end
 
 def destroy
+  item = Item.find_by(id:params[:id])
   if @item.saler_id == current_user.id && @item.destory
     redirect_to root_path
   end
