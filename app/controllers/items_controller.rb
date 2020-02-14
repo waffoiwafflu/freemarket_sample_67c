@@ -35,15 +35,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     redirect_to 出品ページ if current_user.id != @item.saler_id
   end
-
 
   def update
     if @item.update(item_params)
       redirect_to root_path
+      flash[:alert] = "商品を編集しました。"
     else
+      flash.now[:alert] = "編集できませんでした。"
       if @item.images.empty?
         @item.images.new
       end
@@ -52,8 +52,9 @@ class ItemsController < ApplicationController
     end
   end
 
-def destory
-  if @item.saler_id == current_user.id && @item.destory
+def destroy
+  item = Item.find_by(id:params[:id])
+  if item.saler_id == current_user.id && item.destroy
     redirect_to root_path
   end
 end

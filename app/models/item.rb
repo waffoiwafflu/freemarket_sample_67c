@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :saler, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
   
-  validates :category_id, numericality: { greater_than: 28, message: "カテゴリーは三回選んでー"}
+  # validates :category_id, numericality: { greater_than: 28, message: "カテゴリーは三回選んでー"}
   
   validates :images, presence: {message: "最低一枚は投稿して"}
 
@@ -28,7 +28,7 @@ class Item < ApplicationRecord
   
   enum status:{
     "---":0,
-    新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5,
+    新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れあり:4,傷や汚れあり:5,
   },_prefix: true
 
   enum delivery_charge:{
