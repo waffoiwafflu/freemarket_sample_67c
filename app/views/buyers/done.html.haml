@@ -1,6 +1,5 @@
+= render 'shared/user-header'
 
-
-%body
 .buy-main
   .buy-main__box
     .buy-content
@@ -13,41 +12,25 @@
           .buy-content__item__inner
             .buy-item-main
               .buy-item-image
-                = image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg", height: "64px", width: "64px"
+                - @item.images.each_with_index do |image, i|
+                  = image_tag "#{image.url}", data: {index: i}, size: '64x64', class: 'buydetails-contet__image'
               .buy-item-detail
                 .buy-item-name
-                  いちご詰め合わせ
+                  = @item.name
                   %p.buy-price
-                    %span ¥ 1,000
-                    %span.shipping-free (税込) 送料込み
+                    %span 
+                      = "¥#{@item.price.to_s}"
+                    %span
+                      .shipping-free (税込) 送料込み
         .buy-content__item
           %form.buy-form
             .buy-price-table
               .buy-price-table__left
                 支払金額
               .buy-price-table__right
-                -# = @item.price
-            .buy-content__user-info
-              .buy-content__user-info__inner
-                %h3 支払方法
-                .user-info-text
-                  -# = "**** **** **** " + "#{@default_card_information.last4}"
-                  -# %br
-                  -# - exp_month = @default_card_information.exp_month.to_s
-                  -# - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-                  -# = exp_month + " / " + exp_year
-                  -# %br
-            .buy-content__user-info
-              .buy-content__user-info__inner              
-                %h3 配送先
-                .user-info-text
-                  〒111-1111
-                  %br
-                  大阪府大阪市北区〇〇1-11
-                  %br
-                  山田太郎
+                = "¥#{@item.price.to_s}"
             .buy-content__user-info__submit
               = link_to "トップページへ戻る", root_path, class: 'buy-content__user-info__submit__button'
 
-.footer
+= render 'shared/user-footer'
 
