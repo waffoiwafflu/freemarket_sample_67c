@@ -58,4 +58,38 @@ $(function(){
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
+
+  function update_field(){
+    let value = 0.9;
+    let comis = 0.1;
+    let result = $('#product_price').val() * value;
+    $('#profit').text("¥"+result);
+    let pami = $('#product_price').val() * comis;
+    $('#commission').text("¥"+pami);
+  }
+  $(function() {
+    $('input[type="text"]').on('keyup change', function() {
+      update_field();
+    });
+  }); 
+  $(".delete-btn").click(function(e) {
+    e.preventDefault();
+    var image_id = $(this).data("imgid")
+    // 新規で画像をいれらときはlengthは「0」になる
+    if ( image_id.length != 0 ) {
+        $.ajax({
+            // Api::ProductsControllerのimage_destroyに飛ぶ
+            type: 'DELETE',
+            url: '/api/destroy/image_destroy',
+            data: {img_id: image_id},
+            dataType: 'json'
+        })
+        .done(function() {
+            alert("削除しました");
+        })
+        .fail(function() {
+            alert("削除に失敗しました");
+        });
+      }
+    });
 });
