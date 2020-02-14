@@ -9,8 +9,7 @@
         .buy-content__item__inner
           .buy-item-main
             .buy-item-image
-              - @item.images.each_with_index do |image, i|
-                = image_tag "#{image.url}", data: {index: i}, size: '64x64', class: 'buydetails-contet__image'
+              = image_tag "#{@item.images[0].url}", size: '64x64', class: 'buydetails-contet__image'
             .buy-item-detail
               .buy-item-name
                 = @item.name
