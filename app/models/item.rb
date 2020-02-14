@@ -28,7 +28,7 @@ class Item < ApplicationRecord
   
   enum status:{
     "---":0,
-    新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れなし:4,傷や汚れなし:5,
+    新品、未使用:1,未使用に近い:2,目立った傷や汚れなし:3,やや傷や汚れあり:4,傷や汚れあり:5,
   },_prefix: true
 
   enum delivery_charge:{
