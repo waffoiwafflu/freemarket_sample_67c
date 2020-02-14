@@ -116,6 +116,7 @@
             新規投稿商品
       .TSmain_category_box_lists
         - @items.each do |item|
+          
           .TSmain_category_box_lists_list
           = link_to item_path(item), class: "TSmain_category_box_lists_list_link" do
             %figure.TSmain_category_box_lists_list_img

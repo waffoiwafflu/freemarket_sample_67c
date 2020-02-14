@@ -15,7 +15,6 @@ class Item < ApplicationRecord
   validates :name, length: {in: 1..40,message: "商品名は一文字から四十文字でおね"}
 
   validates :detail, length: {in: 4..1000,message: "ちゃんと説明文いれよー"}
-                    
 
   validates :status, :delivery_charge, :address, :date, 
   exclusion: { in: %w(---) ,message: "ちゃんと選んで" }
