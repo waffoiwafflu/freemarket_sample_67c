@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
   
   def show
     @parents = Category.order("id ASC").limit(13)
+    @items = Item.includes(:images).order("created_at DESC")
+    @saler = User.find(@item.saler_id)
   end
 
   def new
