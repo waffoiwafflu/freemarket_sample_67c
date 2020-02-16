@@ -8,9 +8,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     authorization
   end
 
-  # def failure
-  #   redirect_to root_path
-  # end
+  def failure
+    redirect_to root_path
+  end
 
   private
 
