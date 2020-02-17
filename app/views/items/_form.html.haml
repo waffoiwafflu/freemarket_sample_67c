@@ -36,15 +36,16 @@
                       %pre.drop
                         ドラッグアンドドロップ
                         またはクリックしてファイルをアップロード
-                = render 'layouts/problem/error_messages_images', model: f.object
+                = f.object.errors.full_messages_for(:images).join(',')
             .TSform_main_contents_sell_form_content   
-              .TSform_main_contents_sell_form_content_groupone
+              .TSform_main_contents_sell_form_content_groupone  
                 %label
                   %b 商品名
                 %span.TSform_main_contents_sell_form_content_groupone_need
                   必須
                 %div
                   = f.text_field :name ,placeholder: "商品名（必須 40文字まで)", class: "TSform_main_contents_sell_form_content_groupone_form"
+                = f.object.errors.full_messages_for(:name).join(',')
               .TSform_main_contents_sell_form_content_grouptwo
                 %label
                   %b 商品の説明
@@ -52,6 +53,7 @@
                   必須
                 %div 
                   = f.text_area :detail ,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,class: "TSform_main_contents_sell_form_content_grouptwo_form"
+                = f.object.errors.full_messages_for(:detail).join(',')
             .TSform_main_contents_sell_form_contentfix
               %h3.TSform_main_contents_sell_form_contentfix_head
                 %b 商品の詳細
@@ -67,7 +69,8 @@
                         %span.listing-default--require
                         .listing-select-wrapper
                           .listing-select-wrapper__box
-                          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}                          
+                      = f.object.errors.full_messages_for(:category).join(',')
                 .TSform_main_contents_sell_form_contentfix_box_groupfour
                   %label
                     %b 商品の状態
@@ -75,7 +78,8 @@
                     必須
                   %div
                     .TSform_main_contents_sell_form_contentfix_box_groupfour_form
-                      = f.select :status , Item.statuses.keys 
+                      = f.select :status , Item.statuses.keys
+                      = f.object.errors.full_messages_for(:status).join(',')
             .TSform_main_contents_sell_form_delivery
               %h3.TSform_main_contents_sell_form_delivery_head
                 %b 配送について
@@ -90,6 +94,7 @@
                   %div
                     .TSform_main_contents_sell_form_delivery_box_groupfive_form
                       = f.select :delivery_charge , Item.delivery_charges.keys
+                      = f.object.errors.full_messages_for(:delivery_charge).join(',')
                 .TSform_main_contents_sell_form_delivery_box_groupsix
                   %label
                     %b 発送元の地域
@@ -98,6 +103,7 @@
                   %div
                     .TSform_main_contents_sell_form_delivery_box_groupsix_form
                       = f.select :address , Item.addresses.keys
+                      = f.object.errors.full_messages_for(:address).join(',')
                 .TSform_main_contents_sell_form_delivery_box_groupseven
                   %label
                     %b 発送までの日数
@@ -106,6 +112,7 @@
                   %div
                     .TSform_main_contents_sell_form_delivery_box_groupseven_form
                       = f.select :date , Item.dates.keys
+                      = f.object.errors.full_messages_for(:date).join(',')
             .TSform_main_contents_sell_form_price     
               %h3.TSform_main_contents_sell_form_price_head
                 %b 販売価格(300~9.999,999)
@@ -123,6 +130,7 @@
                         ¥
                         .clear_right_input
                           = f.number_field :price, placeholder: "例)300", class: "price"
+                          = f.object.errors.full_messages_for(:price).join(',')
                   .TSform_main_contents_sell_form_price_box_money_groupnine
                     .left
                       販売手数料 (10%)
