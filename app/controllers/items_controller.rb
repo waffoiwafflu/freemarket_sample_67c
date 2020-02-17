@@ -36,6 +36,31 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to 出品ページ if current_user.id != @item.saler_id
+
+    # 登録されている商品の孫カテゴリーのレコードを取得
+    @selected_grandchild_category = @item.category
+    # 孫カテゴリー選択肢用の配列作成
+    @category_grandchildren_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
+      grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.name}"}
+      @category_grandchildren_array << grandchildren_hash
+    end
+    # 選択されている子カテゴリーのレコードを取得
+    @selected_child_category = @selected_grandchild_category.parent
+    # 子カテゴリー選択肢用の配列作成
+    @category_children_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_child_category.id}").siblings.each do |child|
+      children_hash = {id: "#{child.id}", name: "#{child.name}"}
+      @category_children_array << children_hash
+    end
+    # 選択されている親カテゴリーのレコードを取得
+    @selected_parent_category = @selected_child_category.parent
+    # 親カテゴリー選択肢用の配列作成
+    @category_parents_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+      parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+      @category_parents_array << parent_hash
+    end
   end
 
   def update
