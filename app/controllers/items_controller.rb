@@ -36,7 +36,6 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to 出品ページ if current_user.id != @item.saler_id
-
     # 登録されている商品の孫カテゴリーのレコードを取得
     @selected_grandchild_category = @item.category
     # 孫カテゴリー選択肢用の配列作成
@@ -119,7 +118,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, images_attributes: [:url, :_destroy, :id]).merge(saler_id: current_user.id, category_id: params[:category_id])
+    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, :category_id, images_attributes: [:url, :_destroy, :id]).merge(saler_id: current_user.id )
   end
 
   def defolt_category
