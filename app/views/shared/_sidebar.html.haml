@@ -12,7 +12,8 @@
       -#   =link_to "やることリスト", "#"
         %i.fa.fa-chevron-right
       %li.l-side-bar-list-item
-        =link_to "いいね！一覧", "#"
+        =link_to user_path do
+          お気に入り
         %i.fa.fa-chevron-right
       %li.l-side-bar-list-item
         =link_to new_item_path do

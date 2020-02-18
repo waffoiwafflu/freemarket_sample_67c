@@ -88,10 +88,8 @@
         商品説明
         #{@item.detail}
       .item-button-container
-        %ul
-          %li.link-btn
-            %i.fas.fa-star
-              お気に入り
+        .item-button-container__left
+          = render partial: 'likes/like', locals: { item: @item, like: @like}
         %ul
           %li.link-btn-right
             %i.fas.fa-flag

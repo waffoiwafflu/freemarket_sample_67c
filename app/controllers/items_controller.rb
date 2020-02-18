@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
     @parents = Category.order("id ASC").limit(13)
     @items = Item.includes(:images).order("created_at DESC")
     @saler = User.find(@item.saler_id)
+    @like = Like.where(user_id: current_user.id).where(item_id: @item.id)
   end
 
   def new

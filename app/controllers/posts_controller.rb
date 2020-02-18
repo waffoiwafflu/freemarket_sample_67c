@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def index
     @parents = Category.all.order("id ASC").limit(13)
     @items = Item.includes(:images).order("created_at desc").limit(3)
+
    
   end
   def logout
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+  
 
 
 end

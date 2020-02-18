@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :comments
 
 
-
   has_many :sns_credentials, dependent: :destroy
 
   before_save { self.email = email.downcase }
@@ -54,6 +53,6 @@ class User < ApplicationRecord
                    message: "数値で入力して下さい"
                  }
 
-
+  has_many :likes, dependent: :destroy
 
 end

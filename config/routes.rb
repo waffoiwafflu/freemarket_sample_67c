@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   
   root "posts#index"
   get "posts/logout"
+  get "user/show"
   resources :items do
     collection do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_category_children', defaults: { format: 'json' }
     end
+
+
     resources :buyers, only: [:index] do
       collection do
         get 'done', to: 'buyers#done'
@@ -33,6 +36,12 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
+    end
+  end
+
+  resources :users, only: [:show, :edit, :update] do
+    resources :items, only: [:index, :new, :create, :show] do
+      resources :likes, only: [:create, :destroy]
     end
   end
 end
