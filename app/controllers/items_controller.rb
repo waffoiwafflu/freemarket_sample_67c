@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :defolt_category, only: [:index, :show]
   before_action :set_item, only: [:edit, :show, :update, :destory]
   before_action :set_category_parent_array, only: [:new, :edit]
+  before_action :authenticate_user!, except:[:show, :index] 
 
   def index
     @items = Item.includes(:images).order("created_at DESC")
@@ -35,7 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to 出品ページ if current_user.id != @item.saler_id
+    redirect_to root_path if current_user.id != @item.saler_id
     # 登録されている商品の孫カテゴリーのレコードを取得
     @selected_grandchild_category = @item.category
     # 孫カテゴリー選択肢用の配列作成
@@ -63,38 +64,42 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if item.saler_id == current_user.id 
       redirect_to root_path
-      flash[:alert] = "商品を編集しました。"
     else
-      flash.now[:alert] = "編集できませんでした。"
-      if @item.images.empty?
-        @item.images.new
+      if @item.update(item_params)
+        redirect_to root_path
+        flash[:alert] = "商品を編集しました。"
+      else
+        flash.now[:alert] = "編集できませんでした。"
+        if @item.images.empty?
+          @item.images.new
+        end
+        @selected_grandchild_category = Category.find(params[:item][:category_id])
+        # 孫カテゴリー選択肢用の配列作成
+        @category_grandchildren_array = [{id: "---", name: "---"}]
+        Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
+          grandchildren_hash = {id: "#{grandchild.id}".to_i, name: "#{grandchild.name}"}
+            @category_grandchildren_array << grandchildren_hash
+        end
+        # 選択されている子カテゴリーのレコードを取得
+        @selected_child_category = @selected_grandchild_category.parent
+        # 子カテゴリー選択肢用の配列作成
+        @category_children_array = [{id: "---", name: "---"}]
+        Category.find("#{@selected_child_category.id}").siblings.each do |child|
+          children_hash = {id: "#{child.id}", name: "#{child.name}"}
+          @category_children_array << children_hash
+        end
+        # 選択されている親カテゴリーのレコードを取得
+        @selected_parent_category = @selected_child_category.parent
+        # 親カテゴリー選択肢用の配列作成
+        @category_parents_array = [{id: "---", name: "---"}]
+        Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+          parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+          @category_parents_array << parent_hash
+        end
+        render :edit
       end
-      @selected_grandchild_category = Category.find(params[:item][:category_id])
-      # 孫カテゴリー選択肢用の配列作成
-      @category_grandchildren_array = [{id: "---", name: "---"}]
-      Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
-        grandchildren_hash = {id: "#{grandchild.id}".to_i, name: "#{grandchild.name}"}
-         @category_grandchildren_array << grandchildren_hash
-      end
-      # 選択されている子カテゴリーのレコードを取得
-      @selected_child_category = @selected_grandchild_category.parent
-      # 子カテゴリー選択肢用の配列作成
-      @category_children_array = [{id: "---", name: "---"}]
-      Category.find("#{@selected_child_category.id}").siblings.each do |child|
-        children_hash = {id: "#{child.id}", name: "#{child.name}"}
-        @category_children_array << children_hash
-      end
-      # 選択されている親カテゴリーのレコードを取得
-      @selected_parent_category = @selected_child_category.parent
-      # 親カテゴリー選択肢用の配列作成
-      @category_parents_array = [{id: "---", name: "---"}]
-      Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
-        parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
-        @category_parents_array << parent_hash
-      end
-      render :edit
     end
   end
 

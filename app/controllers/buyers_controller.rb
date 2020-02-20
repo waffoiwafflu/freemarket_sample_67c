@@ -1,27 +1,36 @@
 class BuyersController < ApplicationController
   require 'payjp'
   before_action :set_card, :set_item
+  before_action :authenticate_user!
 
   def index
-    if @card.blank?
-      #登録された情報がない場合にカード登録画面に移動
-      redirect_to new_card_path
+    if current_user.id == @item.saler_id or @item.buyer_id.present?
+      redirect_to root_path
     else
-      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(@card.customer_id) 
-      #カード情報表示のためインスタンス変数に代入
-      @default_card_information = customer.cards.retrieve(@card.card_id)
+      if @card.blank?
+        #登録された情報がない場合にカード登録画面に移動
+        redirect_to new_card_path
+      else
+        Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
+        customer = Payjp::Customer.retrieve(@card.customer_id) 
+        #カード情報表示のためインスタンス変数に代入
+        @default_card_information = customer.cards.retrieve(@card.card_id)
+      end
     end
   end
 
   def pay
-    Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
-    Payjp::Charge.create(
-      :amount => @item.price, #支払金額を入力
-      :customer => @card.customer_id,
-      :currency => 'jpy',
-    )
-    redirect_to done_item_buyers_path #完了画面に移動
+    if current_user.id == @item.saler_id or @item.buyer_id.present?
+      redirect_to root_path
+    else
+      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
+      Payjp::Charge.create(
+        :amount => @item.price, #支払金額を入力
+        :customer => @card.customer_id,
+        :currency => 'jpy',
+      )
+      redirect_to done_item_buyers_path #完了画面に移動
+    end
   end
 
   def done

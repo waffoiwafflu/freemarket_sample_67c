@@ -4,7 +4,7 @@ class Address < ApplicationRecord
   validates :zipcode,
   format: {
     with: /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}$|^\d{5}$|^\d{7}\z/,
-    message: "ち・が・い・ま・すー!!!"
+    message: "0000000 は無効な値です、他の値を入力してください。"
   }
 
 end
