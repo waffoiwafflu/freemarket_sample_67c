@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
   root "posts#index"
   get "posts/logout"
-  get "user/show"
   resources :items do
     collection do
       get 'get_category_grandchildren', defaults: { format: 'json' }
