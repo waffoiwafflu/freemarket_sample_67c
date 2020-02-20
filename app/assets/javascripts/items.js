@@ -62,7 +62,6 @@ $(function(){
   });
 
 //手数料
-$(function(){
   $('#item_price').on('input', function(){
     var data = $('#item_price').val();
     var profit = Math.round(data * 0.9) 
@@ -77,4 +76,4 @@ $(function(){
     $('.rightone').html('');
     }
   })
-})
+});
