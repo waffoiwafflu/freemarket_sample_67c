@@ -5,7 +5,7 @@
         %i.fas.fa-heart
         %span いいね！
         %span 
-          = item.likes_count
+          = item.likes_count 
   - else
     .item-button-container__left__like
       =link_to user_item_likes_path(current_user, item), method: "POST", remote: true do
