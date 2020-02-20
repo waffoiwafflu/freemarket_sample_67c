@@ -88,10 +88,16 @@
         商品説明
         #{@item.detail}
       .item-button-container
-        %ul
-          %li.link-btn
-            %i.fas.fa-star
-              お気に入り
+        -if user_signed_in?
+          .item-button-container__left
+            = render partial: 'likes/like', locals: { item: @item, like: @like}
+        -else
+          %ul
+            %li.link-btn
+              %i.fas.fa-star
+                いいね
+
+
         %ul
           %li.link-btn-right
             %i.fas.fa-flag

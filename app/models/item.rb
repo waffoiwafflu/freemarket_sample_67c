@@ -2,7 +2,6 @@ class Item < ApplicationRecord
   
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  has_many :comments
   belongs_to :category
   belongs_to :brand, optional: true
   belongs_to :saler, class_name: "User", optional: true
@@ -52,5 +51,13 @@ class Item < ApplicationRecord
     "---":0,
     "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3,
   },_prefix: true
+
+  has_many :comments
+  
+  has_many :likes, dependent: :destroy
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
   
 end

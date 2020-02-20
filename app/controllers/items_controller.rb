@@ -9,9 +9,14 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @parents = Category.order("id ASC").limit(13)
-    @items = Item.includes(:images).order("created_at DESC")
-    @saler = User.find(@item.saler_id)
+    if user_signed_in?
+      @parents = Category.order("id ASC").limit(13)
+      @saler = User.find(@item.saler_id)
+      @like = Like.where(user_id: current_user.id).where(item_id: @item.id)
+    else
+      @parents = Category.order("id ASC").limit(13)
+      @saler = User.find(@item.saler_id)
+    end
   end
 
   def new
