@@ -1,0 +1,14 @@
+<% if model.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% model.errors.full_messages_for(:images).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <ul>
+      <% model.errors.full_messages_for(:name).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
