@@ -27,8 +27,8 @@
                             .js-file_group{"data-index" => "#{i.index}"}
                               = i.file_field :url, class: 'js-file'
                               %span.js-remove 削除
-                              - if @item.persisted?
-                                = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                            - if @item.persisted?
+                              = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
                           - if @item.persisted?
                             .js-file_group{"data-index" => "#{@item.images.count}"}
                               = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'

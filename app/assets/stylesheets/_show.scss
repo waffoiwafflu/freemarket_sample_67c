@@ -123,6 +123,9 @@
       text-align: center;
       font-weight: 600;
       margin: 16px 0 0;
+      a {
+        text-decoration: none;
+      }
       &__edit {
         color: #3CCACE;
         &__destroy {

@@ -1,1 +1,168 @@
-= render partial: 'form'
+= render "shared/user-header"
+= form_for @item do |f|
+  .TSform  
+    %main.TSform_main
+      %section.TSform_main_contents
+        .TSform_main_contents_sell
+          %h2.TSform_main_contents_sell_head
+            %b 商品の情報を入力
+          %form.TSform_main_contents_sell_form
+            .TSform_main_contents_sell_form_up
+              %h3.TSform_main_contents_sell_form_up_head
+                %b 出品画像
+                %span.TSform_main_contents_sell_form_up_head_need
+                  必須
+              %p 最大10枚までアップロードできます
+              .TSform_main_contents_sell_form_up_dropbox
+                .TSform_main_contents_sell_form_up_dropbox_box  
+                  .TSform_main_contents_sell_form_up_dropbox_box_items
+                    .TSform_main_contents_sell_form_up_dropbox_box_items_item
+                      %input.TSform_main_contents_sell_form_up_dropbox_box_items_item_file
+                        #image-box
+                          #previews
+                            - if @item.persisted?
+                              - @item.images.each_with_index do |image, i|
+                                = image_tag "#{image.url}", data: {index: i}, width: "100", height: '100'
+                          = f.fields_for :images do |i|
+                            .js-file_group{"data-index" => "#{i.index}"}
+                              = i.file_field :url, class: 'js-file'
+                              %span.js-remove 削除
+                            - if @item.persisted?
+                              = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                          - if @item.persisted?
+                            .js-file_group{"data-index" => "#{@item.images.count}"}
+                              = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
+                              %span.js-remove 削除
+                      %pre.drop
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
+            .TSform_main_contents_sell_form_content   
+              .TSform_main_contents_sell_form_content_groupone
+                %label
+                  %b 商品名
+                %span.TSform_main_contents_sell_form_content_groupone_need
+                  必須
+                %div
+                  = f.text_field :name ,placeholder: "商品名（必須 40文字まで)", class: "TSform_main_contents_sell_form_content_groupone_form"
+              .TSform_main_contents_sell_form_content_grouptwo
+                %label
+                  %b 商品の説明
+                %span.TSform_main_contents_sell_form_content_grouptwo_need
+                  必須
+                %div 
+                  = f.text_area :detail ,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,class: "TSform_main_contents_sell_form_content_grouptwo_form"
+            .TSform_main_contents_sell_form_contentfix
+              %h3.TSform_main_contents_sell_form_contentfix_head
+                %b 商品の詳細
+              .TSform_main_contents_sell_form_contentfix_box
+                .TSform_main_contents_sell_form_contentfix_box_groupthree
+                  %label
+                    %b カテゴリー
+                  %span.TSform_main_contents_sell_form_contentfix_box_groupthree_need
+                    必須
+                  %div 
+                    .listing-form-box
+                      .listing-product-detail__category
+                        %span.listing-default--require
+                        .listing-select-wrapper
+                          .listing-select-wrapper__box
+                            = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c[:name], c[:name], {'data-category'=>c[:id]}]},@selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                        .listing-select-wrapper__added#children_wrapper
+                          .listing-select-wrapper__box
+                            = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]},@selected_child_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+                        .listing-select-wrapper__added#grandchildren_wrapper
+                          .listing-select-wrapper__box
+                            = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]},@selected_grandchild_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'grandchildren_category'}
+                .TSform_main_contents_sell_form_contentfix_box_groupfour
+                  %label
+                    %b 商品の状態
+                  %span.TSform_main_contents_sell_form_contentfix_box_groupfour_need
+                    必須
+                  %div
+                    .TSform_main_contents_sell_form_contentfix_box_groupfour_form
+                      = f.select :status , Item.statuses.keys 
+            .TSform_main_contents_sell_form_delivery
+              %h3.TSform_main_contents_sell_form_delivery_head
+                %b 配送について
+                = link_to "#" do
+                  ?
+              .TSform_main_contents_sell_form_delivery_box
+                .TSform_main_contents_sell_form_delivery_box_groupfive
+                  %label
+                    %b 配送料の負担
+                  %span.TSform_main_contents_sell_form_delivery_box_groupfive_need
+                    必須
+                  %div
+                    .TSform_main_contents_sell_form_delivery_box_groupfive_form
+                      = f.select :delivery_charge , Item.delivery_charges.keys
+                .TSform_main_contents_sell_form_delivery_box_groupsix
+                  %label
+                    %b 発送元の地域
+                  %span.TSform_main_contents_sell_form_delivery_box_groupsix_need
+                    必須
+                  %div
+                    .TSform_main_contents_sell_form_delivery_box_groupsix_form
+                      = f.select :address , Item.addresses.keys
+                .TSform_main_contents_sell_form_delivery_box_groupseven
+                  %label
+                    %b 発送までの日数
+                  %span.TSform_main_contents_sell_form_delivery_box_groupseven_need
+                    必須
+                  %div
+                    .TSform_main_contents_sell_form_delivery_box_groupseven_form
+                      = f.select :date , Item.dates.keys
+            .TSform_main_contents_sell_form_price     
+              %h3.TSform_main_contents_sell_form_price_head
+                %b 販売価格(300~9.999,999)
+                = link_to "#" do
+                  ?  
+              .TSform_main_contents_sell_form_price_box   
+                .TSform_main_contents_sell_form_price_box_money
+                  .TSform_main_contents_sell_form_price_box_money_groupeight
+                    .clear
+                      %label.clear_left
+                        %b 価格
+                        %span.clear_left_need
+                          必須
+                      .claer_right
+                        ¥
+                        .clear_right_input
+                          = f.number_field :price, placeholder: "例)300", class: "price"
+                  .TSform_main_contents_sell_form_price_box_money_groupnine
+                    .left
+                      販売手数料 (10%)
+                    .right
+                      一
+                  .TSform_main_contents_sell_form_price_box_money_groupten
+                    .leftone
+                      %b 販売利益
+                    .rightone
+                      一
+            = render 'layouts/error_messages', model: f.object
+            .TSform_main_contents_sell_form_model  
+              .TSform_main_contents_sell_form_model_inner
+            .TSform_main_contents_sell_form_btn
+              .TSform_main_contents_sell_form_btn_div
+                %p.TSform_main_contents_sell_form_btn_div_word
+                  =link_to "#" do
+                    禁止されている出品
+                  、
+                  =link_to "#" do
+                    行為
+                  を必ずご確認ください。
+                %p.TSform_main_contents_sell_form_btn_div_word
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  =link_to "#" do
+                    偽ブランドの販売
+                  は犯罪であり処罰される可能性があります。
+                %p.TSform_main_contents_sell_form_btn_div_word
+                  また、出品をもちまして
+                  =link_to "#" do
+                    加盟店規約
+                  に同意したことになります。
+              %button.TSform_main_contents_sell_form_btn_div_red{ type: "f.submit"}
+                出品する
+              .TSform_main_contents_sell_form_btn_glay
+                =link_to root_path do
+                  もどる
+= render "shared/user-footer"

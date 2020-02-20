@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
   
   def show
     @parents = Category.order("id ASC").limit(13)
+    @items = Item.includes(:images).order("created_at DESC")
+    @saler = User.find(@item.saler_id)
   end
 
   def new
@@ -32,28 +34,73 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @parents = Category.all.order("id ASC").limit(13)
-  end
-
   def edit
     redirect_to 出品ページ if current_user.id != @item.saler_id
+    # 登録されている商品の孫カテゴリーのレコードを取得
+    @selected_grandchild_category = @item.category
+    # 孫カテゴリー選択肢用の配列作成
+    @category_grandchildren_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
+      grandchildren_hash = {id: "#{grandchild.id}".to_i, name: "#{grandchild.name}"}
+      @category_grandchildren_array << grandchildren_hash
+    end
+    # 選択されている子カテゴリーのレコードを取得
+    @selected_child_category = @selected_grandchild_category.parent
+    # 子カテゴリー選択肢用の配列作成
+    @category_children_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_child_category.id}").siblings.each do |child|
+      children_hash = {id: "#{child.id}", name: "#{child.name}"}
+      @category_children_array << children_hash
+    end
+    # 選択されている親カテゴリーのレコードを取得
+    @selected_parent_category = @selected_child_category.parent
+    # 親カテゴリー選択肢用の配列作成
+    @category_parents_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+      parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+      @category_parents_array << parent_hash
+    end
   end
 
   def update
     if @item.update(item_params)
       redirect_to root_path
+      flash[:alert] = "商品を編集しました。"
     else
+      flash.now[:alert] = "編集できませんでした。"
       if @item.images.empty?
         @item.images.new
       end
-      set_category_parent_array
+      @selected_grandchild_category = Category.find(params[:item][:category_id])
+      # 孫カテゴリー選択肢用の配列作成
+      @category_grandchildren_array = [{id: "---", name: "---"}]
+      Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
+        grandchildren_hash = {id: "#{grandchild.id}".to_i, name: "#{grandchild.name}"}
+         @category_grandchildren_array << grandchildren_hash
+      end
+      # 選択されている子カテゴリーのレコードを取得
+      @selected_child_category = @selected_grandchild_category.parent
+      # 子カテゴリー選択肢用の配列作成
+      @category_children_array = [{id: "---", name: "---"}]
+      Category.find("#{@selected_child_category.id}").siblings.each do |child|
+        children_hash = {id: "#{child.id}", name: "#{child.name}"}
+        @category_children_array << children_hash
+      end
+      # 選択されている親カテゴリーのレコードを取得
+      @selected_parent_category = @selected_child_category.parent
+      # 親カテゴリー選択肢用の配列作成
+      @category_parents_array = [{id: "---", name: "---"}]
+      Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+        parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+        @category_parents_array << parent_hash
+      end
       render :edit
     end
   end
 
-def destory
-  if @item.saler_id == current_user.id && @item.destory
+def destroy
+  item = Item.find_by(id:params[:id])
+  if item.saler_id == current_user.id && item.destroy
     redirect_to root_path
   end
 end
@@ -71,7 +118,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, images_attributes: [:url, :_destroy, :id]).merge(saler_id: current_user.id, category_id: params[:category_id])
+    params.require(:item).permit(:name, :price, :status, :delivery_charge, :address, :date, :detail, :brand, :buyer_id, :category_id, images_attributes: [:url, :_destroy, :id]).merge(saler_id: current_user.id )
   end
 
   def defolt_category

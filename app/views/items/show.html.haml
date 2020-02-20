@@ -5,61 +5,65 @@
   .item-box__details
     %h1
       .item-name
-        いちご詰め合わせ
+        =@item.name
     .item-main-content
       .item-image
         .image
-          = image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg"
+          =image_tag "#{@item.images[0].url}"
         .owl-dot
           .owl-dot__item
             .owl-dot__item__box
-              =image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg",class:"image-sub"
+              - if @item.images[0].url.present? 
+                =image_tag "#{@item.images[0].url}",class:"image-sub"
           .owl-dot__item
             .owl-dot__item__box
-              =image_tag "https://www.pakutaso.com/shared/img/thumb/ichigoFTHG4922_TP_V.jpg",class:"image-sub"
+              - if @item.images[1].present? 
+                =image_tag "#{@item.images[1].url}",class:"image-sub"
+          .owl-dot__item
+            .owl-dot__item__box
+              - if @item.images[2].present? 
+                =image_tag "#{@item.images[2].url}",class:"image-sub"
+          .owl-dot__item
+            .owl-dot__item__box
+              - if @item.images[3].present? 
+                =image_tag "#{@item.images[3].url}",class:"image-sub"
+          .owl-dot__item
+            .owl-dot__item__box
+              - if @item.images[4].present? 
+                =image_tag "#{@item.images[4].url}",class:"image-sub"
+
       %table.item-detail-table
         %tbody
           %tr
             %th 出品者
             %td 
-              = link_to "出品者",class: "user-name-string";
+              
+              = @saler.nickname
           %tr
             %th カテゴリー
             %td 
               .item-detail-table-sub
-                カテゴリー大
-              .item-detail-table-sub
+                = @item.category.parent.parent.name
               .item-detail-table-subt__sub
-                カテゴリー中
+                = @item.category.parent.name               
               .item-detail-table-subt__sub__sub
-                カテゴリー小
-          %tr
-            %th ブランド
-            %td
-              = link_to "#" do
-                .brand-name
-                  ブランド
+                = @item.category.name
           %tr
             %th 商品の状態
-            %td 新品、未使用
+            %td #{@item.status}
           %tr
             %th 配送料の負担
-            %td 送料込み（出品者負担）
-          %tr
-            %th 配送の方法
-            %td 未定
+            %td #{@item.delivery_charge}
           %tr
             %th 配送元地域
-            %td
-              = link_to "#" do
-                .prefecture
-                  埼玉県
+            %td #{@item.address}
+
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td #{@item.date}
 
     .item-box-price
-      %span.price-bold ¥1,000
+      %span.price-bold ¥  #{@item.price}
       .item-box-price-detail
         %span (税込)
         %span 送料込み
@@ -73,16 +77,16 @@
             %span or
             = link_to "削除", "#", class:"item-buy-btn__destroy",method: :delete
           - elsif @item.buyer_id == nil
-            = link_to '購入画面に進む', buyers_path(@item), class: "item-buy-btn"
+            = link_to '購入画面に進む',item_buyers_path(@item), class: "item-buy-btn"
         - else
           = link_to 'ログインして購入', new_user_session_path, class: "item-buy-btn"
+          %span or
           = link_to '新規会員登録して購入', new_user_registration_path, class: "item-buy-btn"
       
     .item-description
       %p.item-description__inner
         商品説明
-
-        いちごの詰め合わせです
+        #{@item.detail}
       .item-button-container
         %ul
           %li.link-btn

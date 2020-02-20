@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   get "posts/logout"
   resources :items do
     collection do
-      get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_category_children', defaults: { format: 'json' }
+    end
+    resources :buyers, only: [:index] do
+      collection do
+        get 'done', to: 'buyers#done'
+        post 'pay', to: 'buyers#pay'
+      end
     end
   end
 
@@ -23,12 +29,7 @@ Rails.application.routes.draw do
     # get '/users' => 'devise/registrations#create'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :buyers, only: [:index] do
-    collection do
-      post 'pay', to: 'buyers#pay'
-      get 'done', to: 'buyers#done'
-    end
-  end
+ 
   resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
