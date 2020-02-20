@@ -7,10 +7,7 @@ class UsersController < ApplicationController
   def show
     @parents = Category.all.order("id ASC").limit(13)
     @likes = current_user.likes.limit(3)
-    @items = []
-    @likes.each do |like|
-      @items << like.item
-    end
+    @items = @likes.map{|like| like.item}
   end
 
   def create
