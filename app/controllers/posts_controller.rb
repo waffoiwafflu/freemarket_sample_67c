@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_item, only: :done
+  before_action :authenticate_user!, except:[:show, :index] 
+
   def index
     @parents = Category.all.order("id ASC").limit(13)
     @items = Item.includes(:images).order("created_at desc").limit(3)

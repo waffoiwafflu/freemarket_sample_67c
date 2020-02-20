@@ -6,17 +6,18 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :saler, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
-  validates :category_id, numericality: { greater_than: 133, message: "カテゴリーは三回選んでー"}
   
-  validates :images, presence: {message: "最低一枚は投稿して"}
+  validates :category_id, numericality: { greater_than: 133, message: "カテゴリーは3回選んで下さい"}
+  
+  validates :images, presence: {message: "最低1枚は投稿して下さい"}
 
-  validates :name, length: {in: 1..40,message: "商品名は一文字から四十文字でおね"}
+  validates :name, length: {in: 1..40,message: "商品名は1文字から40文字でお願いします"}
 
-  validates :detail, length: {in: 4..1000,message: "ちゃんと説明文いれよー"}
+  validates :detail, length: {in: 4..1000,message: "説明文は4文字以上、1000文字以下でお願いします"}
                     
 
   validates :status, :delivery_charge, :address, :date, 
-  exclusion: { in: %w(---) ,message: "ちゃんと選んで" }
+  exclusion: { in: %w(---) ,message: "選択してください" }
 
   validates :price, numericality: {
                         greater_than_or_equal_to: 300,less_than_or_equal_to: 9999999,

@@ -15,7 +15,7 @@ $(function(){
     return html;
   }
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  const fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
@@ -44,6 +44,7 @@ $(function(){
   });
   // 削除用
   $('#image-box').on('click', '.js-remove', function() {
+    console.log(fileIndex);
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
@@ -53,45 +54,14 @@ $(function(){
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) {
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+    };
   });
 
-  function update_field(){
-    let value = 0.9;
-    let comis = 0.1;
-    let result = $('#product_price').val() * value;
-    $('#profit').text("¥"+result);
-    let pami = $('#product_price').val() * comis;
-    $('#commission').text("¥"+pami);
-  }
-  $(function() {
-    $('input[type="text"]').on('keyup change', function() {
-      update_field();
-    });
-  }); 
-  $(".delete-btn").click(function(e) {
-    e.preventDefault();
-    var image_id = $(this).data("imgid")
-    // 新規で画像をいれらときはlengthは「0」になる
-    if ( image_id.length != 0 ) {
-        $.ajax({
-            // Api::ProductsControllerのimage_destroyに飛ぶ
-            type: 'DELETE',
-            url: '/api/destroy/image_destroy',
-            data: {img_id: image_id},
-            dataType: 'json'
-        })
-        .done(function() {
-            alert("削除しました");
-        })
-        .fail(function() {
-            alert("削除に失敗しました");
-        });
-      }
-    });
-});
 //手数料
-$(function(){
   $('#item_price').on('input', function(){
     var data = $('#item_price').val();
     var profit = Math.round(data * 0.9) 
@@ -106,4 +76,4 @@ $(function(){
     $('.rightone').html('');
     }
   })
-})
+});

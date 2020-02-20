@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @parents = Category.all.order("id ASC").limit(13)
