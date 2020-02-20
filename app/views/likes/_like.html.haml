@@ -1,5 +1,5 @@
 - if user_signed_in?
-  - if item.like_user(current_user.id)
+  - if Like.find_by(user_id: current_user.id, item_id: params[:item_id])
     .item-button-container__left__dislike
       =link_to user_item_like_path(current_user, item, like), method: "DELETE", remote: true do
         %i.fas.fa-heart

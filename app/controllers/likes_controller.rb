@@ -1,5 +1,7 @@
 class LikesController < ApplicationController
+  before_action :set_item, only: [:create, :destory]
   def create
+
     if @like = Like.create(user_id: current_user.id, item_id: params[:item_id])
       flash[:alert] = "いいねしました"
     else
@@ -7,7 +9,7 @@ class LikesController < ApplicationController
     end
     @like.reload
     @likes = Like.where(item_id: params[:item_id])
-    set_item
+    # set_item
   end
 
   def destroy
@@ -18,12 +20,7 @@ class LikesController < ApplicationController
       flash.now[:alert] = 'いいね削除できませんでした。'
     end
     @likes = Like.where(item_id: params[:item_id])
-    if like.destroy
-      flash[:alert] = "いいねしました"
-    else
-      flash.now[:alert] = 'いいね削除できませんでした。'
-    end
-    set_item
+    # set_item
   end
 
   def set_item
