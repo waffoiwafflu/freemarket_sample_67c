@@ -12,8 +12,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like = Like.find_by(user_id: current_user.id, item_id: params[:item_id])
-    if like.destroy
+    if @like.destroy
       flash.now[:alert] = "いいね削除しました"
     else
       flash.now[:alert] = 'いいね削除できませんでした。'
