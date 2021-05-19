@@ -7,7 +7,7 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 
 gem 'mysql2'
 
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 
 gem 'sass-rails', '~> 5.0'
 
